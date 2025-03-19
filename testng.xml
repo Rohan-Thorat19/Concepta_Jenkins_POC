@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<test thread-count="5" name="Test">
+		<classes>
+			<class name="Hcp.Test_Cases.Verify_Health_Professional_Login" />
+			<class name="Hcp.Test_Cases.Verify_Register_Test_Appointment" />
+			<class name="Tims.Test_Cases.Verify_Blood_Batch_Creation" />
+			<class name="Tims.Test_Cases.Verify_Test_Kit_Creation" />
+		</classes>
+	</test>
+</suite>
