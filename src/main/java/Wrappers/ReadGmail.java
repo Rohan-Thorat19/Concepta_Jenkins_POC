@@ -30,7 +30,7 @@ public class ReadGmail
 	
 	{
         final String username = "testconcepta3@gmail.com";
-        final String password = "dxeb buvg istd efwv"; // Use App Password for Gmail
+        final String password = "lsxu ezep ztoq dlap"; // Use App Password for Gmail
 
         String buttonURL = null;
 
@@ -73,7 +73,10 @@ public class ReadGmail
         }
 
         // ✅ Extract URL using regex
+        if(buttonName == "URL")
+        {
         String patternString = "href=['\"](https:\\/\\/hcp-portal-purushottam.dev\\.myhealthchecked\\.com\\/my-account\\/[^'\"]+)['\"]";
+        
         Pattern pattern = Pattern.compile(patternString);
         Matcher matcher = pattern.matcher(emailContent);
 
@@ -82,6 +85,34 @@ public class ReadGmail
             System.out.println("Extracted URL: " + buttonURL);
         } else {
             System.out.println("No matching URL found in email.");
+        }
+        
+        }
+        else if(buttonName == "Confirmation Email")
+        {
+        	String patternString = "Thank you for completing your appointment";
+        	Pattern pattern = Pattern.compile(patternString);
+            Matcher matcher = pattern.matcher(emailContent);
+
+            if (matcher.find()) {
+               
+                System.out.println("Extracted Text: " + patternString);
+            } else {
+                System.out.println("No matching Text found in email.");
+            }
+        }
+        else if(buttonName == "Received At Lab")
+        {
+        	String patternString = "We are pleased to confirm that we have received your MyHealthChecked blood samples in our lab";
+        	Pattern pattern = Pattern.compile(patternString);
+            Matcher matcher = pattern.matcher(emailContent);
+
+            if (matcher.find()) {
+               
+                System.out.println("Extracted Text: " + patternString);
+            } else {
+                System.out.println("No matching Text found in email.");
+            }
         }
 
         // ✅ Close connections

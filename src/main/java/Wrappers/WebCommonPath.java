@@ -23,4 +23,5 @@ public class WebCommonPath {
 	public static String CSV_Upload_Data = System.getProperty("user.dir") + "/TestData/POImportTemplate.csv";
 	public static String Sample_Invoice_PDF = System.getProperty("user.dir") + "/TestData/sample invoice.pdf";
 	public static String Invoice_Inbox = System.getProperty("user.dir") + "/TestData/Invoice Inbox.xlsx";
+	public static String phlebotomist_File = System.getProperty("user.dir") + "/Downloads/phlebotomist_sample_data.csv";
 }

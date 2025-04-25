@@ -1,5 +1,7 @@
 package Test.Hcp.Locators_Class;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -88,7 +90,7 @@ public class Patients_Details_Locators
 	}
 	
 	
-	@FindBy(xpath = "//input[@type= 'date']")
+	@FindBy(xpath = "//input[@placeholder='DD/MM/YYYY']")
 	private WebElement txtDob;
 
 	public WebElement getDob() {
@@ -141,7 +143,7 @@ public class Patients_Details_Locators
 	
 	@FindBy(xpath = "//input[@placeholder='Enter patient name...']")
 	WebElement patient_Name_AutoPopulated;
-
+//span[normalize-space()='Registered']
 	public WebElement getpatient_Name_AutoPopulated() {
 		return patient_Name_AutoPopulated;
 }
@@ -246,6 +248,155 @@ public class Patients_Details_Locators
 
 	public WebElement getback_Button() {
 		return back_Button;
+}
+	
+	@FindBy(xpath = "//button[@type='submit']")
+	WebElement save_and_continue_btn;
+
+	public WebElement getsave_and_continue_btn() {
+		return save_and_continue_btn;
 }	
 	
+	@FindBy(xpath = "//input[@placeholder='Enter your email address']")
+	WebElement test_type_autopopulated;
+
+	public WebElement gettest_type_autopopulated() {
+		return test_type_autopopulated;
+}
+	@FindBy(xpath = "//input[@maxlength='12']")
+	WebElement primary_barcode;
+
+	public WebElement getprimary_barcode() {
+		return primary_barcode;
+}
+	
+	@FindBy(xpath = "//input[@placeholder='DD/MM/YYYY']")
+	WebElement barcode_date;
+
+	public WebElement getbarcode_date() {
+		return barcode_date;
+}
+	
+	@FindBy(xpath = "//input[@placeholder='00:00']")
+	WebElement barcode_time;
+
+	public WebElement getbarcode_time() {
+		return barcode_time;
+}
+	
+	@FindBy(xpath = "//select[@placeholder='Select']")
+	WebElement barcode_No_Of_Attempts;
+
+	public WebElement getbarcode_No_Of_Attempts() {
+		return barcode_No_Of_Attempts;
+}
+	
+	@FindBy(xpath = "//div[@class='toast-body']")
+	WebElement barcode_Already_Used_Message;
+
+	public WebElement getbarcode_Already_Used_Message() {
+		return barcode_Already_Used_Message;
+}
+	
+	@FindBy(xpath = "//textarea[@placeholder='Notes']")
+	WebElement barcode_Notes;
+
+	public WebElement getbarcode_Notes() {
+		return barcode_Notes;
+}
+	
+	@FindBy(xpath = "//div[@class='appointment-confirmation-table']")
+	WebElement confirmation_table;
+
+	public WebElement getconfirmation_table() {
+		return confirmation_table;
+}
+	
+	
+	@FindBy(xpath = "//span[normalize-space()='REGISTER']")
+	WebElement confirmation_table_register_btn;
+
+	public WebElement getconfirmation_table_register_btn() {
+		return confirmation_table_register_btn;
+}
+	
+	@FindBy(xpath = "//img[@alt='Barcode']")
+	WebElement barcode_image;
+
+	public WebElement getbarcode_image() {
+		return barcode_image;
+}
+	 
+	@FindBy(xpath = "//div[contains(@class, 'barcode-tubes')]//div[@class='invalid-feedback']")
+	WebElement error_msg_without_barcode;
+
+	public WebElement geterror_msg_without_barcode() {
+		return error_msg_without_barcode;
+}
+	
+	@FindBy(xpath = "//input[@name='secondary_barcode']")
+	WebElement secondary_barcode;
+
+	public WebElement getsecondary_barcode() {
+		return secondary_barcode;
+}
+	
+	@FindBy(xpath = "//div[@class='card-body']")
+	List<WebElement> checkbox_list_confirm;
+
+	public List<WebElement> getCheckboxListConfirm() {
+	    return checkbox_list_confirm;
+	}
+	@FindBy(xpath = "//span[normalize-space()='Confirm']")
+	WebElement confirm_btn_after_checkbox;
+
+	public WebElement getconfirm_btn_after_checkbox() {
+		return confirm_btn_after_checkbox;
+}
+	@FindBy(xpath = "//p[contains(text(),'SUCCESS: This test has been successfully registere')]")
+	WebElement success_msg;
+
+	public WebElement getsuccess_msg() {
+		return success_msg;
+}
+	@FindBy(xpath = "//span[normalize-space()='Return to Patient Record']")
+	WebElement return_patient_record_page;
+
+	public WebElement getreturn_patient_record_page() {
+		return return_patient_record_page;
+}
+	
+	@FindBy(xpath = "//span[normalize-space()='Reject']")
+	WebElement reject_btn;
+
+	public WebElement getreject_btn() {
+		return reject_btn;
+}
+	
+	@FindBy(xpath = "//span[contains(text(),'Kit')]")
+	WebElement kit_btn;
+
+	public WebElement getkit_btn() {
+		return kit_btn;
+}
+	@FindBy(xpath = "//span[normalize-space()='Appointment']")
+	WebElement Appointment_btn;
+
+	public WebElement getAppointment_btn() {
+		return Appointment_btn;
+}
+	
+	@FindBy(xpath = "//select[contains(@placeholder,'Choose reason')]")
+	WebElement rejectReason_drpdwn;
+
+	public WebElement getrejectReason_drpdwn() {
+		return rejectReason_drpdwn;
+}
+	
+	@FindBy(xpath = "//span[normalize-space()='CONFIRM REJECTION']")
+	WebElement confirmRejection_btn;
+
+	public WebElement getconfirmRejection_btn() {
+		return confirmRejection_btn;
+}
 }

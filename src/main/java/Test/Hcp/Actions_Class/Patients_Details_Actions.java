@@ -2,18 +2,21 @@ package Test.Hcp.Actions_Class;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
 
 import org.apache.poi.util.SystemOutLogger;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-
 import Test.Hcp.Locators_Class.Patients_Details_Locators;
 import Test.Hcp.Locators_Class.Register_Test_Appointment_Locators;
-import Test.Kit.Locators_Class.Login_Locators;
+
+import Wrappers.ReadGmail;
 import Wrappers.WebButton;
 import Wrappers.WebCommonPath;
+import Wrappers.WebDropDown;
 import Wrappers.WebScrollView;
 import Wrappers.WebTextBox;
 import Wrappers.WebWait;
@@ -25,6 +28,7 @@ public class Patients_Details_Actions extends BaseClass
 	public WebDriver driver;
 	Patients_Details_Locators patients_details_locators = null;
 	Register_Test_Appointment_Actions register_test_appointment_actions = null;
+	
 
 	public Patients_Details_Actions(WebDriver driver)
 	{
@@ -76,7 +80,7 @@ public class Patients_Details_Actions extends BaseClass
 		
 		WebWait.visibilityOfElement(driver, patients_details_locators.getDob(), Duration.ofSeconds(30));
 		WebTextBox.sendInput(patients_details_locators.getDob(), "04032007");
-		
+		WebButton.clickButton(patients_details_locators.getLastName());
 		WebButton.clickButton(patients_details_locators.ClickSearchButton());
 		
 		ValidPateintSuccess();
@@ -182,14 +186,17 @@ public class Patients_Details_Actions extends BaseClass
 	{
 		WebButton.clickButton(patients_details_locators.Enable_Later());
 		
-		WebWait.visibilityOfElement(driver, patients_details_locators.getBookingId(), Duration.ofSeconds(30));
-		WebTextBox.sendInput(patients_details_locators.getBookingId(), "QE65534");
+		/*WebWait.visibilityOfElement(driver, patients_details_locators.getBookingId(), Duration.ofSeconds(30));
+		WebTextBox.sendInput(patients_details_locators.getBookingId(), "QE97101");*/
 		
 		WebWait.visibilityOfElement(driver, patients_details_locators.getFirstName(), Duration.ofSeconds(30));
-		WebTextBox.sendInput(patients_details_locators.getFirstName(), "Concepta");
+		WebTextBox.sendInput(patients_details_locators.getFirstName(), "Testautomationsagar");
 		
 		WebWait.visibilityOfElement(driver, patients_details_locators.getLastName(), Duration.ofSeconds(30));
-		WebTextBox.sendInput(patients_details_locators.getLastName(), "Test8");
+		WebTextBox.sendInput(patients_details_locators.getLastName(), "Testautomationpawar");
+		
+		WebWait.visibilityOfElement(driver, patients_details_locators.getEmail(), Duration.ofSeconds(30));
+		WebTextBox.sendInput(patients_details_locators.getEmail(), "testconcepta3+100@gmail.com");
 		
 		WebButton.clickButton(patients_details_locators.ClickSearchButton());
 		
@@ -236,10 +243,10 @@ public class Patients_Details_Actions extends BaseClass
 	}
 	
 	//45
-	public void Valid_Patients_Details_Case10()
+	public void Valid_Patients_Details_Case10() throws InterruptedException
 	{
 		WebButton.clickButton(patients_details_locators.Enable_Later());
-		
+		Thread.sleep(2000);
 		WebWait.visibilityOfElement(driver, patients_details_locators.getBookingId(), Duration.ofSeconds(30));
 		WebTextBox.sendInput(patients_details_locators.getBookingId(), "QE65534");
 		
@@ -290,6 +297,23 @@ public class Patients_Details_Actions extends BaseClass
 		WebButton.clickButton(patients_details_locators.ClickSearchButton());
 		
 		ValidPateintSuccess();				
+	}
+	public void Test_Data_Double_Barcode()
+	{
+		WebButton.clickButton(patients_details_locators.Enable_Later());
+		
+		WebWait.visibilityOfElement(driver, patients_details_locators.getLastName(), Duration.ofSeconds(30));
+		WebTextBox.sendInput(patients_details_locators.getLastName(), "Test78");
+		
+		WebWait.visibilityOfElement(driver, patients_details_locators.getFirstName(), Duration.ofSeconds(30));
+		WebTextBox.sendInput(patients_details_locators.getFirstName(), "Concepta");
+		
+		WebWait.visibilityOfElement(driver, patients_details_locators.getBookingId(), Duration.ofSeconds(30));
+		WebTextBox.sendInput(patients_details_locators.getBookingId(), "JN73849");
+		
+		WebButton.clickButton(patients_details_locators.ClickSearchButton());
+		
+				
 	}
 	
 	//47
@@ -400,9 +424,273 @@ public class Patients_Details_Actions extends BaseClass
 		String actualConfirmationPageUrl = PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "actualTestConfirmationUrl");
 		Assert.assertEquals(getConfirmationPageUrl, actualConfirmationPageUrl);
 		
-		
 	}
 	
+	//51
+		public void functionality_Test_Name_Populated() throws IOException, InterruptedException
+		{
+			Valid_Patients_Details_Case7();
+			Thread.sleep(3000);
+			WebButton.clickButton(patients_details_locators.getRegistered_Button());
+			Store_Location_Search_Functionality();
+			WebButton.clickButton(patients_details_locators.getsave_and_continue_btn());
+			String testType = patients_details_locators.gettest_type_autopopulated().getText();
+			if(patients_details_locators.gettest_type_autopopulated().isDisplayed())
+			{
+			String get_Test_Type_AutoPopulated = patients_details_locators.gettest_type_autopopulated().getAttribute("value");
+			Assert.assertTrue(get_Test_Type_AutoPopulated != null ,   "Field is NOT auto-populated!");
+			System.out.println(" Test Type Field is auto-populated!");
+			}
+			
+			if(testType != null)
+			{
+				System.out.println("TestType is autopoupated");
+			}
+			
+		}
+		
+		//52
+		public void functionality_Test_Name_Populated_Correctly() throws IOException, InterruptedException
+		{
+			functionality_Test_Name_Populated();
+			String get_Test_Type_AutoPopulated = patients_details_locators.gettest_type_autopopulated().getAttribute("value");
+			String actual_TestType_Value = "Thyroid Profile";
+			if(get_Test_Type_AutoPopulated ==actual_TestType_Value )
+			{
+				System.out.println("Test_Type_AutoPopulated feild is correctly displayed");
+			}
+					
+		}
+		
+		//53
+		public void functionality_Gold_Barcode_Expiry_Date() throws IOException, InterruptedException
+		{
+			functionality_Test_Name_Populated();
+			Thread.sleep(3000);
+			WebTextBox.sendInput(patients_details_locators.getprimary_barcode(), "PGS-DMG-3638");
+			WebElement ErrorMsg = patients_details_locators.getbarcode_Already_Used_Message();
+			assert ErrorMsg.isDisplayed() : "Element is not displayed";
+			System.out.println("Assertion Passed: Barcode is expired or already used");
+        }
+		
+		//54 & 55
+		public void functionality_PGPL_Barcode_And_Data_Populated() throws IOException, InterruptedException
+		{
+		functionality_Test_Name_Populated();
+		Thread.sleep(3000);
+		WebTextBox.sendInput(patients_details_locators.getprimary_barcode(), "PGF-JPE-4433");
+		WebTextBox.sendInput(patients_details_locators.getbarcode_date(),"02042025");
+		Thread.sleep(2000);
+		WebTextBox.sendInput(patients_details_locators.getbarcode_time(),"10:10");
+		Thread.sleep(2000);
+		WebDropDown.selectByText(patients_details_locators.getbarcode_No_Of_Attempts(),"1");
+		WebTextBox.sendInput(patients_details_locators.getbarcode_Notes(), "Testing");
+		Thread.sleep(3000);
+		WebButton.JsclickButton(patients_details_locators.getsave_and_continue_btn(), driver);	
+		Thread.sleep(2000);
+		WebElement ConfirmationTableData = patients_details_locators.getconfirmation_table();
+		assert ConfirmationTableData.isDisplayed() : "Element is not displayed";
+		System.out.println("Assertion Passed: ConfirmationTableData is displayed with all necessary details");
+		//WebButton.JsclickButton(patients_details_locators.getconfirmation_table_register_btn(), driver);
+		
+		// confirmation page steps are pending due to test data
+		}
+		
+		//56
+		public void functionality_Expiry_Barcode_And_Proceed_To_Continue() throws IOException, InterruptedException
+		{
+	     	functionality_Test_Name_Populated();
+			Thread.sleep(3000);
+			WebTextBox.sendInput(patients_details_locators.getprimary_barcode(), "PGT-EYE-0610");
+			WebButton.clickButton(patients_details_locators.getbarcode_image());
+			WebElement ErrorMsg1 = patients_details_locators.getbarcode_Already_Used_Message();
+			assert ErrorMsg1.isDisplayed() : "Element is not displayed";
+			System.out.println("Assertion Passed: Barcode is expired or already used");
+			Thread.sleep(3000);
+			WebButton.JsclickButton(patients_details_locators.getsave_and_continue_btn(), driver);
+			WebElement ErrorMsg2 = patients_details_locators.geterror_msg_without_barcode();
+			assert ErrorMsg2.isDisplayed() : "Element is not displayed";
+			System.out.println("Assertion Passed: Cannot go further without barcode");
+		}
+	//57 Test_Data_Double_Barcode
+	public void functionality_Double_Lavender_Barcode() throws IOException, InterruptedException
+	{
+		    Test_Data_Double_Barcode();
+			Thread.sleep(3000);
+			WebButton.clickButton(patients_details_locators.getRegistered_Button());
+			Store_Location_Search_Functionality();
+			WebButton.clickButton(patients_details_locators.getsave_and_continue_btn());
+			Thread.sleep(2000);
+			WebTextBox.sendInput(patients_details_locators.getprimary_barcode(), "PGC-WSH-0181");
+			WebButton.clickButton(patients_details_locators.getbarcode_image());
+			String LavenderBarcode = patients_details_locators.getsecondary_barcode().getAttribute("value");
+			if(LavenderBarcode != null)
+	      {
+				System.out.println("Secondary Barcode is Auto-Populated");
+	      }
+			
+	}	
+	
+	//  58 Test_Data_Double_Barcode_with save and continue _success_msg----------
+		public void functionality_Double_Lavender_Barcode_Success_Toaster_Msg() throws IOException, InterruptedException
+		{
+			functionality_Double_Lavender_Barcode();
+			WebTextBox.sendInput(patients_details_locators.getbarcode_Notes(), "Testing");
+			WebTextBox.sendInput(patients_details_locators.getbarcode_date(),"04042025");
+			Thread.sleep(2000);
+			WebTextBox.sendInput(patients_details_locators.getbarcode_time(),"10:10");
+			Thread.sleep(2000);
+			WebDropDown.selectByText(patients_details_locators.getbarcode_No_Of_Attempts(),"1");			
+			Thread.sleep(3000);			
+			WebButton.JsclickButton(patients_details_locators.getsave_and_continue_btn(), driver);	
+			/* if date not selected in first attempt then uncomment the below code
+			WebTextBox.sendInput(patients_details_locators.getbarcode_date(),"04042025");
+						Thread.sleep(2000);
+			WebButton.JsclickButton(patients_details_locators.getsave_and_continue_btn(), driver);
+			//Thread.sleep(2000); // Need to add one more step of assertion success msg, not added due to test data*/
+		}
+		
+	//  59,60,61 Test_Data_Double_Barcode_with save and continue _success_msg----------
+		public void functionality_Final_Register_And_Confirmation() throws IOException, InterruptedException
+		{ 
+			functionality_Double_Lavender_Barcode_Success_Toaster_Msg();
+			Thread.sleep(3000);
+			WebButton.JsclickButton(patients_details_locators.getconfirmation_table_register_btn(), driver);
+			Thread.sleep(3000);
+			List<WebElement> elements = patients_details_locators.getCheckboxListConfirm();
+
+            // Click each element one by one
+            for (WebElement element : elements) {
+                element.click();
+                Thread.sleep(1000);  // Adding delay to observe clicks (optional)
+            }
+            Thread.sleep(3000);
+            WebButton.JsclickButton(patients_details_locators.getconfirm_btn_after_checkbox(), driver);
+            Thread.sleep(3000);
+            WebButton.JsclickButton(patients_details_locators.getsuccess_msg(), driver);
+            Thread.sleep(3000);
+            WebButton.JsclickButton(patients_details_locators.getreturn_patient_record_page(), driver);
+                      		
+		}
+		//65 & 66
+		public void functionality_Email_Verification_After_Confirmation() throws Exception
+		{ 
+			functionality_Test_Name_Populated();
+			Thread.sleep(3000);
+			Thread.sleep(3000);
+			WebTextBox.sendInput(patients_details_locators.getprimary_barcode(), "PGS-LUH-0658");
+			WebTextBox.sendInput(patients_details_locators.getbarcode_date(),"21042025");
+			Thread.sleep(2000);
+			WebTextBox.sendInput(patients_details_locators.getbarcode_time(),"10:10");
+			Thread.sleep(2000);
+			WebDropDown.selectByText(patients_details_locators.getbarcode_No_Of_Attempts(),"1");
+			WebTextBox.sendInput(patients_details_locators.getbarcode_Notes(), "Testing");
+			Thread.sleep(3000);
+			WebTextBox.sendInput(patients_details_locators.getbarcode_date(),"21042025");
+			WebButton.JsclickButton(patients_details_locators.getsave_and_continue_btn(), driver);	
+			Thread.sleep(2000);
+			WebButton.JsclickButton(patients_details_locators.getconfirmation_table_register_btn(), driver);
+			Thread.sleep(3000);
+			List<WebElement> elements = patients_details_locators.getCheckboxListConfirm();
+			 // Click each element one by one
+			 for (WebElement element : elements) 
+			 {
+			      element.click();
+			      Thread.sleep(1000);  // Adding delay to observe clicks (optional)
+			 }
+			            Thread.sleep(3000);
+			            WebButton.JsclickButton(patients_details_locators.getconfirm_btn_after_checkbox(), driver);
+			            Thread.sleep(3000);
+			            WebButton.JsclickButton(patients_details_locators.getsuccess_msg(), driver);
+			            Thread.sleep(3000);
+			            WebButton.JsclickButton(patients_details_locators.getreturn_patient_record_page(), driver);
+			
+		}
+		public void ReadGmail (String GetData) throws Exception
+		{
+			            ReadGmail readGmail = new ReadGmail();
+			            readGmail.getButtonURL(GetData);
+			           
+		}
+		
+		// 70 71 72
+		public void functionality_Reject_Kit_But_Not_Effect_To_Customer() throws Exception
+		{
+			Valid_Patients_Details_Case7();
+			Thread.sleep(3000);
+			WebButton.clickButton(patients_details_locators.getRegistered_Button());
+			Store_Location_Search_Functionality();
+			WebButton.clickButton(patients_details_locators.getsave_and_continue_btn());
+			Thread.sleep(2000);
+			WebTextBox.sendInput(patients_details_locators.getprimary_barcode(), "PGN-DUZ-9447"); // Barcode A for reject
+			WebButton.clickButton(patients_details_locators.getbarcode_image());
+			Thread.sleep(3000);
+			WebScrollView.scrollDownVertically(driver);	
+			WebButton.JsclickButton(patients_details_locators.getreject_btn(),driver);
+			WebButton.clickButton(patients_details_locators.getkit_btn());
+		    Thread.sleep(3000);
+			WebDropDown.selectByText(patients_details_locators.getrejectReason_drpdwn(),"Barcode(s) wasted");
+			Thread.sleep(3000);
+			WebTextBox.sendInput(patients_details_locators.getbarcode_Notes(), "Testing");
+			WebButton.clickButton(patients_details_locators.getreject_btn());
+			WebButton.clickButton(patients_details_locators.getconfirmRejection_btn());
+			Thread.sleep(3000);
+			 
+		    WebTextBox.sendInput(patients_details_locators.getprimary_barcode(), "PGZ-HXM-5500"); // Barcode B for completion process
+			WebButton.clickButton(patients_details_locators.getbarcode_image());
+			Thread.sleep(3000);
+				
+			WebTextBox.sendInput(patients_details_locators.getbarcode_date(),"15042025");
+			Thread.sleep(2000);
+			WebTextBox.sendInput(patients_details_locators.getbarcode_time(),"10:10");
+			Thread.sleep(2000);
+			WebDropDown.selectByText(patients_details_locators.getbarcode_No_Of_Attempts(),"1");
+			WebTextBox.sendInput(patients_details_locators.getbarcode_Notes(), "Testing");
+			Thread.sleep(3000);
+			WebButton.JsclickButton(patients_details_locators.getsave_and_continue_btn(), driver);	
+			Thread.sleep(2000);
+			WebButton.JsclickButton(patients_details_locators.getconfirmation_table_register_btn(), driver);
+			Thread.sleep(3000);
+				List<WebElement> elements = patients_details_locators.getCheckboxListConfirm();
+				 // Click each element one by one
+				 for (WebElement element : elements) 
+				 {
+				      element.click();
+				      Thread.sleep(1000);  // Adding delay to observe clicks (optional)
+				 }
+				            Thread.sleep(3000);
+				            WebButton.JsclickButton(patients_details_locators.getconfirm_btn_after_checkbox(), driver);
+				            Thread.sleep(3000);
+				            WebButton.JsclickButton(patients_details_locators.getsuccess_msg(), driver);
+				            Thread.sleep(3000);
+				            WebButton.JsclickButton(patients_details_locators.getreturn_patient_record_page(), driver);
+				       
+			
+		}
+		// 73
+		public void functionality_Reject_Appointment_Effect_To_Barcode_As_Error() throws Exception
+		{
+			Valid_Patients_Details_Case7();
+			Thread.sleep(3000);
+			WebButton.clickButton(patients_details_locators.getRegistered_Button());
+			Store_Location_Search_Functionality();
+			WebButton.clickButton(patients_details_locators.getsave_and_continue_btn());
+			Thread.sleep(2000);
+			WebTextBox.sendInput(patients_details_locators.getprimary_barcode(), "PGY-TKK-1426"); // Barcode A for reject
+			WebButton.clickButton(patients_details_locators.getbarcode_image());
+			Thread.sleep(3000);
+			WebScrollView.scrollDownVertically(driver);	
+			WebButton.JsclickButton(patients_details_locators.getreject_btn(),driver);
+			WebButton.clickButton(patients_details_locators.getAppointment_btn());
+		    Thread.sleep(3000);
+			WebDropDown.selectByText(patients_details_locators.getrejectReason_drpdwn(),"Feeling faint");
+			Thread.sleep(3000);
+			WebTextBox.sendInput(patients_details_locators.getbarcode_Notes(), "Testing");
+			WebButton.clickButton(patients_details_locators.getreject_btn());
+			WebButton.clickButton(patients_details_locators.getconfirmRejection_btn());
+			Thread.sleep(3000);
+		}
+		
 	public void ValidPateintSuccess()
 	
 	{

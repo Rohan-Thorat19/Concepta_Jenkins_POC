@@ -159,13 +159,11 @@ public class BaseClass {
         
         case "dashboard":
             return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "dashboard_url");
-        case "dashboard_url_dev":
-            return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "dashboard_url_dev");
         case "HCP":
             return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "HCP_url");
         case "Tims":
             return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "Tims_url");
-           
+            
         default:
             throw new IllegalArgumentException("Invalid environment specified: " + environment);
         }

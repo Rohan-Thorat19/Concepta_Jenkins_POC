@@ -9,7 +9,7 @@ import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 
 import Test.Hcp.Locators_Class.MHC_Admin_Login_Access_HCP_User_Locators;
-import Test.Kit.Locators_Class.Login_Locators;
+import Test.Tims.Locators_Class.Login_Locators;
 import Wrappers.ReadGmail;
 import Wrappers.WebButton;
 import Wrappers.WebCommonPath;
@@ -17,7 +17,7 @@ import Wrappers.WebTextBox;
 import Wrappers.WebWait;
 import dataSources.PropertiesReader;
 import initializer.BaseClass;
-import Test.Kit.Locators_Class.Login_Locators;
+
 
 public class MHC_Admin_Login_Access_HCP_User_Actions extends BaseClass
 {
