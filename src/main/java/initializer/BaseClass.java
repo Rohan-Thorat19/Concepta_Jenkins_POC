@@ -26,52 +26,52 @@ import org.openqa.selenium.TakesScreenshot;
 
 public class BaseClass {
 
-    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-    private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
-    private static ThreadLocal<String> username = new ThreadLocal<>();
-    public static ExtentReports report;
-    protected static String environment;
+	private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+	private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
+	private static ThreadLocal<String> username = new ThreadLocal<>();
+	public static ExtentReports report;
+	protected static String environment;
 
-    @BeforeSuite(alwaysRun = true)
-    public void beforeSuite(ITestContext context) {
+	@BeforeSuite(alwaysRun = true)
+	public void beforeSuite(ITestContext context) {
 //        environment = context.getSuite().getParameter("env");
 //        if (environment == null) {
 //            environment = "QA"; // Default environment
 //        }
 //        System.out.println("Environment set in beforeSuite: " + environment);
 
-        List<ViewName> viewOrder = Arrays.asList(ViewName.DASHBOARD, ViewName.TEST, ViewName.CATEGORY,
-                ViewName.EXCEPTION, ViewName.AUTHOR, ViewName.DEVICE);
+		List<ViewName> viewOrder = Arrays.asList(ViewName.DASHBOARD, ViewName.TEST, ViewName.CATEGORY,
+				ViewName.EXCEPTION, ViewName.AUTHOR, ViewName.DEVICE);
 
-        ExtentSparkReporter sparkReporter = new ExtentSparkReporter(WebCommonPath.extentReportPath);
-        sparkReporter.viewConfigurer().viewOrder().as(viewOrder).apply();
-        sparkReporter.config().setTheme(Theme.STANDARD);
-        sparkReporter.config().setDocumentTitle("Automation Report");
-        sparkReporter.config().setReportName("Test Report");
+		ExtentSparkReporter sparkReporter = new ExtentSparkReporter(WebCommonPath.extentReportPath);
+		sparkReporter.viewConfigurer().viewOrder().as(viewOrder).apply();
+		sparkReporter.config().setTheme(Theme.STANDARD);
+		sparkReporter.config().setDocumentTitle("Automation Report");
+		sparkReporter.config().setReportName("Test Report");
 
-        report = new ExtentReports();
-        report.attachReporter(sparkReporter);
-        report.setSystemInfo("User Name", "Aress");
-        report.setSystemInfo("Environment", "Staging");
+		report = new ExtentReports();
+		report.attachReporter(sparkReporter);
+		report.setSystemInfo("User Name", "Aress");
+		report.setSystemInfo("Environment", "Staging");
 
-        // Add a shutdown hook to flush the report in case of an unexpected shutdown
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            if (report != null) {
-                report.flush();
-            }
-        }));
-    }
+		// Add a shutdown hook to flush the report in case of an unexpected shutdown
+		Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+			if (report != null) {
+				report.flush();
+			}
+		}));
+	}
 
-    @BeforeMethod(alwaysRun = true)
-    public void beforeEachMethod(Method testMethod, ITestContext context) throws IOException {
-        String headlessParam = context.getSuite().getParameter("headless");
-        boolean isHeadless = headlessParam != null && Boolean.parseBoolean(headlessParam);
+	@BeforeMethod(alwaysRun = true)
+	public void beforeEachMethod(Method testMethod, ITestContext context) throws IOException {
+		String headlessParam = context.getSuite().getParameter("headless");
+		boolean isHeadless = headlessParam != null && Boolean.parseBoolean(headlessParam);
 
-        String browser = context.getCurrentXmlTest().getParameter("browser");
-        if (browser == null) {
-            browser = PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "browser");
-        }
-        
+		String browser = context.getCurrentXmlTest().getParameter("browser");
+		if (browser == null) {
+			browser = PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "browser");
+		}
+
 //        String user = context.getCurrentXmlTest().getParameter("username");
 //        if (user.equals("atharva.pachpute@aressindia.net")) {
 //            username.set(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "user1"));  // Set the username parameter from the TestNG XML
@@ -80,98 +80,102 @@ public class BaseClass {
 //        	username.set(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "EmailID"));
 //        }
 
-        driver.set(BrowserFactory.setBrowser(browser, isHeadless));
+		driver.set(BrowserFactory.setBrowser(browser, isHeadless));
 
-       // String urlKey = determineUrlKey(environment);
+		// String urlKey = determineUrlKey(environment);
 //        getDriver().get(urlKey);
-        if(!isHeadless) {
-        	getDriver().manage().window().maximize();
-        }
+		if (!isHeadless) {
+			getDriver().manage().window().maximize();
+		}
 
-        ExtentTest test = report.createTest(testMethod.getName()).assignAuthor("Concepta").assignDevice("Windows");
-        extentTest.set(test);
-        ExtentManager.setTest(test);
+		ExtentTest test = report.createTest(testMethod.getName()).assignAuthor("Concepta").assignDevice("Windows");
+		extentTest.set(test);
+		ExtentManager.setTest(test);
 
-        String category = (String) context.getAttribute("category");
-        if (category != null) {
-            assignTestCategory(category);
-        }
-        ExtentManager.getTest().log(Status.INFO, "Browser Launched with URL: " + getDriver().getCurrentUrl());
-    }
+		String category = (String) context.getAttribute("category");
+		if (category != null) {
+			assignTestCategory(category);
+		}
+		ExtentManager.getTest().log(Status.INFO, "Browser Launched with URL: " + getDriver().getCurrentUrl());
+	}
 
-    @AfterMethod(alwaysRun = true)
-    public void afterEachMethod(ITestResult result) {
-        WebDriver driverInstance = getDriver();
-        ExtentTest logger = ExtentManager.getTest();
-        try {
-            if (result.getStatus() == ITestResult.FAILURE) {
-                logger.log(Status.FAIL, "Test Case Failed: " + result.getName());
-                logger.log(Status.FAIL, "Test Case Failed: " + result.getThrowable());
+	@AfterMethod(alwaysRun = true)
+	public void afterEachMethod(ITestResult result) {
+		WebDriver driverInstance = getDriver();
+		ExtentTest logger = ExtentManager.getTest();
+		try {
+			if (result.getStatus() == ITestResult.FAILURE) {
+				logger.log(Status.FAIL, "Test Case Failed: " + result.getName());
+				logger.log(Status.FAIL, "Test Case Failed: " + result.getThrowable());
 
-                String base64Screenshot = captureScreenshot(driverInstance);
-                logger.addScreenCaptureFromBase64String(base64Screenshot, "Screenshot");
-            } else if (result.getStatus() == ITestResult.SUCCESS) {
-                logger.log(Status.PASS, "Test Case Passed: " + result.getName());
+				String base64Screenshot = captureScreenshot(driverInstance);
+				logger.addScreenCaptureFromBase64String(base64Screenshot, "Screenshot");
+			} else if (result.getStatus() == ITestResult.SUCCESS) {
+				logger.log(Status.PASS, "Test Case Passed: " + result.getName());
 
-                String base64Screenshot = captureScreenshot(driverInstance);
-                logger.addScreenCaptureFromBase64String(base64Screenshot, "Screenshot");
-            } else if (result.getStatus() == ITestResult.SKIP) {
-                logger.log(Status.SKIP, "Test Case Skipped: " + result.getName());
-            }
-        } catch (Exception e) {
-            logger.log(Status.WARNING, "Exception while capturing screenshot: " + e.getMessage());
-        } finally {
-            driverInstance.quit();
-            driver.remove();
-            extentTest.remove();
-            // Flush the report after each test method to ensure results are saved
-            report.flush();
-        }
-    }
+				String base64Screenshot = captureScreenshot(driverInstance);
+				logger.addScreenCaptureFromBase64String(base64Screenshot, "Screenshot");
+			} else if (result.getStatus() == ITestResult.SKIP) {
+				logger.log(Status.SKIP, "Test Case Skipped: " + result.getName());
+			}
+		} catch (Exception e) {
+			logger.log(Status.WARNING, "Exception while capturing screenshot: " + e.getMessage());
+		} finally {
+			driverInstance.quit();
+			driver.remove();
+			extentTest.remove();
+			// Flush the report after each test method to ensure results are saved
+			report.flush();
+		}
+	}
 
-    @AfterSuite(alwaysRun = true)
-    public void afterSuite() {
-        if (report != null) {
-            report.flush();
-            ExtractHTMLTable.extractTestResultsTable(ExtractHTMLTable.GetReportPath(), WebCommonPath.HTMLOUTPUT_PATH);
-        }
-    }
-    
+	@AfterSuite(alwaysRun = true)
+	public void afterSuite() {
+		if (report != null) {
+			report.flush();
+			ExtractHTMLTable.extractTestResultsTable(ExtractHTMLTable.GetReportPath(), WebCommonPath.HTMLOUTPUT_PATH);
+		}
+	}
+
 //    public static String getUsername() {
 //        return username.get();  // This will return the username for the current thread
 //    }
 
-    protected void assignTestCategory(String category) {
-        ExtentManager.getTest().assignCategory(category);
-    }
+	protected void assignTestCategory(String category) {
+		ExtentManager.getTest().assignCategory(category);
+	}
 
-    private String captureScreenshot(WebDriver driver) {
-        try {
-            return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
-        } catch (Exception e) {
-            ExtentManager.getTest().log(Status.WARNING, "Failed to capture screenshot: " + e.getMessage());
-            return "";
-        }
-    }
+	private String captureScreenshot(WebDriver driver) {
+		try {
+			return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+		} catch (Exception e) {
+			ExtentManager.getTest().log(Status.WARNING, "Failed to capture screenshot: " + e.getMessage());
+			return "";
+		}
+	}
 
-    public String determineUrlKey(String environment) throws IOException {
-        switch (environment) {
-        
-        case "dashboard":
-            return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "dashboard_url");
-        case "dashboard_url_dev":
-            return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "dashboard_url_dev");
-        case "HCP":
-            return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "HCP_url");
-        case "Tims":
-            return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "Tims_url");
-           
-        default:
-            throw new IllegalArgumentException("Invalid environment specified: " + environment);
-        }
-    }
+	public String determineUrlKey(String environment) throws IOException {
+		switch (environment) {
 
-    public static WebDriver getDriver() {
-        return driver.get();
-    }
+		case "dashboard_dev":
+			return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "dashboard_dev_url");
+		case "dashboard_staging":
+			return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "dashboard_staging_url");
+		case "HCP_dev":
+			return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "HCP_dev_url");
+		case "HCP_staging":
+			return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "HCP_staging_url_");
+		case "Tims_dev":
+			return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "Tims_dev_url");
+		case "Tims_staging":
+			return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "Tims_staging_url");
+
+		default:
+			throw new IllegalArgumentException("Invalid environment specified: " + environment);
+		}
+	}
+
+	public static WebDriver getDriver() {
+		return driver.get();
+	}
 }

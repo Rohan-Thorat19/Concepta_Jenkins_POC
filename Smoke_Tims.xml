@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="Smoke.Tims.Test_Cases.T06_Verify_Create_Test_Kit_For_PG_and_PL"/>
+      <class name="Smoke.Tims.Test_Cases.T03_Verify_Create_Phlebotomy_Gold_barcode_batches"/>
+      <class name="Smoke.Tims.Test_Cases.T09_Verify_Delete_Phlebotomist_Account"/>
+      <class name="Smoke.Tims.Test_Cases.T11_Verify_Successful_CSV_Import_with_Valid_Data"/>
+      <class name="Smoke.Tims.Test_Cases.T10_Verify_Successful_Creation_Of_New_Store_Location"/>
+      <class name="Smoke.Tims.Test_Cases.T08_Verify_Phleb_Activation_Email_Triggering"/>
+      <class name="Smoke.Tims.Test_Cases.T07_Verify_invalid_Inputs_for_Phleb_Account_Creation"/>
+      <class name="Smoke.Tims.Test_Cases.T02_Verify_Create_Barcode_Batch_OtherThan_PG"/>
+      <class name="Smoke.Tims.Test_Cases.T05_Verify_Create_Phlebotomy_Lavender_barcode_batches"/>
+      <class name="Smoke.Tims.Test_Cases.T04_Verify_PG_Barcode_Format"/>
+      <class name="Smoke.Tims.Test_Cases.T01_Verify_Tims_Login_Valid_Cred"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

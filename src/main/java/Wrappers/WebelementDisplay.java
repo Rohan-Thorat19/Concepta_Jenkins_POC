@@ -20,7 +20,7 @@ public class WebelementDisplay {
             result = true;
         } catch (Exception e) {
            
-        	System.out.println("Settings button is not displayed.");
+        	System.out.println(element.getText() + " is not displayed");
             System.out.println(e.getMessage());
         }
 
