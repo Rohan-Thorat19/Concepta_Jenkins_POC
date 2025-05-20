@@ -23,10 +23,51 @@ public class Login_Action extends BaseClass {
 		loginLocators = new Login_Locators(driver);
 	}
 
+	// Dashboard
+
+	public void Dashboard_dev_Url() throws IOException {
+		String urlKey = determineUrlKey("dashboard_dev");
+		driver.get(urlKey);
+	}
+
+	public void Dashboard_staging_Url() throws IOException {
+		String urlKey = determineUrlKey("dashboard_staging");
+		driver.get(urlKey);
+	}
+
+	public void clickLoginButton_Dashboard() {
+		// click on login
+		WebWait.elementToBeClickable(driver, loginLocators.getLoginBtn_hcp(), Duration.ofSeconds(30));
+		WebButton.clickButton(loginLocators.getLoginBtn_hcp());
+		// WebWait.waitForDOMLoad(driver, null);
+
+	}
+
+	public void login_dev_Dashboard() throws IOException {
+		Dashboard_dev_Url();
+		enterEmailID_hcp(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "EmailID_dev_dashboard"));
+		enterPassword_hcp(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "Password_dev_dashboard"));
+		clickLoginButton_Dashboard();
+	}
+
+	public void login_staging_Dashboard() throws IOException {
+		Dashboard_staging_Url();
+		enterEmailID_hcp(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "EmailID_staging_dashboard"));
+		enterPassword_hcp(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "Password_staging_dashboard"));
+		clickLoginButton_Dashboard();
+	}
+
 	// Tims
-	public void Tims_Url() throws IOException {
+	public void Tims_staging_Url() throws IOException {
 		// Performing action on URL
-		String urlKey = determineUrlKey("Tims");
+		String urlKey = determineUrlKey("Tims_staging");
+		driver.get(urlKey);
+
+	}
+
+	public void Tims_dev_Url() throws IOException {
+		// Performing action on URL
+		String urlKey = determineUrlKey("Tims_dev");
 		driver.get(urlKey);
 
 	}
@@ -49,10 +90,33 @@ public class Login_Action extends BaseClass {
 		// WebWait.waitForDOMLoad(driver, null);
 	}
 
+	public void login_Tims_dev() throws IOException {
+		Tims_dev_Url();
+		enterEmailID(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "EmailID_tims_dev"));
+		enterPassword(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "Password_tims_dev"));
+		clickLoginButton();
+
+	}
+
+	public void login_Tims_Staging() throws IOException {
+		Tims_staging_Url();
+		enterEmailID(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "EmailID_tims_staging"));
+		enterPassword(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "Password_tims_staging"));
+		clickLoginButton();
+
+	}
+
 	// HCP
-	public void HCP_Url() throws IOException {
+	public void HCP_dev_Url() throws IOException {
 		// Performing action on URL
-		String urlKey = determineUrlKey("HCP");
+		String urlKey = determineUrlKey("HCP_dev");
+		driver.get(urlKey);
+
+	}
+
+	public void HCP_staging_Url() throws IOException {
+		// Performing action on URL
+		String urlKey = determineUrlKey("HCP_staging");
 		driver.get(urlKey);
 
 	}
@@ -75,48 +139,20 @@ public class Login_Action extends BaseClass {
 		// WebWait.waitForDOMLoad(driver, null);
 	}
 
-	public void login_Tims() throws IOException {
-		Tims_Url();
-		enterEmailID(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "EmailID_tims"));
-		enterPassword(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "Password_tims"));
-		clickLoginButton();
-
-	}
-
-	public void login_HCP() throws IOException {
-		HCP_Url();
-		enterEmailID_hcp(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "EmailID_hcp"));
-		enterPassword_hcp(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "Password_hcp"));
+	public void login_dev_HCP() throws IOException {
+		HCP_dev_Url();
+		enterEmailID_hcp(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "EmailID_hcp_dev"));
+		enterPassword_hcp(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "Password_hcp_dev"));
 		clickLoginButton_hcp();
 
 	}
 
-	public void Dashboard_Url() throws IOException {
-		String urlKey = determineUrlKey("dashboard");
-		driver.get(urlKey);
-	}
-
-	public void login_Dashboard() throws IOException {
-		Dashboard_Url();
-		enterEmailID_hcp(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "EmailID_dashboard"));
-		enterPassword_hcp(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "Password_dashboard"));
-		clickLoginButton_Dashboard();
-	}
-
-	public void login_Tims_For_HCP() throws IOException, InterruptedException {
-		Tims_Url();
-		enterEmailID(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "EmailID_tims_for_hcp"));
-		enterPassword(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "Password_tims_for_hcp"));
-		clickLoginButton();
-		// clickOn_Enable_Later();
+	public void login_staging_HCP() throws IOException {
+		HCP_staging_Url();
+		enterEmailID_hcp(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "EmailID_hcp_staging"));
+		enterPassword_hcp(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "Password_hcp_staging"));
+		clickLoginButton_hcp();
 
 	}
 
-	public void clickLoginButton_Dashboard() {
-		// click on login
-		WebWait.elementToBeClickable(driver, loginLocators.getLoginBtn_hcp(), Duration.ofSeconds(30));
-		WebButton.clickButton(loginLocators.getLoginBtn_hcp());
-		// WebWait.waitForDOMLoad(driver, null);
-
-	}
 }

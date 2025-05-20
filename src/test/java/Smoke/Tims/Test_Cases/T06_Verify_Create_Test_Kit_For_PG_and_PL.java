@@ -24,7 +24,7 @@ public class T06_Verify_Create_Test_Kit_For_PG_and_PL extends BaseClass{
 //			loginTest = new Login_Tims();
 			Login_action = new Login_Action(getDriver());
 //			loginTest.login_Tims();
-			Login_action.login_Tims();
+			Login_action.login_Tims_dev();
 			create_test_kit_PG_actions = new Create_test_kit_For_PG_Actions(getDriver());
 
 			create_test_kit_PG_actions.Test_Kit_Creation_PG();

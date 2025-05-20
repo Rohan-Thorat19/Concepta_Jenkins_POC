@@ -20,7 +20,7 @@ public class TC_08_Verify_Booking_ID_Generated extends BaseClass {
 
 		Login_action = new Login_Action(getDriver());
 
-		Login_action.login_Dashboard();
+		Login_action.login_dev_Dashboard();
 
 		phleBotomist_booking_page_action = new PhleBotomist_Booking_Page_Action(getDriver());
 

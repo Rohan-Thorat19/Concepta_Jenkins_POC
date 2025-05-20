@@ -23,7 +23,7 @@ public class Verify_Dashboard_Login extends BaseClass {
 //		loginTest = new Login_Tims();
 		Login_action = new Login_Action(getDriver());
 //		loginTest.login_Tims();
-		Login_action.login_Dashboard();
+		Login_action.login_dev_Dashboard();
 
 	}
 	

@@ -56,6 +56,25 @@ public class PhleBotomist_Booking_Page_Action {
 		
 	}
 	
+	public String get_Booking_ID() throws InterruptedException {
+		//login_health_professional_actions.clickOnEnableLaterBtn();
+	
+			WebButton.JsclickButton(phleBotomist_booking_page_locators.get_boots_App_Menu(), driver);
+			Thread.sleep(2000);
+			String Booking_ID= phleBotomist_booking_page_locators.get_booking_ID().getText().trim();
+			//System.out.println("Booking id is = " +Booking_ID);
+			if(Booking_ID.endsWith("-2")) {
+				return Booking_ID;
+			}
+			else
+			{
+				System.out.println("Booking ID is not having -2");
+			}
+			return Booking_ID;
+			
+		
+	}
+	
 	
 	public void check_Test_Type_With_URL() throws InterruptedException {
 		//navigate_To_Reg_Page();
@@ -145,13 +164,8 @@ public class PhleBotomist_Booking_Page_Action {
 	
 	public void cancel_Appointment() throws InterruptedException {
 		login_health_professional_actions.clickOnEnableLaterBtn();
-//		if(phleBotomist_booking_page_locators.getregTxt().isDisplayed()) {
-//			WebButton.clickButton(phleBotomist_booking_page_locators.getContinueBtn());		
-//		}
-//		else
-//		{
-//			WebButton.clickButton(phleBotomist_booking_page_locators.get_cancel_Reg_Btn());
-//		}
+		WebButton.clickButton(phleBotomist_booking_page_locators.get_boots_App_Menu());
+
 		try {
 			Thread.sleep(2000);
 			WebButton.clickButton(phleBotomist_booking_page_locators.getContinueBtn());
@@ -545,7 +559,7 @@ public class PhleBotomist_Booking_Page_Action {
 
 
 
-		public void Verify_Complete_Health_Assessment_Form_6() throws InterruptedException {
+		public String Verify_Complete_Health_Assessment_Form_6() throws InterruptedException {
 
 
 
@@ -572,6 +586,7 @@ public class PhleBotomist_Booking_Page_Action {
 			assertTrue(alert_expected_AppointmentRegNo.matches(pattern),
 
 					"Register number does not match the expected format");
+			return alert_expected_AppointmentRegNo;
 
 		}
 	

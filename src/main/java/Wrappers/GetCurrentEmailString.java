@@ -75,7 +75,7 @@ public class GetCurrentEmailString {
     }
 
     // ✅ Method to Extract HTML content from Email
-    private static String getEmailContent(Message message) throws Exception {
+    protected static String getEmailContent(Message message) throws Exception {
         if (message.isMimeType("text/plain")) {
             return (String) message.getContent();
         } else if (message.isMimeType("text/html")) {

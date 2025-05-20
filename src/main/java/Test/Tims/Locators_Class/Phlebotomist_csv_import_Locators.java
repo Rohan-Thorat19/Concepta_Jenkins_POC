@@ -1,5 +1,7 @@
 package Test.Tims.Locators_Class;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -74,9 +76,68 @@ public class Phlebotomist_csv_import_Locators {
 		return cvs_Upload_Fail_Msg;
 	}
 
+	@FindBy(xpath = "//a[@href='/admin/test-kits/']")
+	WebElement  Testkit;
+
+	public WebElement  getTestkit() {
+		return Testkit;
+	}
+	
+	@FindBy(xpath = "//button[contains(text(),'Upload blood result CSV')]")
+	WebElement  upload_Blood_Result_CSV;
+
+	public WebElement  get_upload_Blood_Result_CSV() {
+		return upload_Blood_Result_CSV;
+	}
+	
+	@FindBy(xpath = "(//input[@id='kit_csv_result'])[1]")
+	WebElement  upload_File_Button;
+
+	public WebElement  getupload_File_Button() {
+		return upload_File_Button;
+	}
+	@FindBy(id = "uploadButton")
+	WebElement file_upload_Btn;
+
+	public WebElement  get_file_upload_Btn() {
+		return file_upload_Btn;
+	}
+	
+	@FindBy(xpath = "//button[contains(text(),'Mark kit received')]")
+	WebElement mark_Kit_Received_btn;
+
+	public WebElement  get_Mark_Kit_Received_btn() {
+		return mark_Kit_Received_btn;
+	}
+	
+	@FindBy(id = "barcode")
+	WebElement mark_Kit_Barcode_Field;
+
+	public WebElement  get_Mark_Kit_Barcode_Field() {
+		return mark_Kit_Barcode_Field;
+	}
+	@FindBy(xpath = "//button[contains(text(),'Next')]")
+	WebElement next_Button;
+
+	public WebElement  get_next_Buttond() {
+		return next_Button;
+	}
+	
+	@FindBy(xpath = "//button[contains(text(),'Mark as received')]")
+	WebElement mark_Received_Button;
+
+	public WebElement  get_mark_Received_Button() {
+		return mark_Received_Button;
+	}
+	
+	@FindBy(xpath = "//thead/tr/th")
+	List<WebElement> table_Headers;
+
+	public List<WebElement> get_Table_Headers() {
+		return table_Headers;
+	}
 
 	
 	
-
 
 }

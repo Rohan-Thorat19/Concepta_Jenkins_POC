@@ -17,7 +17,7 @@ public class T10_Verify_Successful_Creation_Of_New_Store_Location extends BaseCl
 			Login_action = new Login_Action(getDriver());	
 			store_location_actions = new Store_Location_Actions(getDriver());
 			
-			Login_action.login_Tims();
+			Login_action.login_Tims_dev();
 			store_location_actions.create_New_Location();
 
 		

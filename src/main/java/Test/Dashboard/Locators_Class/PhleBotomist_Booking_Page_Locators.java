@@ -17,6 +17,12 @@ public class PhleBotomist_Booking_Page_Locators {
 
 	}
 
+	@FindBy(xpath = "//button[text()='Enable Later']")
+	WebElement enableLater_btn;
+ 
+	public WebElement getenableLater_btn() {
+		return enableLater_btn;
+	}
 	
 	@FindBy(xpath = "//h1[contains(text(),'MY REGISTRATION')]")
 	private WebElement regTxt;
@@ -31,6 +37,14 @@ public class PhleBotomist_Booking_Page_Locators {
 	public WebElement get_boots_App_Menu() {
 		return boots_App_Menu;
 	}
+	
+	@FindBy(xpath = "//p/strong")
+	WebElement booking_ID;
+
+	public WebElement  get_booking_ID() {
+		return booking_ID;
+	}
+	
 	
 	@FindBy(xpath = "//a[text()='Continue']")
 	private WebElement continueBtn;

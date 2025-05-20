@@ -20,7 +20,7 @@ public class T04_Verify_PG_Barcode_Format extends BaseClass{
 	//	loginTest = new Login_Tims();
 		Login_action = new Login_Action(getDriver());
 	//	loginTest.loginToTims();
-		Login_action.login_Tims();
+		Login_action.login_Tims_dev();
 		create_test_kit_actions = new Create_test_kit_For_PG_Actions(getDriver());
 
 		create_test_kit_actions.barcode_Format_Verification();

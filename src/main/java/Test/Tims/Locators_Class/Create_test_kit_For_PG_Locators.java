@@ -37,21 +37,21 @@ public class Create_test_kit_For_PG_Locators {
 		return Type;
 	}
 	
-	@FindBy(xpath = "(//select[@class='form-control'])[1]")
+	@FindBy(xpath = "(//select[@class='form-control'])[2]")
 	WebElement Type1;
 
 	public WebElement getType1() {
 		return Type1;
 	}
 	
-	@FindBy(xpath = "(//select[@class='form-control'])[2]")
+	@FindBy(xpath = "(//select[@class='form-control'])[3]")
 	List<WebElement>  Subtype;
 
 	public List<WebElement>  getSubtype() {
 		return Subtype;
 	}
 		
-	@FindBy(xpath = "(//select[@class='form-control'])[2]")
+	@FindBy(xpath = "(//select[@class='form-control'])[3]")
 	WebElement  Subtype1;
 
 	public WebElement  getSubtype1() {
@@ -80,7 +80,7 @@ public class Create_test_kit_For_PG_Locators {
 			return enable_later;
 		
 		}
-		@FindBy(xpath = "(//h2[contains(.,'Barcodes created')])[2]")
+		@FindBy(xpath = "//p[contains(text(),'Barcodes created')]")
 		WebElement Barcode_count01;
 
 		public WebElement getBarcode01() {

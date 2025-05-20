@@ -21,7 +21,7 @@ public class T05_Verify_Create_Phlebotomy_Lavender_barcode_batches extends BaseC
 		//	loginTest = new Login_Tims();
 			Login_action = new Login_Action(getDriver());
 		//	loginTest.loginToTims();
-			Login_action.login_Tims();
+			Login_action.login_Tims_dev();
 			create_test_kit_PL_actions = new Create_test_kit_For_PL_Actions(getDriver());
 
 			create_test_kit_PL_actions.Create_Phlebotom_phlebotomy_lavender_barcode_batches();

@@ -20,7 +20,7 @@ public class T08_Verify_Phleb_Activation_Email_Triggering extends BaseClass{
 
 		Login_action = new Login_Action(getDriver());	
 		
-		Login_action.login_Tims();
+		Login_action.login_Tims_dev();
 		
 		phlebotomist_user_create_delete_action = new Phlebotomist_User_Create_Delete_Action(getDriver());
 		

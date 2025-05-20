@@ -20,7 +20,7 @@ public class T02_Verify_Create_Barcode_Batch_OtherThan_PG extends BaseClass{
 			
 
 			Login_action = new Login_Action(getDriver());
-			Login_action.login_Tims();
+			Login_action.login_Tims_dev();
 			create_test_kit_actions = new Create_test_kit_For_PG_Actions(getDriver());
 
 			create_test_kit_actions.other_than_Phlebotomy_Gold();
