@@ -23,7 +23,7 @@ public class TC_03_Verify_Blank_Test_Type_Selected extends BaseClass{
 //				loginTest = new Login_Tims();
 				Login_action = new Login_Action(getDriver());
 //				loginTest.login_Tims();
-				Login_action.login_dev_Dashboard();
+				Login_action.login_Dashboard();
 				
 				phleBotomist_booking_page_action = new PhleBotomist_Booking_Page_Action(getDriver());
 				

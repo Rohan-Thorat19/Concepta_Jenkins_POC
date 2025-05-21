@@ -14,7 +14,6 @@ import org.openqa.selenium.WebElement;
 import com.aventstack.extentreports.Status;
 
 import Test.Dashboard.Actions_Class.PhleBotomist_Booking_Page_Action;
-import Test.Dashboard.Locators_Class.PhleBotomist_Booking_Page_Locators;
 import Test.Hcp.Actions_Class.Patients_Details_Actions;
 import Test.Tims.Locators_Class.Create_test_kit_For_PL_Locators;
 import Test.Tims.Locators_Class.Phlebotomist_csv_import_Locators;
@@ -34,7 +33,6 @@ public class Phlebotomist_csv_import_Actions {
 	Phlebotomist_csv_import_Locators phlebotomist_csv_import_locators;
 	PhleBotomist_Booking_Page_Action phleBotomist_booking_page_action;
 	Patients_Details_Actions patients_details_actions;
-	PhleBotomist_Booking_Page_Locators phleBotomist_booking_page_locators;
 	Login_Action Login_action;
 	String primary_barcode;
 	String status;
@@ -47,7 +45,6 @@ public class Phlebotomist_csv_import_Actions {
 		phleBotomist_booking_page_action = new PhleBotomist_Booking_Page_Action(driver);
 		patients_details_actions = new Patients_Details_Actions(driver);
 		create_test_kit_For_PG_actions = new Create_test_kit_For_PG_Actions(driver);
-		phleBotomist_booking_page_locators = new PhleBotomist_Booking_Page_Locators(driver);
 
 	}
 
@@ -91,7 +88,7 @@ public class Phlebotomist_csv_import_Actions {
 
 	public void partial_Result_Email_Received() throws Exception {
 		ReadGmail readGmail = new ReadGmail();
-		String ID = readGmail.getButtonURL("Booking ID");
+		readGmail.getButtonURL("ExtractID");
 
 	}
 
@@ -121,56 +118,43 @@ public class Phlebotomist_csv_import_Actions {
 
 	}
 
-	public String upload_Partial_Result() throws Exception {
+	public void upload_Partial_Result() throws Exception {
 		Login_action = new Login_Action(driver);
-		// readgmail = new ReadGmail();
+		readgmail = new ReadGmail();
 		//String booking_Id = phleBotomist_booking_page_action.Verify_Complete_Health_Assessment_Form_6();
-		Login_action.login_Tims_dev();
+		Login_action.login_Tims_Staging();
 		primary_barcode = create_test_kit_For_PG_actions.Test_Kit_Creation_PG();
-		Login_action.login_dev_HCP();
-		// String BookingID = readgmail.getButtonURL("ExtractID");
-		patients_details_actions.Valid_Patients_Details_Case12("IY59069", "Sagar", "D");
+		Login_action.login_staging_HCP();
+		String BookingID = readgmail.getButtonURL("ExtractID");
+		patients_details_actions.Valid_Patients_Details_Case12(BookingID, "Sagar", "D");
 		patients_details_actions.register_Patient(primary_barcode);
-		Login_action.login_Tims_dev();
+		Login_action.login_Tims_Staging();
 		System.out.println("Primary code is " + primary_barcode);
 		mark_Kit_Received(primary_barcode);
 		upload_Blood_Result_CSV("PGK-WJF-8747", primary_barcode);
 		System.out.println("Barcode replaced successfully");
-		//Thread.sleep(2000);
-		driver.navigate().to(
-				"https://dashboard-purushottam.dev.myhealthchecked.com/login/?next=%2Fbloods%2Fboots%2Fblood-thyroid");
-		Login_action.login_dev_Dashboard();
-		WebWait.elementToBeClickable(driver, phleBotomist_booking_page_locators.getenableLater_btn(),
-				Duration.ofSeconds(3000));
-		WebButton.JsclickButton(phleBotomist_booking_page_locators.getenableLater_btn(), driver);
-		WebButton.JsclickButton(phleBotomist_booking_page_locators.get_boots_App_Menu(), driver);
+		Thread.sleep(2000);
+		driver.navigate()
+				.to("https://hcp-portal-staging.myhealthchecked.com/login");
 		String new_Booking_Id = phleBotomist_booking_page_action.get_Booking_ID();
 		System.out.println("New Booking ID is = " + new_Booking_Id);
-		return primary_barcode;
 
 	}
-
-	public String test_Kit_Satus(String barcode) throws Exception {
+	
+	public String test_Kit_Satus() throws IOException, InterruptedException {
 		Login_action = new Login_Action(driver);
-		Login_action.login_Tims_dev();
+		Login_action.login_Tims_Staging();
 		create_test_kit_For_PG_actions.clickOn_Enable_Later();
 		WebButton.JsclickButton(phlebotomist_csv_import_locators.getTestkit(), driver);
 		int j = Table_Traverse.getColoumnName(phlebotomist_csv_import_locators.get_Table_Headers(), "Primary barcode");
-
-		// primary_barcode = create_test_kit_For_PG_actions.Test_Kit_Creation_PG();
-		// primary_barcode = "PGP-LIZ-3942";
-
-		System.out.println("Barcode to check the status = " + barcode);
-		Thread.sleep(3000);
+		System.out.println("Barcode to check the status = "+primary_barcode);
+		Thread.sleep(2000);
 		List<WebElement> table_Value = driver.findElements(By.xpath("//tbody/tr/td[" + j + "]"));
 		for (int i = 0; i < table_Value.size(); i++) {
-			// System.out.println(table_Value.get(i).getText());
-			if (table_Value.get(i).getText().trim().equalsIgnoreCase(barcode)) {
+			if (table_Value.get(i).getText().trim().equalsIgnoreCase(primary_barcode)) {
 				System.out.println("Selected barcode is :" + table_Value.get(i).getText());
 				status = driver
-						.findElement(
-								By.xpath("(//tr[td/a[contains(@href, '/admin/test-kits/')]]/td[5])[" + (i + 1) + "]"))
-						.getText();
+						.findElement(By.xpath("(//tr[td/a[contains(@href, '/admin/test-kits/')]]/td[5])["+(i+1)+"]")).getText();	
 			}
 		}
 		return status;

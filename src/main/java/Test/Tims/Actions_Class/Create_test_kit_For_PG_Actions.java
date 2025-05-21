@@ -39,7 +39,7 @@ public class Create_test_kit_For_PG_Actions {
 			WebButton.JsclickButton(create_test_kit_Locators.Enable_Later(), driver);
 		}
 		catch(Exception e) {
-			WebButton.JsclickButton(create_test_kit_Locators.Enable_Later(), driver);
+			WebButton.clickButton(create_test_kit_Locators.Enable_Later());
 		}
 		//WebButton.JsclickButton(create_test_kit_Locators.Enable_Later(),driver);
 	}
@@ -261,7 +261,7 @@ public class Create_test_kit_For_PG_Actions {
 
 	public String Test_Kit_Creation_PG() throws InterruptedException {
 
-		//clickOn_Enable_Later();
+		clickOn_Enable_Later();
 		Thread.sleep(2000);
 
 		clickOn_Barcode_batches();

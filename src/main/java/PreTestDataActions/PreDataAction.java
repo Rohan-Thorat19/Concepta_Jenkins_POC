@@ -1,12 +1,18 @@
 package PreTestDataActions;
 
+import static initializer.BaseClass.driver;
+
+import java.io.IOException;
+import java.time.Duration;
 import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import Wrappers.WebTextBox;
+import Wrappers.WebWait;
 import PreTestDataLocators.PreDataLocators;
+import Test.Dashboard.Actions_Class.Login_Boot_Actions;
 import Wrappers.WebButton;
 import Wrappers.WebScrollView;
 import initializer.BaseClass;
@@ -47,4 +53,36 @@ public class PreDataAction extends BaseClass
     System.out.println("Generated Random String: " + randomNumber);
     return randomNumber;
 	}
+	
+	public void clickSignUpBtn() {
+		preDataLocators.getSignUpBtn().click();
+	}
+	
+	public String txtPwdStrength() {
+		WebWait.visibilityOfElement(driver, preDataLocators.getPwdStrength(), Duration.ofSeconds(30));
+		System.out.println("Password Strength: "+preDataLocators.getPwdStrength().getText());
+		return preDataLocators.getPwdStrength().getText();
+	}
+	
+	public void verifySpecialChar_FName_LName() throws IOException, InterruptedException {
+		Login_Boot_Actions login_boot_actions;
+		preDataLocators=new PreDataLocators(getDriver());
+		//PreDataAction predataactions=new PreDataAction(getDriver());
+		login_boot_actions = new Login_Boot_Actions(getDriver());
+		
+		login_boot_actions.boot_Url();
+		clickSignUpBtn();
+		WebTextBox.sendInputUpdate(preDataLocators.getFirstName(), "Ma#rvin");
+		WebTextBox.sendInputUpdate(preDataLocators.getLastName(), "Lou@is");
+		WebTextBox.sendInputUpdate(preDataLocators.getEmail(), "xeutteveddummo-8604@yopmail.com");
+		WebTextBox.sendInputUpdate(preDataLocators.getPassword(), "Aress@12");
+		
+		WebElement iframe = driver.findElement(By.xpath("//iframe[@title='reCAPTCHA']"));
+        driver.switchTo().frame(iframe);
+        Thread.sleep(3000);
+		WebButton.JsclickButton(preDataLocators.checkboxRecapcha(), driver);
+		driver.switchTo().defaultContent();
+		 Thread.sleep(3000);
+	}
+	
 }

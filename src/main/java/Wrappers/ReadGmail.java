@@ -136,45 +136,6 @@ public class ReadGmail {
 
 		}
 
-		// T11_T12_T13_Verify_Successful_CSV_Import_with_Valid_Data
-		else if (buttonName == "Welcome to MyHealthChecked!") {
-			String patternString = "We are delighted to have you join our network of health professionals dedicated to empowering individuals on their wellness journeys.";
-			Pattern pattern = Pattern.compile(patternString);
-			Matcher matcher = pattern.matcher(emailContent);
-
-			if (matcher.find()) {
-				System.out.println("Extracted Text: " + patternString);
-			} else {
-				System.out.println("No matching Text found in email.");
-			}
-		}
-		// T11_T12_T13_Verify_Successful_CSV_Import_with_Valid_Data
-		else if (buttonName == "Click on the button below to create your account") {
-			String patternString = "CREATE YOUR ACCOUNT";
-			Pattern pattern = Pattern.compile(patternString);
-			Matcher matcher = pattern.matcher(emailContent);
-
-			if (matcher.find()) {
-				System.out.println("Extracted Text: " + patternString);
-			} else {
-				System.out.println("No matching Text found in email.");
-			}
-		}
-		// Partial_Result_Upload_Email_SOFT_1048_TC_02()
-		else if (buttonName == "Booking ID") {
-			String patternString = "\\s*([A-Za-z]{2}\\d{5})";
-			Pattern pattern = Pattern.compile(patternString);
-			Matcher matcher = pattern.matcher(emailContent);
-
-			if (matcher.find()) {
-				String extractedID = matcher.group(1);
-				System.out.println("\n Booking ID: " + extractedID + "\n");
-				return extractedID;
-			} else {
-				System.out.println("No matching Text found in email.");
-			}
-		}
-
 		// ✅ Close connections
 		inbox.close(false);
 		store.close();
