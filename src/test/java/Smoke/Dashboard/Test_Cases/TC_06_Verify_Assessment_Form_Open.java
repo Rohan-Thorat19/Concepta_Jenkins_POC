@@ -22,7 +22,7 @@ public class TC_06_Verify_Assessment_Form_Open extends BaseClass{
 
 					Login_action = new Login_Action(getDriver());
 
-					Login_action.login_dev_Dashboard();
+					Login_action.login_Dashboard();
 					
 					phleBotomist_booking_page_action = new PhleBotomist_Booking_Page_Action(getDriver());
 					

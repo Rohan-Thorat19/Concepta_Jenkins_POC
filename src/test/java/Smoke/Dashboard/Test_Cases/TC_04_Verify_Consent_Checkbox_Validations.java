@@ -22,7 +22,7 @@ public class TC_04_Verify_Consent_Checkbox_Validations extends BaseClass{
 //				loginTest = new Login_Tims();
 				Login_action = new Login_Action(getDriver());
 //				loginTest.login_Tims();
-				Login_action.login_dev_Dashboard();
+				Login_action.login_Dashboard();
 				
 				phleBotomist_booking_page_action = new PhleBotomist_Booking_Page_Action(getDriver());
 				

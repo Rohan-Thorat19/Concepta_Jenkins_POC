@@ -63,7 +63,19 @@ public class PreDataLocators {
 		return createAccountPageSecond;
 	}
 	
+	@FindBy(xpath = "//a[normalize-space()='Sign up']")
+	private WebElement btnSignUp;
 	
+	public WebElement getSignUpBtn() {
+		return btnSignUp;
+	}
+	
+	@FindBy(xpath = "//div[@role='progressbar']")
+	private WebElement pwdStrengthWeak;
+	
+	public WebElement getPwdStrength() {
+		return pwdStrengthWeak;
+	}
 	
 	
 	

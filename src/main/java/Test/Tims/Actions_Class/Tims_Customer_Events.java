@@ -47,9 +47,4 @@ public class Tims_Customer_Events {
 		ExtentManager.getTest().log(Status.PASS, "No matching value found.");
 
 	}
-	
-	
-	
 }
-
-

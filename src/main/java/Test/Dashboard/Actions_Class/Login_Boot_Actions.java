@@ -39,10 +39,12 @@ public class Login_Boot_Actions extends BaseClass {
 
 	public void boot_Url() throws IOException {
 		// Performing action on URL
-		String urlKey = determineUrlKey("dashboard");
+		String urlKey = determineUrlKey("dashboard_dev");
 		driver.get(urlKey);
 
 	}
+	
+	
 
 	public void enterEmailID_boot(String EmailID) {
 		// Performing action on Email ID Text Box
@@ -75,6 +77,24 @@ public class Login_Boot_Actions extends BaseClass {
 		WebWait.elementToBeClickable(driver, login_boot_locators.getEnableLater(), Duration.ofSeconds(30));
 		WebButton.JsclickButton(login_boot_locators.getEnableLater(), driver);
 
+	}
+	
+	public String welcomeTextMsg() {
+		WebWait.visibilityOfElement(driver, login_boot_locators.getWelcomeMsg_boot(), Duration.ofSeconds(30));
+		System.out.println(login_boot_locators.getWelcomeMsg_boot().getText());
+		return login_boot_locators.getWelcomeMsg_boot().getText();
+	}
+	
+	public String incorrectPasswordMsg() {
+		WebWait.visibilityOfElement(driver, login_boot_locators.getMsgIncorrectPassword_boot(), Duration.ofSeconds(30));
+		System.out.println(login_boot_locators.getMsgIncorrectPassword_boot().getText());
+		return login_boot_locators.getMsgIncorrectPassword_boot().getText();
+	}
+	
+	public String invalidEmailMsg() {
+		WebWait.visibilityOfElement(driver, login_boot_locators.getErrorInvalidEmail_boot(), Duration.ofSeconds(30));
+		System.out.println("Error: "+login_boot_locators.getErrorInvalidEmail_boot().getText());
+		return login_boot_locators.getErrorInvalidEmail_boot().getText();
 	}
 
 	public void checkContinueBtn() throws IOException, InterruptedException {
