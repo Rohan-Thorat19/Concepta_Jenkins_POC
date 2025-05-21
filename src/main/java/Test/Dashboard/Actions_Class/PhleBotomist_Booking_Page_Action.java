@@ -381,11 +381,25 @@ public class PhleBotomist_Booking_Page_Action {
 		
 		WebWait.visibilityOfElement(driver, phleBotomist_booking_page_locators.get_details_cfrm_Msg() ,Duration.ofSeconds(30));
 		String alert_expected = phleBotomist_booking_page_locators.get_details_cfrm_Msg().getText().trim();
-		System.out.println("Details Confirm Messgae= " + alert_expected);
+		System.out.println("Details Confirm Message= " + alert_expected);
 		String ActualValue = "User details confirmed!";
 		assertEquals(ActualValue, alert_expected);
 		ExtentManager.getTest().log(Status.PASS, "User details are confirmed");
 
+	}
+	
+	public void verifyDetailsFormFilledSuccesfully() throws InterruptedException {
+		checkbox_Validation();
+		confirm_Details_Form("03031998","3333333333");
+		try {
+	        boolean status = phleBotomist_booking_page_locators.get_assessment_start_Btn().isDisplayed();
+	        assertTrue(status, "User did not navigate to 'Start Health Assessment' Page");
+	        System.out.println("Assertion Passed: User navigated to 'Start Health Assessment' page");
+	        ExtentManager.getTest().log(Status.PASS, "User navigated to 'Start Health Assessment' page");
+	    } catch (NoSuchElementException e) {
+	        ExtentManager.getTest().log(Status.FAIL, "Start Health Assessment button is not present on the page.");
+	        Assert.fail("User did not navigate to 'Start Health Assessment' page");
+	    }
 	}
 	
 	public void health_Assessment_Form_Nav() throws InterruptedException {
