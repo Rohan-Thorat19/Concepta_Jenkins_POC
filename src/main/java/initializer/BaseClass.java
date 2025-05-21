@@ -26,7 +26,7 @@ import org.openqa.selenium.TakesScreenshot;
 
 public class BaseClass {
 
-	private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+	public static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 	private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 	private static ThreadLocal<String> username = new ThreadLocal<>();
 	public static ExtentReports report;
@@ -121,7 +121,7 @@ public class BaseClass {
 		} catch (Exception e) {
 			logger.log(Status.WARNING, "Exception while capturing screenshot: " + e.getMessage());
 		} finally {
-			driverInstance.quit();
+			//driverInstance.quit();
 			driver.remove();
 			extentTest.remove();
 			// Flush the report after each test method to ensure results are saved
@@ -157,18 +157,18 @@ public class BaseClass {
 	public String determineUrlKey(String environment) throws IOException {
 		switch (environment) {
 
-		case "dashboard_dev":
-			return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "dashboard_dev_url");
 		case "dashboard_staging":
 			return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "dashboard_staging_url");
-		case "HCP_dev":
-			return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "HCP_dev_url");
+		case "HCP":
+			return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "HCP_url");
 		case "HCP_staging":
 			return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "HCP_staging_url_");
-		case "Tims_dev":
-			return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "Tims_dev_url");
 		case "Tims_staging":
 			return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "Tims_staging_url");
+		case "dashboard_dev":
+			return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "dashboard_dev_url");
+		case "Tims_dev":
+			return PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "Tims_url_dev");
 
 		default:
 			throw new IllegalArgumentException("Invalid environment specified: " + environment);

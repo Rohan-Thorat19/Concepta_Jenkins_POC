@@ -34,6 +34,20 @@ public class Login_Boot_Locators {
 	public WebElement getPassword_boot() {
 		return txtPasswordboot;
 	}
+	
+	@FindBy(xpath = "//*[@id=\"root\"]/div/div/div/div[2]")
+	private WebElement msgIncorrectPassword;
+	
+	public WebElement getMsgIncorrectPassword_boot() {
+		return msgIncorrectPassword;
+	}
+	
+	@FindBy(xpath ="//div[@class='invalid-feedback']")
+	private WebElement errorInvalidEmail;
+	
+	public WebElement getErrorInvalidEmail_boot() {
+		return errorInvalidEmail;
+	}
 
 	@FindBy(xpath = "//button[@type='submit']")
 	private WebElement btnLoginboot;
@@ -61,6 +75,13 @@ public class Login_Boot_Locators {
 
 	public WebElement getSuccessMsg_boot() {
 		return txtSuccessMsgBoot;
+	}
+	
+	@FindBy(xpath = "//p[contains(text(),'Welcome to your personalised MyHealthChecked panel')]")
+	private WebElement txtWelcomeMsg;
+	
+	public WebElement getWelcomeMsg_boot() {
+		return txtWelcomeMsg;
 	}
 
 	@FindBy(xpath = "//a[contains(@href,'/bloods/boots/registration/blood-thyroid')]")

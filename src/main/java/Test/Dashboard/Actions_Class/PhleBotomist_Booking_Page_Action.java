@@ -6,11 +6,14 @@ import static org.testng.Assert.assertTrue;
 import java.time.Duration;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import com.aventstack.extentreports.Status;
 
@@ -20,6 +23,7 @@ import Test.Hcp.Actions_Class.Login_Health_Professional_Actions;
 import Wrappers.WebButton;
 import Wrappers.WebCheckBox;
 import Wrappers.WebDropDown;
+import Wrappers.WebElementCommon;
 import Wrappers.WebMouseOperation;
 import Wrappers.WebTextBox;
 import Wrappers.WebWait;
@@ -41,6 +45,7 @@ public class PhleBotomist_Booking_Page_Action {
 	
 	public void navigate_To_Reg_Page() throws InterruptedException {
 		login_health_professional_actions.clickOnEnableLaterBtn();
+		WebButton.JsclickButton(phleBotomist_booking_page_locators.get_boots_App_Menu(), driver);
 		try {
 		WebWait.visibilityOfElement(driver, phleBotomist_booking_page_locators.getregTxt() ,Duration.ofSeconds(30));
 		String alert_expected = phleBotomist_booking_page_locators.getregTxt().getText().trim();
@@ -55,6 +60,31 @@ public class PhleBotomist_Booking_Page_Action {
 		}
 		
 	}
+	
+	public void clickContinueMyReg() throws InterruptedException {
+		//navigate_To_Reg_Page();
+		//WebButton.JsclickButton(phleBotomist_booking_page_locators.getContinueBtn(), driver);
+		WebWait.elementToBeClickable(driver, phleBotomist_booking_page_locators.get_txtCnfCnt(), Duration.ofSeconds(20));
+		
+		WebButton.JsclickButton(phleBotomist_booking_page_locators.get_txtCnfCnt(), driver);
+		Thread.sleep(3000);
+		String txtDecCons = phleBotomist_booking_page_locators.get_txtDeclarationConsent().getText();
+		boolean status = phleBotomist_booking_page_locators.get_txtDeclarationConsent().isDisplayed();
+		if(status == true) {
+			System.out.println("Declaration Consent is displayed");
+		}
+		Assert.assertEquals(txtDecCons, "Declaration of consent");
+		ExtentManager.getTest().log(Status.PASS, "User proceeded to Registration process");
+	}
+	
+	public void checkBootAppointmentIsPresent() {
+		login_health_professional_actions.clickOnEnableLaterBtn();
+		WebWait.visibilityOfElement(driver, phleBotomist_booking_page_locators.get_boots_App_Menu() ,Duration.ofSeconds(30));
+		System.out.println("Element: "+phleBotomist_booking_page_locators.get_boots_App_Menu().getText()+" is present");
+		assertTrue(phleBotomist_booking_page_locators.get_boots_App_Menu().isDisplayed());
+		ExtentManager.getTest().log(Status.PASS, "Boots appointment is Displayed");
+	}
+
 	
 	public String get_Booking_ID() throws InterruptedException {
 		//login_health_professional_actions.clickOnEnableLaterBtn();
@@ -89,7 +119,7 @@ public class PhleBotomist_Booking_Page_Action {
 		if(currentURL.contains(testName.toLowerCase())) {
 			System.out.println("Test type is Matched = "+testName);
 		}
-		
+		ExtentManager.getTest().log(Status.PASS, "Test type is selected same as present in url");
 	}
 	
 	
@@ -119,9 +149,221 @@ public class PhleBotomist_Booking_Page_Action {
 		Thread.sleep(2000);
 		WebCheckBox.checkBoxTest(phleBotomist_booking_page_locators.get_consent_CheckBox());
 		WebCheckBox.checkBoxTest(phleBotomist_booking_page_locators.get_terms_CheckBox());
-		WebButton.clickButton(phleBotomist_booking_page_locators.get_SubmitBtn());
-		ExtentManager.getTest().log(Status.PASS, "Both checkBoxes are selected");
+		boolean consentSelected = phleBotomist_booking_page_locators.get_consent_CheckBox().isSelected();
+		boolean termsSelected = phleBotomist_booking_page_locators.get_terms_CheckBox().isSelected();
+		if(consentSelected && termsSelected) {
+			Assert.assertTrue(true, "Both checkboxes are selected");
+			System.out.println("Assertion Passed: Both checkboxes are selected");
+			WebButton.clickButton(phleBotomist_booking_page_locators.get_SubmitBtn());
+			ExtentManager.getTest().log(Status.PASS, "Both checkBoxes are selected");
+		}
+		else
+		{
+			Assert.fail("Assertion Fail: One or both checkboxes not selected");
+		}
 		
+	}
+	
+	public void checkbox_NotSelected() throws InterruptedException {
+		cancel_Appointment();
+		//check_Test_Type_With_URL();
+		//WebButton.clickButton(phleBotomist_booking_page_locators.get_ConfirmBtn());
+		Thread.sleep(2000);
+		WebButton.clickButton(phleBotomist_booking_page_locators.get_SubmitBtn());
+		Thread.sleep(2000);
+		boolean consentSelected = phleBotomist_booking_page_locators.get_consent_CheckBox().isSelected();
+		boolean termsSelected = phleBotomist_booking_page_locators.get_terms_CheckBox().isSelected();
+		if(!consentSelected && !termsSelected) {
+			System.out.println("One or both checkboxes not selected");
+			ExtentManager.getTest().log(Status.INFO, "CheckBoxes are not selected");
+		}
+		else {
+			System.out.println("Both checkboxes are selected");
+		}
+		
+		Thread.sleep(2000);
+		
+		WebButton.clickButton(phleBotomist_booking_page_locators.get_SubmitBtn());
+		String txtDecCons = phleBotomist_booking_page_locators.get_txtDeclarationConsent().getText();
+		boolean status = phleBotomist_booking_page_locators.get_txtDeclarationConsent().isDisplayed();
+		if(status == true) {
+			System.out.println("User did not proceed and is on Declaration Consent page");
+		}
+		Assert.assertEquals(txtDecCons, "Declaration of consent");
+		ExtentManager.getTest().log(Status.PASS, "User did not proceed and is on Declaration Consent page");
+		
+		
+	}
+	
+	public void verifyMandatoryFields() throws InterruptedException {
+		
+		checkbox_Validation();
+		Thread.sleep(2000);
+		
+		Actions actions = new Actions(driver);
+		actions.scrollByAmount(0, 800).perform();
+
+		phleBotomist_booking_page_locators.gettxtRegContinue().submit();
+		
+		boolean allErrorsPresent = 
+			phleBotomist_booking_page_locators.get_txtEmptyDOB().isDisplayed() &&
+		 	phleBotomist_booking_page_locators.get_txtEmptyGender().isDisplayed() &&
+		 	phleBotomist_booking_page_locators.get_txtEmptyPhNo().isDisplayed() &&
+		 	phleBotomist_booking_page_locators.get_txtEmptySexBirth().isDisplayed();
+		
+		
+			System.out.println("dobError: "+phleBotomist_booking_page_locators.get_txtEmptyDOB().getText());
+			System.out.println("genderError: "+phleBotomist_booking_page_locators.get_txtEmptySexBirth().getText());
+			System.out.println("phoneError: "+phleBotomist_booking_page_locators.get_txtEmptyPhNo().getText());
+			System.out.println("genderIdentificationError: "+phleBotomist_booking_page_locators.get_txtEmptyGender().getText());
+			Assert.assertTrue(allErrorsPresent, "Some mandatory field error messages are missing.");
+			System.out.println("Assertion Passed: User cannot proceed without entering all mandatory fields" );
+			
+			ExtentManager.getTest().log(Status.PASS, "User cannot proceed without entering all mandatory fields");
+	}
+	
+	public void selectFurtureDOB() throws InterruptedException {
+		checkbox_Validation();
+		WebWait.visibilityOfElement(driver, phleBotomist_booking_page_locators.gettxtDOB(), Duration.ofSeconds(20));
+		WebTextBox.sendInputUpdate(phleBotomist_booking_page_locators.gettxtDOB(), "01/02/2030");
+		Actions actions = new Actions(driver);
+		actions.scrollByAmount(0, 800).perform();
+
+		phleBotomist_booking_page_locators.gettxtRegContinue().submit();
+		
+		WebWait.visibilityOfElement(driver, phleBotomist_booking_page_locators.getAgeErrorMsg(), Duration.ofSeconds(20));
+
+		String actual=phleBotomist_booking_page_locators.getAgeErrorMsg().getText();
+		System.out.println("DOB Error msg: "+actual);
+		
+		Assert.assertEquals(actual, "You must be at least 18 years old");
+		ExtentManager.getTest().log(Status.PASS, "DOB Error msg: "+actual);
+		
+	}
+	
+	public void verifySexAtBirthSel() throws InterruptedException {
+		checkbox_Validation();
+		Thread.sleep(2000);
+		
+		Actions actions = new Actions(driver);
+		actions.scrollByAmount(0, 800).perform();
+		WebWait.elementToBeClickable(driver, phleBotomist_booking_page_locators.getSelectGender(), Duration.ofSeconds(20));
+		WebButton.clickButton(phleBotomist_booking_page_locators.getSelectGender());
+		System.out.println("Gender: "+phleBotomist_booking_page_locators.getSelectGender().getText());
+		
+
+		phleBotomist_booking_page_locators.gettxtRegContinue().submit();
+		try {
+		    boolean allErrorsPresent = true;
+
+		    // Check DOB error message
+		    if (phleBotomist_booking_page_locators.get_txtEmptyDOB().isDisplayed()) {
+		        System.out.println("dobError: " + phleBotomist_booking_page_locators.get_txtEmptyDOB().getText());
+		    } else {
+		        System.out.println("DOB error message is not displayed.");
+		        allErrorsPresent = false;
+		    }
+
+		    // Check Gender error message, but allow it to be missing
+		    if (phleBotomist_booking_page_locators.get_txtEmptyGender().isDisplayed()) {
+		        System.out.println("genderError: " + phleBotomist_booking_page_locators.get_txtEmptyGender().getText());
+		    } else {
+		        System.out.println("Gender error message is not displayed (This is allowed).");
+		    }
+
+		    // Check Phone Number error message
+		    if (phleBotomist_booking_page_locators.get_txtEmptyPhNo().isDisplayed()) {
+		        System.out.println("phoneError: " + phleBotomist_booking_page_locators.get_txtEmptyPhNo().getText());
+		    } else {
+		        System.out.println("Phone number error message is not displayed.");
+		        allErrorsPresent = false;
+		    }
+
+		    // Handle Sex at Birth error check with try-catch in case it's not in the DOM
+		    try {
+		        if (phleBotomist_booking_page_locators.get_txtEmptySexBirth().isDisplayed()) {
+		            System.out.println("genderIdentificationError: " + phleBotomist_booking_page_locators.get_txtEmptySexBirth().getText());
+		        } else {
+		            System.out.println("'Sex at Birth is required' error message is not displayed.");
+		            allErrorsPresent = false;
+		        }
+		    } catch (NoSuchElementException | NullPointerException e) {
+		        System.out.println("sexAtBirthError: 'Sex at Birth is required' element is NOT present on the web page.");
+		        allErrorsPresent = false;
+		    }
+
+		    // Assert that all mandatory errors are present except for the Gender error
+		    Assert.assertFalse(allErrorsPresent, "'Sex at Birth is required' is present on the web page.");
+		    System.out.println("Assertion Passed: 'Sex at Birth is required' element is NOT present on the web page.");
+		    ExtentManager.getTest().log(Status.PASS, "'Sex at Birth is required' element is NOT present on the web page.");
+
+		} catch (Exception e) {
+		    System.out.println("An Error Occurred: " + e.getMessage());
+		}
+
+		       
+	}
+	
+	public void verifyGenderIdentification() throws InterruptedException {
+		
+		checkbox_Validation();
+		Thread.sleep(2000);
+		
+		Actions actions = new Actions(driver);
+		actions.scrollByAmount(0, 800).perform();
+		WebWait.elementToBeClickable(driver, phleBotomist_booking_page_locators.getSelectIdentifyGender(), Duration.ofSeconds(20));
+		WebButton.clickButton(phleBotomist_booking_page_locators.getSelectIdentifyGender());
+		System.out.println("Gender: "+phleBotomist_booking_page_locators.getSelectIdentifyGender().getText());
+		
+
+		phleBotomist_booking_page_locators.gettxtRegContinue().submit();
+		try {
+		    boolean allErrorsPresent = true;
+
+		    // Check DOB error message
+		    if (phleBotomist_booking_page_locators.get_txtEmptyDOB().isDisplayed()) {
+		        System.out.println("dobError: " + phleBotomist_booking_page_locators.get_txtEmptyDOB().getText());
+		    } else {
+		        System.out.println("DOB error message is not displayed.");
+		        allErrorsPresent = false;
+		    }
+
+		    // Check Gender error message, but allow it to be missing
+		    if (phleBotomist_booking_page_locators.get_txtEmptySexBirth().isDisplayed()) {
+		        System.out.println("genderError: " + phleBotomist_booking_page_locators.get_txtEmptySexBirth().getText());
+		    } else {
+		        System.out.println("Gender error message is not displayed (This is allowed).");
+		    }
+
+		    // Check Phone Number error message
+		    if (phleBotomist_booking_page_locators.get_txtEmptyPhNo().isDisplayed()) {
+		        System.out.println("phoneError: " + phleBotomist_booking_page_locators.get_txtEmptyPhNo().getText());
+		    } else {
+		        System.out.println("Phone number error message is not displayed.");
+		        allErrorsPresent = false;
+		    }
+
+		    // Handle Sex at Birth error check with try-catch in case it's not in the DOM
+		    try {
+		        if (phleBotomist_booking_page_locators.get_txtEmptyGender().isDisplayed()) {
+		            System.out.println("genderIdentificationError: " + phleBotomist_booking_page_locators.get_txtEmptyGender().getText());
+		        } else {
+		            System.out.println("'Sex at Birth is required' error message is not displayed.");
+		            allErrorsPresent = false;
+		        }
+		    } catch (NoSuchElementException | NullPointerException e) {
+		        System.out.println("genderIdentificationError: 'You must indicate if you still identify with this gender' element is NOT present on the web page.");
+		        allErrorsPresent = false;
+		    }
+
+		    // Assert that all mandatory errors are present except for the Gender error
+		    Assert.assertFalse(allErrorsPresent, "'You must indicate if you still identify with this gender' is present on the web page.");
+		    System.out.println("Assertion Passed: 'You must indicate if you still identify with this gender' element is NOT present on the web page.");
+		    ExtentManager.getTest().log(Status.PASS, "'You must indicate if you still identify with this gender' element is NOT present on the web page.");
+
+		} catch (Exception e) {
+		    System.out.println("An Error Occurred: " + e.getMessage());
+		}
 	}
 	
 	public void confirm_Details_Form(String DOB, String boot_Reg_Mob) throws InterruptedException {
@@ -167,16 +409,20 @@ public class PhleBotomist_Booking_Page_Action {
 		WebButton.clickButton(phleBotomist_booking_page_locators.get_boots_App_Menu());
 
 		try {
+			
+			//WebWait.elementToBeClickable(driver, phleBotomist_booking_page_locators.getContinueBtn(), Duration.ofSeconds(20));
 			Thread.sleep(2000);
 			WebButton.clickButton(phleBotomist_booking_page_locators.getContinueBtn());
 		}
 		catch(Exception e){
-			WebWait.elementToBeClickable(driver, phleBotomist_booking_page_locators.get_cancel_Reg_Btn(), Duration.ofSeconds(10));
+			//WebWait.elementToBeClickable(driver, phleBotomist_booking_page_locators.get_cancel_Reg_Btn(), Duration.ofSeconds(10));
 			Thread.sleep(2000);
 			WebButton.clickButton(phleBotomist_booking_page_locators.get_cancel_Reg_Btn());
-			Thread.sleep(2000);
+		
+			WebWait.elementToBeClickable(driver, phleBotomist_booking_page_locators.getreject_Cnfrm_Btn(), Duration.ofSeconds(20));
 			WebButton.clickButton(phleBotomist_booking_page_locators.getreject_Cnfrm_Btn());
-			Thread.sleep(2000);
+			
+			WebWait.elementToBeClickable(driver, phleBotomist_booking_page_locators.getContinueBtn(), Duration.ofSeconds(20));
 			WebButton.clickButton(phleBotomist_booking_page_locators.getContinueBtn());
 			
 		}
@@ -589,6 +835,24 @@ public class PhleBotomist_Booking_Page_Action {
 			return alert_expected_AppointmentRegNo;
 
 		}
-	
-
+		
+		public void selectTestType() throws InterruptedException {
+			
+			cancel_Appointment();
+			Thread.sleep(2000);
+			
+			WebDropDown.selectByText(phleBotomist_booking_page_locators.gettest_Type_dropDown(), "Energy Profile");
+			WebButton.clickButton(phleBotomist_booking_page_locators.get_txtCnfCnt());
+			Thread.sleep(2000);
+			String txtDecCons = phleBotomist_booking_page_locators.get_txtDeclarationConsent().getText();
+			boolean status = phleBotomist_booking_page_locators.get_txtDeclarationConsent().isDisplayed();
+			if(status == true) {
+				System.out.println("New Test Type is selected");
+				System.out.println("Declaration Consent is displayed");
+			}
+			Assert.assertEquals(txtDecCons, "Declaration of consent");
+			ExtentManager.getTest().log(Status.PASS, "New Test Type is selected");
+		}
+		
+		
 }

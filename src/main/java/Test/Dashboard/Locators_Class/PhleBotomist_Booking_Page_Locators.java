@@ -17,12 +17,6 @@ public class PhleBotomist_Booking_Page_Locators {
 
 	}
 
-	@FindBy(xpath = "//button[text()='Enable Later']")
-	WebElement enableLater_btn;
- 
-	public WebElement getenableLater_btn() {
-		return enableLater_btn;
-	}
 	
 	@FindBy(xpath = "//h1[contains(text(),'MY REGISTRATION')]")
 	private WebElement regTxt;
@@ -110,11 +104,32 @@ public class PhleBotomist_Booking_Page_Locators {
 		return terms_CheckBox;
 	}
 	
+	@FindBy(xpath = "//*[@id=\"firstname\"]")
+	private WebElement firstName;
+	
+	public WebElement getFirstName() {
+		return firstName;
+	}
+	
+	@FindBy(xpath = "//*[@id=\"lastname\"]")
+	private WebElement lastName;
+	
+	public WebElement getLastName() {
+		return lastName;
+	}
+	
 	@FindBy(xpath = "//input[@id='dob']")
 	private WebElement txtDOB;
 
 	public WebElement gettxtDOB() {
 		return txtDOB;
+	}
+	
+	@FindBy(xpath ="//*[contains(text(),'You must be at least 18 years old')]")
+	private WebElement ageErrorMsg;
+	
+	public WebElement getAgeErrorMsg() {
+		return ageErrorMsg;
 	}
 	
 	@FindBy(xpath = "//input[@id='number']")
@@ -162,6 +177,22 @@ public class PhleBotomist_Booking_Page_Locators {
 	public  List<WebElement> get_assessment_steps() {
 		return assessment_steps;
 	}
+	
+	@FindBy(xpath = "//div[normalize-space()='First name is required']")
+	private WebElement txtEmptyFirstName;
+	
+	public WebElement getTextEmptyFirstName() {
+		return txtEmptyFirstName;
+	}
+	
+	@FindBy(xpath = "//div[normalize-space()='Last name is required']")
+	private WebElement txtEmptyLastName;
+	
+	public WebElement getTextEmptyLastName() {
+		return txtEmptyLastName;
+	}
+	
+	
 	@FindBy(xpath = "//div[normalize-space()='Date of Birth is required']")
 	private WebElement txtEmptyDOB;
 
@@ -246,7 +277,7 @@ public class PhleBotomist_Booking_Page_Locators {
 		return txtAlcoholCount;
 	}
 
-	@FindBy(xpath = "//button[normalize-space()='Confirm and continue']")
+	@FindBy(xpath = "//button[normalize-space()='Confirm & Continue']")
 	private WebElement txtCnfCnt;
 
 	public WebElement get_txtCnfCnt() {
@@ -364,5 +395,12 @@ public class PhleBotomist_Booking_Page_Locators {
 
 	public WebElement get_txtAppointmentRegNo() {
 		return txtAppointmentRegNo;
+	}
+	
+	@FindBy(xpath = "//h1[normalize-space()='Declaration of consent']")
+	private WebElement txtDeclarationConsent;
+	
+	public WebElement get_txtDeclarationConsent() {
+		return txtDeclarationConsent;
 	}
 }

@@ -21,7 +21,7 @@ public class Verify_MHC_Admin_Login_Access_HCP_User extends BaseClass
 
 		// Initialization
 		login = new Login_Action(getDriver());
-		login.login_dev_HCP();
+		login.login_Tims_For_HCP();
 		mHC_admin_login_access_hCP_user_actions = new MHC_Admin_Login_Access_HCP_User_Actions(getDriver());
 		AccountUrl = mHC_admin_login_access_hCP_user_actions.Load_Csv_And_Confirm_Email_Account_Button();
 	}

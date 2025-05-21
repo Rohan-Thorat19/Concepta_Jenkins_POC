@@ -45,7 +45,7 @@ public class Email_functionality extends GetCurrentEmailString {
 	public void redirectTOEditProfile() throws Exception {
 
 		readgmail = new ReadGmail();
-		login_action.login_dev_Dashboard();
+		login_action.login_Dashboard();
 		getURL = readgmail.getButtonURL("URL_Redirect_Profile");
 
 		driver.get(getURL);

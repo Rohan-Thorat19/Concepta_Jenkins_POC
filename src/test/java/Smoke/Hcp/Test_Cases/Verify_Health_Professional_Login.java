@@ -22,7 +22,7 @@ public class Verify_Health_Professional_Login extends BaseClass {
 //		loginTest = new Login_Tims();
 		Login_action = new Login_Action(getDriver());
 //		loginTest.login_Tims();
-		Login_action.login_dev_HCP();
+		Login_action.login_HCP();
 		login_health_professional_actions = new Login_Health_Professional_Actions(getDriver());
 
 		login_health_professional_actions.verify_hcp_locin();;

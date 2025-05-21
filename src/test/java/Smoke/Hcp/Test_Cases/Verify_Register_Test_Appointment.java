@@ -16,7 +16,7 @@ public class Verify_Register_Test_Appointment extends BaseClass {
 		public void HCP_Login_And_Search_Customer() throws IOException, InterruptedException {
 			
 			Login_action = new Login_Action(getDriver());
-			Login_action.login_dev_HCP();
+			Login_action.login_HCP();
 			Register_Test_Appointment_Actions = new Register_Test_Appointment_Actions(getDriver());
 			
 			Register_Test_Appointment_Actions.book_Test_Appointment();
