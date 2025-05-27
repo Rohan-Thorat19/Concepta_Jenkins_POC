@@ -152,6 +152,13 @@ public class PhleBotomist_Booking_Page_Locators {
 		return txtIdentifyGender;
 	}
 	
+	@FindBy(xpath = "//div[normalize-space()='Please enter a valid UK phone number']")
+	private WebElement txtInvalidMobNumber;
+	
+	public WebElement getTxtInvalidMobNumber() {
+		return txtInvalidMobNumber;
+	}
+	
 	@FindBy(xpath = "//button[contains(text(),'Continue')]")
 	private WebElement txtRegContinue;
 
@@ -222,10 +229,10 @@ public class PhleBotomist_Booking_Page_Locators {
 	}
 
 	@FindBy(xpath = "//button[normalize-space()='Continue']")
-	private WebElement txtHealthassessmentContinue;
+	private WebElement btnHealthassessmentContinue;
 
-	public WebElement get_txtHealthassessmentContinue() {
-		return txtHealthassessmentContinue;
+	public WebElement get_btnHealthassessmentContinue() {
+		return btnHealthassessmentContinue;
 	}
 
 	@FindBy(xpath = "//input[@id='1']")
@@ -276,12 +283,33 @@ public class PhleBotomist_Booking_Page_Locators {
 	public WebElement get_txtAlcoholCount() {
 		return txtAlcoholCount;
 	}
+	
+	@FindBy(xpath = "//div[@class='invalid-feedback']")
+	private List<WebElement> form1_invalidFeedback;
+	
+	public List<WebElement> get_form1_invalidFeedback() {
+		return form1_invalidFeedback;
+	}
 
 	@FindBy(xpath = "//button[normalize-space()='Confirm & Continue']")
 	private WebElement txtCnfCnt;
 
 	public WebElement get_txtCnfCnt() {
 		return txtCnfCnt;
+	}
+	
+	@FindBy(xpath = "//button[normalize-space()='Confirm and continue']")
+	private WebElement btnCnfCntHealthAssess;
+	
+	public WebElement get_btnCnfCntHealthAssess() {
+		return btnCnfCntHealthAssess;
+	}
+	
+	@FindBy(xpath = "//h1[normalize-space()='Height and weight']")
+	private WebElement txtHeightAndWeight;
+	
+	public WebElement get_txtHeightAndWeight() {
+		return txtHeightAndWeight;
 	}
 
 	@FindBy(xpath = "//select[@id='input-1']")

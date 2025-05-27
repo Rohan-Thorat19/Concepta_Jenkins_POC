@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="Regression.Dashboard.Test_Cases.TC_31_Verify_Health_Assessment_is_mandatory_for_all_tests"/>
+      <class name="Regression.Dashboard.Test_Cases.TC_17_Verify_test_type_by_clicking_the_Continue_button"/>
+      <class name="Regression.Dashboard.Test_Cases.TC_15_Verify_registration_with_blank_test_type"/>
+      <class name="Regression.Dashboard.Test_Cases.TC_09_Verify_password_field_with_weak_password"/>
+      <class name="Regression.Dashboard.Test_Cases.TC_12_13_Verify_the_side_menu_bar_contain"/>
+      <class name="Regression.Dashboard.Test_Cases.TC_11_Verify_the_navigation_for_Phlebotomist_booking_URL_visit"/>
+      <class name="Regression.Dashboard.Test_Cases.TC_18_Verify_the_customer_can_proceed_only_after_ticking_both_the_consent_checkbox"/>
+      <class name="Regression.Dashboard.Test_Cases.TC_14_Verify_customer_can_select_new_test_type_from_dropdown"/>
+      <class name="Regression.Dashboard.Test_Cases.TC_25_Validate_future_date_of_birth"/>
+      <class name="Regression.Dashboard.Test_Cases.TC_20_Verify_the_customer_cannot_proceed_if_both_checkboxes_are_not_ticked"/>
+      <class name="Regression.Dashboard.Test_Cases.TC_29_Verify_error_messages_when_all_fields_are_invalid"/>
+      <class name="Regression.Dashboard.Test_Cases.TC_08_Verify_email_input_field_with_invalid_email_format"/>
+      <class name="Regression.Dashboard.Test_Cases.TC_28_Verify_saving_valid_personal_information"/>
+      <class name="Regression.Dashboard.Test_Cases.TC_26_Verify_sex_at_birth_selection"/>
+      <class name="Regression.Dashboard.Test_Cases.TC_03_Verify_existing_user_can_authenticate_with_correct_credentials"/>
+      <class name="Regression.Dashboard.Test_Cases.TC_27_Verify_gender_identification_field"/>
+      <!--class name="Regression.Dashboard.Test_Cases.TC_10_Verify_error_message_when_special_characters_are_entered_in_email_fields"/-->
+      <class name="Regression.Dashboard.Test_Cases.TC_04_Verify_error_message_is_displayed_for_incorrect_password"/>
+      <class name="Regression.Dashboard.Test_Cases.TC_21_22_23_Verify_mandatory_fields_cfm_details_page"/>
+      <class name="Regression.Dashboard.Test_Cases.TC_16_Verify_test_type_is_prepopulated_based_on_url"/>
+      <class name="Regression.Dashboard.Test_Cases.TC_30_Verify_health_assessment_page_opens_upon_clicking_Start_Health_Assessment"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
