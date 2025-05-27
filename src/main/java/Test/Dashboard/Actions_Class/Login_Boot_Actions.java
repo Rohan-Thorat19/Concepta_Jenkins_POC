@@ -87,7 +87,7 @@ public class Login_Boot_Actions extends BaseClass {
 	
 	public String incorrectPasswordMsg() {
 		WebWait.visibilityOfElement(driver, login_boot_locators.getMsgIncorrectPassword_boot(), Duration.ofSeconds(30));
-		System.out.println(login_boot_locators.getMsgIncorrectPassword_boot().getText());
+		System.out.println("Alert: "+login_boot_locators.getMsgIncorrectPassword_boot().getText());
 		return login_boot_locators.getMsgIncorrectPassword_boot().getText();
 	}
 	
