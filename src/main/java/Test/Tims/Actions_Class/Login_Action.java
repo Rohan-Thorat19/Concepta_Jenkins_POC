@@ -75,14 +75,28 @@ public class Login_Action extends BaseClass {
 
 	public void enterEmailID_hcp(String EmailID) {
 		// Performing action on Email ID Text Box
+		WebWait.elementToBeClickable(driver, loginLocators.getemailAddress_hcp(), Duration.ofSeconds(20));
 		WebTextBox.sendInputUpdate(loginLocators.getemailAddress_hcp(), EmailID);
 
 	}
 
 	public void enterPassword_hcp(String Password) {
 		// Performing action on Password Text Box
+		WebWait.elementToBeClickable(driver, loginLocators.getpassword_hcp(), Duration.ofSeconds(20));
 		WebTextBox.sendInputUpdate(loginLocators.getpassword_hcp(), Password);
 	}
+	
+	//Dashboard Staging
+	public void enterEmailID_DB(String EmailID) {
+		WebWait.elementToBeClickable(driver, loginLocators.get_inputLoginEmail(), Duration.ofSeconds(20));
+		WebTextBox.sendInputUpdate(loginLocators.get_inputLoginEmail(), EmailID);
+	}
+	
+	public void enterPassword_DB(String EmailID) {
+		WebWait.elementToBeClickable(driver, loginLocators.get_inputLoginPassword(), Duration.ofSeconds(20));
+		WebTextBox.sendInputUpdate(loginLocators.get_inputLoginPassword(), EmailID);
+	}
+	
 
 	public void clickLoginButton_hcp() {
 		// click on login
@@ -135,12 +149,25 @@ public class Login_Action extends BaseClass {
 		clickLoginButton_Dashboard();
 	}
 	
-	public void login_Dashboard2() throws IOException {
+	public void login_Dashboard2() {
+		try {
 		login_boot_actions = new Login_Boot_Actions(getDriver());
-		login_boot_actions.boot_Url();
+		login_boot_actions.bootUrl();
 		enterEmailID_hcp(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "Dashboard_Email"));
 		enterPassword_hcp(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "Dashboard_Password"));
 		clickLoginButton_Dashboard();
+		} catch (Exception e) {
+			System.out.println("Exception: "+e.getMessage());
+		}
+	}
+	
+	public void navToDashboard() {
+		try {
+		login_boot_actions = new Login_Boot_Actions(getDriver());
+		login_boot_actions.bootUrl();
+		} catch (Exception e) {
+			System.out.println("Exception: "+e.getMessage());
+		}
 	}
 	
 	public void login_Tims_For_HCP() throws IOException, InterruptedException {
@@ -158,5 +185,26 @@ public class Login_Action extends BaseClass {
 		WebButton.clickButton(loginLocators.getLoginBtn_hcp());
 		// WebWait.waitForDOMLoad(driver, null);
 
+	}
+	
+	public void login_dashboard_staging() throws IOException {
+		try {
+			String urlKey = determineUrlKey("dashboard_automation_staging");
+			driver.get(urlKey);
+			enterEmailID_DB(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "Dashboard_Email"));
+			enterPassword_DB(PropertiesReader.getPropertyValue(WebCommonPath.testDatafile, "Dashboard_Password"));
+			clickLoginButton_Dashboard();
+		} catch (Exception e) {
+			System.out.println("Exception: " + e.getMessage());
+		}
+	}
+	
+	public void navToStagingDashboard() {
+		try {
+			String urlKey = determineUrlKey("dashboard_automation_staging");
+			driver.get(urlKey);
+		} catch (Exception e) {
+			System.out.println("Exception: " + e.getMessage());
+		}
 	}
 }

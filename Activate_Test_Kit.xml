@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_36_Verify_Personal_Details_Does_Not_Erase_If_Go_Back_Page"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_09_To_TC_18_Verify_Activate_Kit_Process"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_37_Verify_User_Friendly_UI"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_19_To_TC_20_Verify_Error_Messages_Are_Displayed_Properly"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_35_Verify_Same_Tracking_Number_Allowed_For_Multiple_Activation_Process"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_33_Verify_Placeholders"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_30_Verify_User_Cant_Goto_Activation_Confirmation_Page_Without_Completing_All_Previous_Steps"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_03_Verify_Error_With_Empty_Fields_For_Barcode_And_Tracking_Number"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_29_Verify_To_Edit_Date_After_Activation_Completed"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_23_To_TC_27_Verify_Screen_Resolution_Sizes"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_02_TC_40_Verify_Auto_Population_Of_Secondary_Barcode"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_01_Verify_User_Can_Click_The_Activate_Blood_Test_Button"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_34_Verify_Empty_Feilds_Required_Icon"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_08_Verify_Activate_Test_Kit_For_Expired_Barcode"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_05_Verify_System_Allows_User_To_Activate_Kit_For_InComplete_Activation_Process"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_55_to_TC_59_Verify_Various_Types_Of_Barcodes"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_07_Verify_Invalid_Tracking_Number"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_39_TC_41_Verify_Error_For_Invalid_Barcode"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_38_Verify_Tooltip_On_How_To_Page"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_06_Verify_Error_For_Already_Used_Barcode"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_31_Verify_No_Data_Remians_On_Screen_If_Browser_Back_Is_Used_After_Logout"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_22_Verify_System_Does_Not_Allow_To_Activate_Kit_More_Than_One_Time"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_42_Verify_End_To_End_Case"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_21_Verify_System_Correctly_Handles_Browser_Back_Button_Behavior"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_43_to_TC_54_ATC_Verify_The_Postage_Tracking_Number_Auto_Population"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_28_Verify_Webelements_Are_Labelled_Clearly"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_04_Verify_Large_Input_In_Barcode_Field"/>
+      <class name="Dashboard.Activate_Test_Kit_Test_Cases.TC_32_Verify_Double_Barcode_For_How_To_Page_With_12_Elements"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

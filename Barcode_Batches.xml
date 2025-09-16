@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="Tims.Barcode_Batches_Test_Cases.TC_01_to_TC_10_Verify_The_Presence_Of_Create_Blood_Batch_Button_On_The_Barcode_Batches_Page"/>
+      <class name="Tims.Barcode_Batches_Test_Cases.TC_16_TC_19_TC_20_TC_21_TC_18_Verify_Behavior_When_The_Count_Field_Contains_A_Value_Of_0"/>
+      <class name="Tims.Barcode_Batches_Test_Cases.TC_01_to_TC_13_DNA_Verify_The_Presence_Of_Create_DNA_Batch_Button"/>
+      <class name="Tims.Barcode_Batches_Test_Cases.TC_14_TC_11_TC_12_Verify_The_Form_Title_Is_Create_Blood_Batch"/>
+      <class name="Tims.Barcode_Batches_Test_Cases.TC_20_Verify_Clicking_On_Barcode_Batch_Type_User_Redirect_To_The_Details_Page"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

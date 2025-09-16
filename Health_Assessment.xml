@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="Dashboard.Health_Assessment_Test_Cases.TC_32_TC_33_Verify_Ability_To_Fill_The_Health_Assessment_After_Sample_Reach_To_Lab_For_Blood_Hormone_Tests"/>
+      <class name="Dashboard.Health_Assessment_Test_Cases.TC_44_TC_61_TC_62_Verify_The_Conversion_Accuracy_For_Height_And_Weight_Values_Between_Metric_And_Imperial_Units"/>
+      <class name="Dashboard.Health_Assessment_Test_Cases.TC_36_TC_37_Verify_Navigation_Buttons_Functionality_On_Health_Assessment_Page"/>
+      <class name="Dashboard.Health_Assessment_Test_Cases.TC_01_to_07_Verify_The_Successful_Health_Assessment_Filling_For_Normal_Blood_Test"/>
+      <class name="Dashboard.Health_Assessment_Test_Cases.TC_28_TC_29_Verify_Submitting_Health_Assessment_Without_Filling_Any_Data_On_Every_Page"/>
+      <class name="Dashboard.Health_Assessment_Test_Cases.TC_24_to_TC_27_Verify_That_Selecting_Other_Check_Box_For_Medical_Conditions_Prompts_The_Customer_To_Add_Custom_Details"/>
+      <class name="Dashboard.Health_Assessment_Test_Cases.TC_38_Verify_Required_Fields_Are_Marked_With_Asterisk"/>
+      <class name="Dashboard.Health_Assessment_Test_Cases.TC_41_Verify_That_All_Input_Fields_In_The_Health_Assessment_Form_Have_Appropriate_Placeholder_Text"/>
+      <class name="Dashboard.Health_Assessment_Test_Cases.TC_42_Verify_The_Successful_Health_Assessment_Filling_For_DNA_Test"/>
+      <class name="Dashboard.Health_Assessment_Test_Cases.TC_11_to_TC_17_Verify_The_Successful_Health_Assessment_Filling_For_Blood_SH_Test"/>
+      <class name="Dashboard.Health_Assessment_Test_Cases.TC_08_TC_09_TC_10_Verify_The_Successful_Health_Assessment_Filling_For_Blood_Hormone_Test"/>
+      <class name="Dashboard.Health_Assessment_Test_Cases.TC_40_Verify_All_Elements_Are_Visible_And_Aligned_Correctly"/>
+      <class name="Dashboard.Health_Assessment_Test_Cases.TC_30_TC_31_Verify_That_Fill_Health_Assessment_Change_After_Assessment_Completion"/>
+      <class name="Dashboard.Health_Assessment_Test_Cases.TC_34_Verify_That_Users_Can_Navigate_Between_Fields_Using_Tab_Key"/>
+      <class name="Dashboard.Health_Assessment_Test_Cases.TC_39_Verify_System_Handles_Special_Characters_Correctly_In_Text_Input_Fields"/>
+      <class name="Dashboard.Health_Assessment_Test_Cases.TC_35_Verify_The_NHS_Link_Navigation"/>
+      <class name="Dashboard.Health_Assessment_Test_Cases.TC_18_to_TC_23_Verify_Selecting_Yes_For_Smoking_And_Alcohol_Prompts_Additional_Options"/>
+      <class name="Dashboard.Health_Assessment_Test_Cases.TC_43_Verify_The_Successful_Health_Assessment_Filling_For_Normal_Blood_Test_With_The_Option_As_Yes"/>
+      <class name="Dashboard.Health_Assessment_Test_Cases.TC_45_to_TC_60_ATC_Verify_User_Enters_Negative_Height_And_Weight"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

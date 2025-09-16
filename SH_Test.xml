@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="Tims.SH_Test_Cases.TC_03_Verify_Test_Kit_Status_When_Only_Primary_Result_Is_Uploaded_SYPH_Not_Detected_HIV_Unconfirmed_Reactive"/>
+      <class name="Tims.SH_Test_Cases.TC_11_Verify_Test_Kit_Status_When_Both_Primary_And_Secondary_Result_Is_Uploaded"/>
+      <class name="Tims.SH_Test_Cases.TC_01_Verify_Test_Kit_Status_When_Only_Primary_Result_Is_Uploaded_SYPH_Not_Detected_HIV_Not_Detected"/>
+      <class name="Tims.SH_Test_Cases.TC_07_Verify_Test_Kit_Status_When_Only_Secondary_Result_Is_Uploaded_CLA_Detected_GON_Unconfirmed_Reactive"/>
+      <class name="Tims.SH_Test_Cases.TC_04_Verify_Test_Kit_Status_When_Only_Primary_Result_Is_Uploaded_SYPH_Unconfirmed_Reactive_HIV_Unconfirmed_Reactive"/>
+      <class name="Tims.SH_Test_Cases.TC_08_Verify_Test_Kit_Status_When_Only_Secondary_Result_Is_Uploaded_CLA_Not_Detected_GON_Unconfirmed_Reactive"/>
+      <class name="Tims.SH_Test_Cases.TC_06_Verify_Test_Kit_Status_When_Only_Secondary_Result_Is_Uploaded_CLA_Not_Detected_GON_Not_Detected"/>
+      <class name="Tims.SH_Test_Cases.TC_09_Verify_Test_Kit_Status_When_Only_Secondary_Result_Is_Uploaded_CLA_Detected_GON_Not_Detected"/>
+      <class name="Tims.SH_Test_Cases.TC_02_Verify_Test_Kit_Status_When_Only_Primary_Result_Is_Uploaded_SYPH_Unconfirmed_Reactive_HIV_Not_Detected"/>
+      <class name="Tims.SH_Test_Cases.TC_05_Verify_Test_Kit_Status_When_Only_Secondary_Result_Is_Uploaded_CLA_Detected_GON_Detected"/>
+      <class name="Tims.SH_Test_Cases.TC_10_Verify_Test_Kit_Status_When_Only_Secondary_Result_Is_Uploaded_CLA_Not_Detected_GON_Detected"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

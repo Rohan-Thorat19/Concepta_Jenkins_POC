@@ -58,5 +58,19 @@ public class Login_Locators {
 		return btnLoginhcp;
 	}
 	
+	//Dashboard
+	@FindBy(xpath = "//input[@name='email']")
+	private WebElement inputLoginEmail;
+	
+	public WebElement get_inputLoginEmail() {
+		return inputLoginEmail;
+	}
+	
+	@FindBy(xpath = "//input[@name='password']")
+	private WebElement inputLoginPassword;
+	
+	public WebElement get_inputLoginPassword() {
+		return inputLoginPassword;
+	}
 	
 }
