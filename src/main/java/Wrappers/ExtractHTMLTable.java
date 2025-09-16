@@ -65,8 +65,9 @@ public class ExtractHTMLTable {
             }
 
             // Add closing remarks
-            emailBody.append("<p>Best regards,</p>");
-            emailBody.append("<p>Atharva</p>");
+//            emailBody.append("<p>Best regards,</p>");
+//            emailBody.append("<p>Sagar</p>");
+            emailBody.append("<p>Best regards,<br>Sagar</p>");
             emailBody.append("</body></html>");
 
             // Save the email body to a file

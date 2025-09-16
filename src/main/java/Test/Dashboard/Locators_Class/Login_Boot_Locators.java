@@ -1,15 +1,10 @@
 package Test.Dashboard.Locators_Class;
 
-import java.io.IOException;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.Test;
 
-import Test.Hcp.Actions_Class.Login_Health_Professional_Actions;
 
 public class Login_Boot_Locators {
 	public WebDriver driver;
@@ -22,24 +17,24 @@ public class Login_Boot_Locators {
 	}
 
 	@FindBy(xpath = "//input[@name='email']")
-	private WebElement txtUsernameboot;
+	private WebElement emailBootTxt;
 
-	public WebElement getEmailaddress_boot() {
-		return txtUsernameboot;
+	public WebElement get_emailBootTxt() {
+		return emailBootTxt;
 	}
 
 	@FindBy(xpath = "//input[@name='password']")
-	private WebElement txtPasswordboot;
+	private WebElement passwordBootTxt;
 
-	public WebElement getPassword_boot() {
-		return txtPasswordboot;
+	public WebElement get_passwordBootTxt() {
+		return passwordBootTxt;
 	}
 	
-	@FindBy(xpath = "//*[@id=\"root\"]/div/div/div/div[2]")
-	private WebElement msgIncorrectPassword;
+	@FindBy(xpath = "//div[normalize-space()='Incorrect password.']")
+	private WebElement incorrectPasswordBootMsg;
 	
-	public WebElement getMsgIncorrectPassword_boot() {
-		return msgIncorrectPassword;
+	public WebElement get_incorrectPasswordBootMsg() {
+		return incorrectPasswordBootMsg;
 	}
 	
 	@FindBy(xpath ="//div[@class='invalid-feedback']")
@@ -50,102 +45,171 @@ public class Login_Boot_Locators {
 	}
 
 	@FindBy(xpath = "//button[@type='submit']")
-	private WebElement btnLoginboot;
+	private WebElement loginBootBtn;
 
-	public WebElement getLoginBtn_boot() {
-		return btnLoginboot;
+	public WebElement get_loginBootBtn() {
+		return loginBootBtn;
+	}
+	
+	@FindBy(xpath = "//button[normalize-space()='Log out']")
+	private WebElement bootMenuLogoutBtn;
+	
+	public WebElement get_bootMenuLogoutBtn() {
+		return bootMenuLogoutBtn;
+	}
+	
+	@FindBy(xpath = "//button[normalize-space()='Logout']")
+	private WebElement logoutBtn;
+	
+	public WebElement get_logoutBtn() {
+		return logoutBtn;
+	}
+	
+	@FindBy(xpath = "//div[normalize-space()='Logged out successfully!']")
+	private WebElement successfulLogoutMsg;
+	
+	public WebElement get_successfulLogoutMsg() {
+		return successfulLogoutMsg;
 	}
 
-	@FindBy(xpath = "//button[@class='btn btn-error']")
-	private WebElement btnEnableLater;
+	@FindBy(xpath = "//button[normalize-space()='Enable later']")
+	private WebElement enableLaterBtn;
 
-	public WebElement getEnableLater() {
-		return btnEnableLater;
+	public WebElement get_enableLaterBtn() {
+		return enableLaterBtn;
 	}
 	
 	@FindBy(xpath = "//*[contains(text(), 'Boots appointment')]")
-	private WebElement boots_Appointment;
+	private WebElement bootsAppointment;
 
-	public WebElement getboots_Appointment() {
-		return boots_Appointment;
+	public WebElement get_bootsAppointment() {
+		return bootsAppointment;
 	}
 
 	@FindBy(xpath = "//*[contains(text(), 'Logged in successfully!')]")
-	private WebElement txtSuccessMsgBoot;
+	private WebElement loginSuccessMsg;
 
-	public WebElement getSuccessMsg_boot() {
-		return txtSuccessMsgBoot;
+	public WebElement get_loginSuccessMsg() {
+		return loginSuccessMsg;
 	}
 	
 	@FindBy(xpath = "//p[contains(text(),'Welcome to your personalised MyHealthChecked panel')]")
-	private WebElement txtWelcomeMsg;
+	private WebElement WelcomeMsg;
 	
-	public WebElement getWelcomeMsg_boot() {
-		return txtWelcomeMsg;
+	public WebElement get_WelcomeMsg() {
+		return WelcomeMsg;
 	}
 
 	@FindBy(xpath = "//a[contains(@href,'/bloods/boots/registration/blood-thyroid')]")
-	private WebElement btnContinue;
+	private WebElement continueBtn;
 
-	public WebElement getContinueBtn() {
-		return btnContinue;
+	public WebElement get_continueBtn() {
+		return continueBtn;
 	}
 
 	@FindBy(xpath = "(//option[@value='blood-thyroid'])[1]")
-	private WebElement dropDownType;
+	private WebElement testTypeDrp;
 
-	public WebElement getdropDownType() {
-		return dropDownType;
-
+	public WebElement get_testTypeDrp() {
+		return testTypeDrp;
 	}
 
 	@FindBy(xpath = "//button[@type='submit']")
 	private WebElement confirmCtnBtn;
 
-	public WebElement getconfirmCtnBtn() {
+	public WebElement get_confirmCtnBtn() {
 		return confirmCtnBtn;
-
 	}
 
 	@FindBy(xpath = "//*[contains(text(), 'Test type confirmed!')]")
-	private WebElement testTypeCnfm;
+	private WebElement testTypeCnfmMsg;
 
-	public WebElement gettestTypeCnfm() {
-		return testTypeCnfm;
+	public WebElement get_testTypeCnfmMsg() {
+		return testTypeCnfmMsg;
 	}
 
 	@FindBy(xpath = "(//select[@id='input-test_type'])")
-	private WebElement NoSelectdropDown;
+	private WebElement noSelectDrp;
 
-	public WebElement getNoSelectdropDown() {
-		return NoSelectdropDown;
+	public WebElement get_noSelectDrp() {
+		return noSelectDrp;
 	}
 
 	@FindBy(xpath = "(//input[@id='consentGiven'])")
-	private WebElement chkboxConsent;
+	private WebElement consentChkbox;
 
-	public WebElement getchkboxConsent() {
-		return chkboxConsent;
+	public WebElement get_consentChkbox() {
+		return consentChkbox;
 	}
 
 	@FindBy(xpath = "(//input[@id='termsAccepted'])")
-	private WebElement chkboxAccept;
+	private WebElement acceptTermsChkbox;
 
-	public WebElement getchkboxAccept() {
-		return chkboxAccept;
+	public WebElement get_acceptTermsChkbox() {
+		return acceptTermsChkbox;
 	}
 
 	@FindBy(xpath = "(//button[@type='submit'])")
-	private WebElement submitConsent;
+	private WebElement submitConsentBtn;
 
-	public WebElement getsubmitConsent() {
-		return submitConsent;
+	public WebElement get_submitConsentBtn() {
+		return submitConsentBtn;
 	}
 	
 	@FindBy(xpath = "//*[contains(text(), 'Consent saved!')]")
-	private WebElement consentSaveSuccess;
+	private WebElement consentSaveSuccessMsg;
 
-	public WebElement getconsentSaveSuccess() {
-		return consentSaveSuccess;
+	public WebElement get_consentSaveSuccessMsg() {
+		return consentSaveSuccessMsg;
 	}
+	
+	@FindBy(xpath = "//div[contains(text(),'Email not found')]")
+	private WebElement emailNotFoundAlert;
+	
+	public WebElement get_emailNotFoundAlert() {
+		return emailNotFoundAlert;
+	}
+	
+	@FindBy(xpath = "//div[normalize-space()='Email is required']")
+	private WebElement emailIsRequiredErrorMsg;
+	
+	public WebElement get_emailIsRequiredErrorMsg() {
+		return emailIsRequiredErrorMsg;
+	}
+	
+	@FindBy(xpath = "//div[@class='input-group']/div[1]")
+	private WebElement passwordIsRequiredErrorMsg;
+	
+	public WebElement get_passwordIsRequiredErrorMsg() {
+		return passwordIsRequiredErrorMsg;
+	}
+	
+	@FindBy(xpath = "//div[normalize-space()='Please enter a valid email']")
+	private WebElement invalidEmailErrorMsg;
+	
+	public WebElement get_invalidEmailErrorMsg() {
+		return invalidEmailErrorMsg;
+	}
+	
+	@FindBy(xpath = "//span[@class='password-input input-group-text']")
+	private WebElement loginEyeIcon;
+	
+	public WebElement get_loginEyeIcon() {
+		return loginEyeIcon;
+	}
+	
+	@FindBy(xpath = "//label[normalize-space()='Email']")
+	private WebElement labelEmail;
+	
+	public WebElement get_labelEmail() {
+		return labelEmail;
+	}
+	
+	@FindBy(xpath = "//label[normalize-space()='Password']")
+	private WebElement labelPassword;
+	
+	public WebElement get_labelPassword() {
+		return labelPassword;
+	}
+	
 }

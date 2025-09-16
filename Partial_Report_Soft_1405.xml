@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="Tims.Partial_Report_SOFT_1405_Test_Cases.TC_11_Verify_Partial_Test_Report_Vitamins_Minerals_Profile_Test_For_FOL_Untestable_Insufficient_Post_Analytical"/>
+      <class name="Tims.Partial_Report_SOFT_1405_Test_Cases.TC_13_Verify_Partial_Test_Report_Vitamins_Minerals_Profile_Test_Other_Than_FOL_Untestable_Clotted_Post_Analytical"/>
+      <class name="Tims.Partial_Report_SOFT_1405_Test_Cases.TC_02_Verify_Partial_Test_Report_Energy_Profile_Test_For_Folate_Untestable_Insufficient_Post_Analytical"/>
+      <class name="Tims.Partial_Report_SOFT_1405_Test_Cases.TC_07_Verify_Partial_Test_Report_Energy_Profile_Test_For_FOL_ALT_ALP_Untestable_Damaged_Empty_Not_Returned"/>
+      <class name="Tims.Partial_Report_SOFT_1405_Test_Cases.TC_01_Verify_Published_Test_Report_Functionality_With_Full_Blood_Results"/>
+      <class name="Tims.Partial_Report_SOFT_1405_Test_Cases.TC_16_Verify_Partial_Test_Report_Weight_Management_Test_Other_Than_FOL_Untestable_Clotted_Post_Analytical"/>
+      <class name="Tims.Partial_Report_SOFT_1405_Test_Cases.TC_05_Verify_Partial_Test_Report_Energy_Profile_Test_For_FOL_ALP_Untestable_Grossly_Haemolysed"/>
+      <class name="Tims.Partial_Report_SOFT_1405_Test_Cases.TC_15_Verify_Partial_Test_Report_Weight_Management_Test_For_FOL_Untestable_Clotted_Post_Analytical"/>
+      <class name="Tims.Partial_Report_SOFT_1405_Test_Cases.TC_03_Verify_Partial_Test_Report_Energy_Profile_Test_For_FOL_ALT_Untestable_Clotted_Post_Analytical"/>
+      <class name="Tims.Partial_Report_SOFT_1405_Test_Cases.TC_12_Verify_Partial_Test_Report_Vitamins_Minerals_Profile_Test_For_FOL_Untestable_Clotted_Post_Analytical"/>
+      <class name="Tims.Partial_Report_SOFT_1405_Test_Cases.TC_04_Verify_Partial_Test_Report_Energy_Profile_Test_For_FOL_GGT_Untestable_Misc_Post_Analytical"/>
+      <class name="Tims.Partial_Report_SOFT_1405_Test_Cases.TC_14_Verify_Partial_Test_Report_Weight_Management_Test_For_FOL_Untestable_Grossly_Haemolysed"/>
+      <class name="Tims.Partial_Report_SOFT_1405_Test_Cases.TC_10_Verify_Partial_Test_Report_Energy_Profile_Test_Other_Than_FOL_ALT_GGT_ALP_Untestable_Clotted_Post_Analytical"/>
+      <class name="Tims.Partial_Report_SOFT_1405_Test_Cases.TC_06_Verify_Partial_Test_Report_Energy_Profile_Test_For_FOL_ALT_GGT_Untestable_Insufficient_Sample_Receipt"/>
+      <class name="Tims.Partial_Report_SOFT_1405_Test_Cases.TC_08_Verify_Partial_Test_Report_Energy_Profile_Test_For_FOL_GGT_ALP_Untestable_Clotted_Sample_Receipt"/>
+      <class name="Tims.Partial_Report_SOFT_1405_Test_Cases.TC_09_Verify_Partial_Test_Report_Energy_Profile_Test_For_FOL_ALT_GGT_ALP_Inhibitory"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

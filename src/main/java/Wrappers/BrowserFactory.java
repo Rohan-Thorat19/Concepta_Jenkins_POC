@@ -17,7 +17,7 @@ public class BrowserFactory {
         switch (browserName.toLowerCase()) {
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
-            
+                
                 if (isHeadless) {
                     chromeOptions.addArguments("--headless");
                     chromeOptions.addArguments("--disable-gpu");
@@ -28,6 +28,7 @@ public class BrowserFactory {
                     chromeOptions.addArguments("--disable-dev-shm-usage");
                 }
                 driver = new ChromeDriver(chromeOptions);
+                
                 break;
 
             case "firefox":
