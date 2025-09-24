@@ -1,0 +1,20 @@
+package Tims.Partial_Report_SOFT_1409_Test_Cases;
+
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+import Test.Tims.Partial_Report_Action_Class.SOFT_1409_Partial_Report_Actions;
+import initializer.BaseClass;
+
+public class TC_15_Verify_Partial_Reporting_For_General_Health_Test_For_The_Biomarkers_FBC_HbA1c_ALT_GGT_ALP_with_Error_Reason_Marked_As_Untestable_Clotted_Sample_Receipt extends BaseClass{
+
+SOFT_1409_Partial_Report_Actions soft_1409_partial_report_actions;
+	
+	@Test
+	public void TC_15_Verify_partial_test_reporting_for_the_general_health_test_specifically_for_the_biomarkers_FBC_HbA1c_ALT_GGT_ALP_with_error_reason_marked_as_untestable_clotted_sample_receipt() throws InterruptedException, IOException {
+		soft_1409_partial_report_actions = new SOFT_1409_Partial_Report_Actions(getDriver());
+		soft_1409_partial_report_actions.partialReportTC15();
+		
+	}
+}

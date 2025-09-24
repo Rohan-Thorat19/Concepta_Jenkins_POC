@@ -18,11 +18,25 @@ public class SOFT_1407_Partial_Report_Locators {
 
 	}
 	
-	@FindBy(xpath = "(//div[@class='table-responsive'])[5]//tbody//td[1]")
+	@FindBy(xpath = "//div[@id='collapseOne']//h5[normalize-space()='Full blood count']/following::div[1]//td[1]")
 	private List<WebElement> lavenderFullBloodCountBiomarkerList;
 	
 	public List<WebElement> get_lavenderFullBloodCountBiomarkerList() {
 		return lavenderFullBloodCountBiomarkerList;
+	} 
+	
+	@FindBy(xpath = "//div[@id='collapseOne']//h5[normalize-space()='Glucose']/following::div[1]//td[1]")
+	private List<WebElement> glucoseBiomarkerList;
+	
+	public List<WebElement> get_glucoseBiomarkerList() {
+		return glucoseBiomarkerList;
+	} 
+	
+	@FindBy(xpath = "(//div[@class='table-responsive'])[1]//tbody//td[1]")
+	private List<WebElement> liverHealthBiomarkerListReportDetails;
+	
+	public List<WebElement> get_liverHealthBiomarkerListReportDetails() {
+		return liverHealthBiomarkerListReportDetails;
 	} 
 	
 	@FindBy(xpath = "//div[@id='nav-tab']/a[normalize-space()='Secondary barcode results']")
@@ -46,5 +60,19 @@ public class SOFT_1407_Partial_Report_Locators {
 	public WebElement get_timsSecondaryBarcodeResultsNavForwardBtn() {
 		return  timsSecondaryBarcodeResultsNavForwardBtn;
 	}
+	
+	@FindBy(xpath = "//h4[normalize-space()='Status']")
+	private WebElement dbTestSummaryStatus;
+
+	public WebElement get_dbTestSummaryStatus() {
+		return  dbTestSummaryStatus;
+	}
+	
+	@FindBy(xpath = "(//table[@id='test-kit-result-table']/tbody//tr)")
+	private List<WebElement> primaryResultsFullBloodCountBiomarkerRows;
+	
+	public List<WebElement> get_primaryResultsFullBloodCountBiomarkerRows() {
+		return primaryResultsFullBloodCountBiomarkerRows;
+	} 
 	
 }

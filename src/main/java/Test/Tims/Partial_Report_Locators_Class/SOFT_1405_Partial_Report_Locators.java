@@ -1,5 +1,7 @@
 package Test.Tims.Partial_Report_Locators_Class;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -93,6 +95,13 @@ public class SOFT_1405_Partial_Report_Locators {
 		return  cholesterolGroupStatusDrp;
 	}
 	
+	@FindBy(xpath = "//select[@id='hormones-groupStatusSelect']")
+	private WebElement hormonesGroupStatusDrp;
+
+	public WebElement get_hormonesGroupStatusDrp() {
+		return  hormonesGroupStatusDrp;
+	}
+	
 	@FindBy(xpath = "//select[@id='glucose-groupStatusSelect']")
 	private WebElement glucoseGroupStatusDrp;
 
@@ -182,6 +191,13 @@ public class SOFT_1405_Partial_Report_Locators {
 
 	public WebElement get_testReportCholesterolBtn() {
 		return  testReportCholesterolBtn;
+	}
+	
+	@FindBy(xpath = "//button[normalize-space()='Hormones']")
+	private WebElement testReportHormonesBtn;
+
+	public WebElement get_testReportHormonesBtn() {
+		return  testReportHormonesBtn;
 	}
 	
 	@FindBy(xpath = "//button[normalize-space()='Glucose']")
@@ -303,6 +319,27 @@ public class SOFT_1405_Partial_Report_Locators {
 		return  dashboardCouldNotBeReportedError;
 	}
 	
+	@FindBy(xpath = "(//div[@class='blood-report-main--desktop']//div[@role='alert']//p)[1]")
+	private WebElement dashboardCouldNotBeReportedError1;
+
+	public WebElement get_dashboardCouldNotBeReportedError1() {
+		return  dashboardCouldNotBeReportedError1;
+	}
+	
+	@FindBy(xpath = "//div[@class='blood-report-main--desktop']//div[@role='alert']//p/strong[text()='Alanine Transaminase']")
+	private WebElement dashboardALTCouldNotBeReportedError;
+
+	public WebElement get_dashboardALTCouldNotBeReportedError() {
+		return  dashboardALTCouldNotBeReportedError;
+	}
+	
+	@FindBy(xpath = "//div[@class='blood-report-main--desktop']//div[@role='alert']//p/strong[text()='Alkaline Phosphatase']")
+	private WebElement dashboardALPCouldNotBeReportedError;
+
+	public WebElement get_dashboardALPCouldNotBeReportedError() {
+		return  dashboardALPCouldNotBeReportedError;
+	}
+	
 	@FindBy(xpath = "//span[normalize-space()='Vitamins & Minerals']/ancestor::button")
 	private WebElement vitaminsMineralsHealthAreaBtn;
 
@@ -315,6 +352,13 @@ public class SOFT_1405_Partial_Report_Locators {
 
 	public WebElement get_liverHealthHealthAreaBtn() {
 		return  liverHealthHealthAreaBtn;
+	}
+	
+	@FindBy(xpath = "//span[normalize-space()='Glucose']/ancestor::button")
+	private WebElement glucoseHealthAreaBtn;
+
+	public WebElement get_glucoseHealthAreaBtn() {
+		return  glucoseHealthAreaBtn;
 	}
 	
 	@FindBy(xpath = "//button[@aria-label='Next']")
