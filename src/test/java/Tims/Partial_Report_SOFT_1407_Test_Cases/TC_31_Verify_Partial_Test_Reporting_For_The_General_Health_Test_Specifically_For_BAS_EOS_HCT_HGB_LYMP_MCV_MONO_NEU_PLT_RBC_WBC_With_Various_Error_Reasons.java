@@ -1,0 +1,19 @@
+package Tims.Partial_Report_SOFT_1407_Test_Cases;
+
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+import Test.Tims.Partial_Report_Action_Class.SOFT_1407_Partial_Report_Actions;
+import initializer.BaseClass;
+
+public class TC_31_Verify_Partial_Test_Reporting_For_The_General_Health_Test_Specifically_For_BAS_EOS_HCT_HGB_LYMP_MCV_MONO_NEU_PLT_RBC_WBC_With_Various_Error_Reasons extends BaseClass{
+
+	SOFT_1407_Partial_Report_Actions soft_1407_partial_report_actions;
+
+	@Test
+	public void TC_31_Verify_partial_test_reporting_for_the_general_health_test_specifically_for_BAS_EOS_HCT_HGB_LYMP_MCV_MONO_NEU_PLT_RBC_WBC_with_various_error_reasons() throws InterruptedException, IOException {
+		soft_1407_partial_report_actions = new SOFT_1407_Partial_Report_Actions(getDriver());
+		soft_1407_partial_report_actions.partialReportTC31();
+	}
+}

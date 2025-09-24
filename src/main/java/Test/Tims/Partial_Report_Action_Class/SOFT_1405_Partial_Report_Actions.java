@@ -156,6 +156,7 @@ public class SOFT_1405_Partial_Report_Actions {
 		Thread.sleep(3000);
 		WebWait.elementToBeClickable(driver, activate_test_kit_locators.get_assignKitTypeHeaderMenu(), Duration.ofSeconds(10));
 		WebButton.JsclickButton(activate_test_kit_locators.get_assignKitTypeHeaderMenu(), driver);
+		WebWait.waitForDOMLoad(driver, Duration.ofSeconds(20));
 		Thread.sleep(2000);
 		WebWait.visibilityOfElement(driver, activate_test_kit_locators.get_typeOfTestKitDrp(), Duration.ofSeconds(20));
 		WebDropDown.selectByText(activate_test_kit_locators.get_typeOfTestKitDrp(), testType);
@@ -171,7 +172,7 @@ public class SOFT_1405_Partial_Report_Actions {
 		ExtentManager.getTest().log(Status.PASS, soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
 	}
 	
-	public void activateTestKitDoubleBarcode() throws InterruptedException, IOException {
+	public void activateTestKitDoubleBarcode(String gender) throws InterruptedException, IOException {
 		Thread.sleep(3000);
 		login_action.login_dashboard_staging();
 		Thread.sleep(3000);
@@ -199,7 +200,7 @@ public class SOFT_1405_Partial_Report_Actions {
 		WebTextBox.sendInputUpdate(health_assessment_locators.get_dobTxt(), "03/01/1999");
 		WebWait.visibilityOfElement(driver, health_assessment_locators.get_mobNoTxt(), Duration.ofSeconds(20));
 		WebTextBox.sendInputUpdate(health_assessment_locators.get_mobNoTxt(), "3333333333");
-		health_assessment_actions.selectSexAtBirth("Female");
+		health_assessment_actions.selectSexAtBirth(gender);
 		Thread.sleep(2000);
 		WebScrollView.scrollToElement(driver, activate_test_kit_locators.get_continueBtn());
 		Thread.sleep(2000);
@@ -319,7 +320,7 @@ public class SOFT_1405_Partial_Report_Actions {
 	
 	public void fullBloodResultPublishedReport() throws InterruptedException, IOException {
 		generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		activateTestKitDoubleBarcode();
+		activateTestKitDoubleBarcode("Male");
 		markKitAsReceived("Double");
 		uploadBloodResultsCsv("Energy_Profile_Test_Gold.csv", health_assessment_locators.get_uploadBloodResultCsvInput(),
 				"MGC-YUA-9578", Barcode1);
@@ -430,7 +431,7 @@ public class SOFT_1405_Partial_Report_Actions {
 	
 	public void partialReportTC2() throws InterruptedException, IOException {
 		generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		activateTestKitDoubleBarcode();
+		activateTestKitDoubleBarcode("Male");
 		markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGC-YUA-9578", Barcode1);
@@ -519,7 +520,7 @@ public class SOFT_1405_Partial_Report_Actions {
 	
 	public void partialReportTC3() throws InterruptedException, IOException {
 		generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		activateTestKitDoubleBarcode();
+		activateTestKitDoubleBarcode("Male");
 		markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGC-YUA-9578", Barcode1);
@@ -642,7 +643,7 @@ public class SOFT_1405_Partial_Report_Actions {
 	
 	public void partialReportTC4() throws InterruptedException, IOException {
 		generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		activateTestKitDoubleBarcode();
+		activateTestKitDoubleBarcode("Male");
 		markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGC-YUA-9578", Barcode1);
@@ -768,7 +769,7 @@ public class SOFT_1405_Partial_Report_Actions {
 	
 	public void partialReportTC5() throws InterruptedException, IOException {
 		generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		activateTestKitDoubleBarcode();
+		activateTestKitDoubleBarcode("Male");
 		markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGC-YUA-9578", Barcode1);
@@ -892,7 +893,7 @@ public class SOFT_1405_Partial_Report_Actions {
 	
 	public void partialReportTC6() throws InterruptedException, IOException {
 		generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		activateTestKitDoubleBarcode();
+		activateTestKitDoubleBarcode("Female");
 		markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGC-YUA-9578", Barcode1);
@@ -1034,7 +1035,7 @@ public class SOFT_1405_Partial_Report_Actions {
 	
 	public void partialReportTC7() throws InterruptedException, IOException {
 		generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		activateTestKitDoubleBarcode();
+		activateTestKitDoubleBarcode("Female");
 		markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGC-YUA-9578", Barcode1);
@@ -1173,7 +1174,7 @@ public class SOFT_1405_Partial_Report_Actions {
 	
 	public void partialReportTC8() throws InterruptedException, IOException {
 		generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		activateTestKitDoubleBarcode();
+		activateTestKitDoubleBarcode("Male");
 		markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGC-YUA-9578", Barcode1);
@@ -1315,7 +1316,7 @@ public class SOFT_1405_Partial_Report_Actions {
 	
 	public void partialReportTC9() throws InterruptedException, IOException {
 		generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		activateTestKitDoubleBarcode();
+		activateTestKitDoubleBarcode("Female");
 		markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGC-YUA-9578", Barcode1);
@@ -1464,7 +1465,7 @@ public class SOFT_1405_Partial_Report_Actions {
 	
 	public void partialReportTC10() throws InterruptedException, IOException {
 		generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		activateTestKitDoubleBarcode();
+		activateTestKitDoubleBarcode("Female");
 		markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGC-YUA-9578", Barcode1);
@@ -1682,7 +1683,7 @@ public class SOFT_1405_Partial_Report_Actions {
 	
 	public void partialReportTC14() throws InterruptedException, IOException {
 		generateDoubleBarcode("Weight Management Test", "Gold", "Lavender");
-		activateTestKitDoubleBarcode();
+		activateTestKitDoubleBarcode("Female");
 		markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGR-VXG-1223", Barcode1);
@@ -1771,7 +1772,7 @@ public class SOFT_1405_Partial_Report_Actions {
 	
 	public void partialReportTC15() throws InterruptedException, IOException {
 		generateDoubleBarcode("Weight Management Test", "Gold", "Lavender");
-		activateTestKitDoubleBarcode();
+		activateTestKitDoubleBarcode("Female");
 		markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGR-VXG-1223", Barcode1);
@@ -1859,7 +1860,7 @@ public class SOFT_1405_Partial_Report_Actions {
 	
 	public void partialReportTC16() throws InterruptedException, IOException {
 		generateDoubleBarcode("Weight Management Test", "Gold", "Lavender");
-		activateTestKitDoubleBarcode();
+		activateTestKitDoubleBarcode("Female");
 		markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGR-VXG-1223", Barcode1);

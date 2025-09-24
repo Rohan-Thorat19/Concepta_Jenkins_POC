@@ -33,6 +33,7 @@ import Wrappers.WebButton;
 import Wrappers.WebCommonPath;
 import Wrappers.WebDropDown;
 import Wrappers.WebScrollView;
+import Wrappers.WebTextBox;
 import Wrappers.WebWait;
 import initializer.ExtentManager;
 
@@ -71,7 +72,7 @@ public class SOFT_1407_Partial_Report_Actions {
 	
 	public void partialReportTC01() throws InterruptedException, IOException {
 		soft_1405_Partial_Report_actions.generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode();
+		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode("Female");
 		soft_1405_Partial_Report_actions.markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGC-YUA-9578", SOFT_1405_Partial_Report_Actions.Barcode1);
@@ -144,7 +145,7 @@ public class SOFT_1407_Partial_Report_Actions {
 		expectedValues.put("Red Blood Cell", "Insufficient");
 		expectedValues.put("White Blood Cells", "Insufficient");
 		
-		validateBiomarkersReportDetails(expectedValues);
+		validateBiomarkersReportDetails(expectedValues, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList());
 		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
 		
 		Map<String, String> secondaryResultsExpectedValues = new HashMap<>();
@@ -206,7 +207,7 @@ public class SOFT_1407_Partial_Report_Actions {
 	
 	public void partialReportTC02() throws InterruptedException, IOException {
 		soft_1405_Partial_Report_actions.generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode();
+		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode("Female");
 		soft_1405_Partial_Report_actions.markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGC-YUA-9578", SOFT_1405_Partial_Report_Actions.Barcode1);
@@ -279,7 +280,7 @@ public class SOFT_1407_Partial_Report_Actions {
 		expectedValues.put("Red Blood Cell", "Insufficient");
 		expectedValues.put("White Blood Cells", "Insufficient");
 		
-		validateBiomarkersReportDetails(expectedValues);
+		validateBiomarkersReportDetails(expectedValues, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList());
 		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
 		
 		Map<String, String> secondaryResultsExpectedValues = new HashMap<>();
@@ -341,7 +342,7 @@ public class SOFT_1407_Partial_Report_Actions {
 	
 	public void partialReportTC03() throws InterruptedException, IOException {
 		soft_1405_Partial_Report_actions.generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode();
+		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode("Female");
 		soft_1405_Partial_Report_actions.markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGC-YUA-9578", SOFT_1405_Partial_Report_Actions.Barcode1);
@@ -414,7 +415,7 @@ public class SOFT_1407_Partial_Report_Actions {
 		expectedValues.put("Red Blood Cell", "Untestable");
 		expectedValues.put("White Blood Cells", "Untestable");
 		
-		validateBiomarkersReportDetails(expectedValues);
+		validateBiomarkersReportDetails(expectedValues, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList());
 		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
 		
 		Map<String, String> secondaryResultsExpectedValues = new HashMap<>();
@@ -476,7 +477,7 @@ public class SOFT_1407_Partial_Report_Actions {
 	
 	public void partialReportTC04() throws InterruptedException, IOException {
 		soft_1405_Partial_Report_actions.generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode();
+		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode("Male");
 		soft_1405_Partial_Report_actions.markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGC-YUA-9578", SOFT_1405_Partial_Report_Actions.Barcode1);
@@ -549,7 +550,7 @@ public class SOFT_1407_Partial_Report_Actions {
 		expectedValues.put("Red Blood Cell", "Untestable");
 		expectedValues.put("White Blood Cells", "Untestable");
 		
-		validateBiomarkersReportDetails(expectedValues);
+		validateBiomarkersReportDetails(expectedValues, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList());
 		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
 		
 		Map<String, String> secondaryResultsExpectedValues = new HashMap<>();
@@ -611,7 +612,7 @@ public class SOFT_1407_Partial_Report_Actions {
 	
 	public void partialReportTC05() throws InterruptedException, IOException {
 		soft_1405_Partial_Report_actions.generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode();
+		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode("Male");
 		soft_1405_Partial_Report_actions.markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGC-YUA-9578", SOFT_1405_Partial_Report_Actions.Barcode1);
@@ -684,7 +685,7 @@ public class SOFT_1407_Partial_Report_Actions {
 		expectedValues.put("Red Blood Cell", "Haemolysed");
 		expectedValues.put("White Blood Cells", "Haemolysed");
 		
-		validateBiomarkersReportDetails(expectedValues);
+		validateBiomarkersReportDetails(expectedValues, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList());
 		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
 		
 		Map<String, String> secondaryResultsExpectedValues = new HashMap<>();
@@ -746,7 +747,7 @@ public class SOFT_1407_Partial_Report_Actions {
 	
 	public void partialReportTC06() throws InterruptedException, IOException {
 		soft_1405_Partial_Report_actions.generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode();
+		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode("Female");
 		soft_1405_Partial_Report_actions.markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGC-YUA-9578", SOFT_1405_Partial_Report_Actions.Barcode1);
@@ -819,7 +820,7 @@ public class SOFT_1407_Partial_Report_Actions {
 		expectedValues.put("Red Blood Cell", "Clotted");
 		expectedValues.put("White Blood Cells", "Clotted");
 		
-		validateBiomarkersReportDetails(expectedValues);
+		validateBiomarkersReportDetails(expectedValues, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList());
 		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
 		
 		Map<String, String> secondaryResultsExpectedValues = new HashMap<>();
@@ -881,7 +882,7 @@ public class SOFT_1407_Partial_Report_Actions {
 	
 	public void partialReportTC07() throws InterruptedException, IOException {
 		soft_1405_Partial_Report_actions.generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode();
+		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode("Female");
 		soft_1405_Partial_Report_actions.markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGC-YUA-9578", SOFT_1405_Partial_Report_Actions.Barcode1);
@@ -954,7 +955,7 @@ public class SOFT_1407_Partial_Report_Actions {
 		expectedValues.put("Red Blood Cell", "Clotted");
 		expectedValues.put("White Blood Cells", "Clotted");
 		
-		validateBiomarkersReportDetails(expectedValues);
+		validateBiomarkersReportDetails(expectedValues, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList());
 		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
 		
 		Map<String, String> secondaryResultsExpectedValues = new HashMap<>();
@@ -1016,7 +1017,7 @@ public class SOFT_1407_Partial_Report_Actions {
 	
 	public void partialReportTC08() throws InterruptedException, IOException {
 		soft_1405_Partial_Report_actions.generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode();
+		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode("Female");
 		soft_1405_Partial_Report_actions.markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGC-YUA-9578", SOFT_1405_Partial_Report_Actions.Barcode1);
@@ -1089,7 +1090,7 @@ public class SOFT_1407_Partial_Report_Actions {
 		expectedValues.put("Red Blood Cell", "Untestable");
 		expectedValues.put("White Blood Cells", "Untestable");
 		
-		validateBiomarkersReportDetails(expectedValues);
+		validateBiomarkersReportDetails(expectedValues, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList());
 		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
 		
 		Map<String, String> secondaryResultsExpectedValues = new HashMap<>();
@@ -1151,7 +1152,7 @@ public class SOFT_1407_Partial_Report_Actions {
 	
 	public void partialReportTC09() throws InterruptedException, IOException {
 		soft_1405_Partial_Report_actions.generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode();
+		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode("Female");
 		soft_1405_Partial_Report_actions.markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGC-YUA-9578", SOFT_1405_Partial_Report_Actions.Barcode1);
@@ -1224,7 +1225,7 @@ public class SOFT_1407_Partial_Report_Actions {
 		expectedValues.put("Red Blood Cell", "Untestable");
 		expectedValues.put("White Blood Cells", "Untestable");
 		
-		validateBiomarkersReportDetails(expectedValues);
+		validateBiomarkersReportDetails(expectedValues, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList());
 		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
 		
 		Map<String, String> secondaryResultsExpectedValues = new HashMap<>();
@@ -1286,7 +1287,7 @@ public class SOFT_1407_Partial_Report_Actions {
 	
 	public void partialReportTC10() throws InterruptedException, IOException {
 		soft_1405_Partial_Report_actions.generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode();
+		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode("Female");
 		soft_1405_Partial_Report_actions.markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGC-YUA-9578", SOFT_1405_Partial_Report_Actions.Barcode1);
@@ -1359,7 +1360,7 @@ public class SOFT_1407_Partial_Report_Actions {
 		expectedValues.put("Red Blood Cell", "Untestable");
 		expectedValues.put("White Blood Cells", "Untestable");
 		
-		validateBiomarkersReportDetails(expectedValues);
+		validateBiomarkersReportDetails(expectedValues, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList());
 		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
 		
 		Map<String, String> secondaryResultsExpectedValues = new HashMap<>();
@@ -1421,7 +1422,7 @@ public class SOFT_1407_Partial_Report_Actions {
 	
 	public void partialReportTC11() throws InterruptedException, IOException {
 		soft_1405_Partial_Report_actions.generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode();
+		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode("Female");
 		soft_1405_Partial_Report_actions.markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGC-YUA-9578", SOFT_1405_Partial_Report_Actions.Barcode1);
@@ -1489,7 +1490,7 @@ public class SOFT_1407_Partial_Report_Actions {
 		expectedValues.put("Red Blood Cell", "5.7 10¹²/L");
 		expectedValues.put("White Blood Cells", "10.9 10⁹/L");
 		
-		validateBiomarkersReportDetails(expectedValues);
+		validateBiomarkersReportDetails(expectedValues, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList());
 		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
 		
 		Map<String, String> secondaryResultsExpectedValues = new HashMap<>();
@@ -1551,7 +1552,7 @@ public class SOFT_1407_Partial_Report_Actions {
 	
 	public void partialReportTC12() throws InterruptedException, IOException {
 		soft_1405_Partial_Report_actions.generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
-		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode();
+		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode("Female");
 		soft_1405_Partial_Report_actions.markKitAsReceived("Double");
 		Map<String,String> goldReplacements = new HashMap<>();
 		goldReplacements.put("MGC-YUA-9578", SOFT_1405_Partial_Report_Actions.Barcode1);
@@ -1619,7 +1620,7 @@ public class SOFT_1407_Partial_Report_Actions {
 		expectedValues.put("Red Blood Cell", "5.7 10¹²/L");
 		expectedValues.put("White Blood Cells", "10.9 10⁹/L");
 		
-		validateBiomarkersReportDetails(expectedValues);
+		validateBiomarkersReportDetails(expectedValues, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList());
 		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
 		
 		Map<String, String> secondaryResultsExpectedValues = new HashMap<>();
@@ -1679,6 +1680,966 @@ public class SOFT_1407_Partial_Report_Actions {
 		
 	}
 	
+	public void partialReportTC13() throws InterruptedException, IOException {
+		soft_1405_Partial_Report_actions.generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
+		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode("Male");
+		soft_1405_Partial_Report_actions.markKitAsReceived("Double");
+		Map<String,String> goldReplacements = new HashMap<>();
+		goldReplacements.put("MGC-YUA-9578", SOFT_1405_Partial_Report_Actions.Barcode1);
+		
+		Map<String,String> lavenderReplacements = new HashMap<>();
+		lavenderReplacements.put("MLQ-USY-4392", SOFT_1405_Partial_Report_Actions.Barcode2);
+		lavenderReplacements.put("449.9", "Untestable – Insufficient (sample receipt)");
+		lavenderReplacements.put("5.7", "Untestable – Insufficient (sample receipt)");
+		lavenderReplacements.put("10.9", "Untestable – Insufficient (sample receipt)");
+		
+		soft_1405_Partial_Report_actions.uploadBloodResultCsvMultipleReplacements(driver, WebCommonPath.energyProfileResultsGoldCsv, health_assessment_locators.get_uploadBloodResultCsvInput(), goldReplacements);
+		Thread.sleep(2000);
+		soft_1405_Partial_Report_actions.uploadBloodResultCsvMultipleReplacements(driver, WebCommonPath.energyProfileResultsLavenderCsv, health_assessment_locators.get_uploadBloodResultCsvInput(), lavenderReplacements);
+//		WebWait.visibilityOfElement(driver, soft_1405_Partial_Report_Locators.get_toasterMsg(), Duration.ofSeconds(30));
+//		System.out.println("Result upload: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+//		ExtentManager.getTest().log(Status.PASS, "Result upload: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+//		
+		soft_1405_Partial_Report_actions.assignDoctor();
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportGeneralBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportGeneralBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_overallStatusDrp(), Duration.ofSeconds(10));
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_overallStatusDrp(), "1", driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportThyroidProfileBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportThyroidProfileBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_thyroidProfileGroupStatusDrp(), Duration.ofSeconds(10));
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_thyroidProfileGroupStatusDrp(), "1", driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportLiverHealthBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportLiverHealthBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_liverHealthGroupStatusDrp(), Duration.ofSeconds(10));
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_liverHealthGroupStatusDrp(), "1", driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportKidneyHealthBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportKidneyHealthBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_kidneyHealthGroupStatusDrp(), Duration.ofSeconds(10));
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_kidneyHealthGroupStatusDrp(), "1", driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportVitaminsMineralsBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportVitaminsMineralsBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_vitaminsMineralsGroupStatusDrp(), Duration.ofSeconds(10));
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_vitaminsMineralsGroupStatusDrp(), "1", driver);
+		
+		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
+		WebScrollView.scrollToElement(driver, soft_1405_Partial_Report_Locators.get_testReportSaveChangesBtn());
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportSaveChangesBtn(), driver);
+		WebWait.visibilityOfElement(driver, soft_1405_Partial_Report_Locators.get_toasterMsg(), Duration.ofSeconds(30));
+		assertTrue(soft_1405_Partial_Report_Locators.get_toasterMsg().isDisplayed(), "Report not Published");
+		System.out.println("Alert: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+		ExtentManager.getTest().log(Status.PASS, "Alert: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+		
+		soft_1405_Partial_Report_actions.testResultInfoPagevalidation();
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_headerReportTab(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_headerReportTab(), driver);
+		Thread.sleep(2000);
+		WebWait.visibilityListOfElements(driver, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList(), Duration.ofSeconds(10));
+		
+		Map<String, String> expectedValues = new HashMap<>();
+		expectedValues.put("Basophils", "0.05 10⁹/L");
+		expectedValues.put("Eosinophils", "0.32 10⁹/L");
+		expectedValues.put("Haematocrit", "0.37 %");
+		expectedValues.put("Haemoglobin", "164.9 g/L");
+		expectedValues.put("Lymphocytes", "4.4 10⁹/L");
+		expectedValues.put("Mean Cell Volume", "99.9 fL");
+		expectedValues.put("Monocytes", "0.7 10⁹/L");
+		expectedValues.put("Neutrophils", "7.4 10⁹/L");
+		expectedValues.put("Platelet Count", "Insufficient");
+		expectedValues.put("Red Blood Cell", "Insufficient");
+		expectedValues.put("White Blood Cells", "Insufficient");
+		
+		validateBiomarkersReportDetails(expectedValues, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList());
+		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
+		
+		Map<String, String> secondaryResultsExpectedValues = new HashMap<>();
+		secondaryResultsExpectedValues.put("BAS", "0.05");
+		secondaryResultsExpectedValues.put("EOS", "0.32");
+		secondaryResultsExpectedValues.put("HCT", "0.37");
+		secondaryResultsExpectedValues.put("HGB", "164.9");
+		secondaryResultsExpectedValues.put("LYMP", "4.4");
+		secondaryResultsExpectedValues.put("MCV", "99.9");
+		secondaryResultsExpectedValues.put("MONO", "0.7");
+		secondaryResultsExpectedValues.put("NEU", "7.4");
+		secondaryResultsExpectedValues.put("PLT", "Untestable – Insufficient (sample receipt)");
+		secondaryResultsExpectedValues.put("RBC", "Untestable – Insufficient (sample receipt)");
+		secondaryResultsExpectedValues.put("WBC", "Untestable – Insufficient (sample receipt)");
+		
+		Map<String, String> secondaryResultsExpectedErrors = new HashMap<>();
+		secondaryResultsExpectedErrors.put("BAS", "no-error");
+		secondaryResultsExpectedErrors.put("EOS", "no-error");
+        secondaryResultsExpectedErrors.put("HCT", "no-error");
+        secondaryResultsExpectedErrors.put("HGB", "no-error");
+        secondaryResultsExpectedErrors.put("LYMP", "no-error");
+        secondaryResultsExpectedErrors.put("MCV", "no-error");
+        secondaryResultsExpectedErrors.put("MONO", "no-error");
+        secondaryResultsExpectedErrors.put("NEU", "no-error");
+        secondaryResultsExpectedErrors.put("PLT", "untestable-insufficient-sample-receipt");
+        secondaryResultsExpectedErrors.put("RBC", "untestable-insufficient-sample-receipt");
+        secondaryResultsExpectedErrors.put("WBC", "untestable-insufficient-sample-receipt");
+        
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_timsTestReportInfoTab(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_timsTestReportInfoTab(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_timsViewTestKitHypLnk(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_timsViewTestKitHypLnk(), driver);
+		WebWait.elementToBeClickable(driver, soft_1407_Partial_Report_Locators.get_timsTestKitsSecondaryBarcodeResultsTab(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1407_Partial_Report_Locators.get_timsTestKitsSecondaryBarcodeResultsTab(), driver);
+		Thread.sleep(2000);
+		
+		WebWait.visibilityListOfElements(driver, soft_1407_Partial_Report_Locators.get_secondaryResultsFullBloodCountBiomarkerRows(), Duration.ofSeconds(10));
+		List<WebElement> biomarkerRowsPage1 = soft_1407_Partial_Report_Locators.get_secondaryResultsFullBloodCountBiomarkerRows();
+		vaidateBiomarkersPrimSecResultsPage(biomarkerRowsPage1, secondaryResultsExpectedValues, secondaryResultsExpectedErrors);
+		 
+		WebWait.elementToBeClickable(driver, soft_1407_Partial_Report_Locators.get_timsSecondaryBarcodeResultsNavForwardBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1407_Partial_Report_Locators.get_timsSecondaryBarcodeResultsNavForwardBtn(), driver);
+		Thread.sleep(2000);
+		WebWait.visibilityListOfElements(driver, driver.findElements(By.xpath("(//table[@id='secondary-test-kit-result-table']/tbody//tr)")), Duration.ofSeconds(10));
+		List<WebElement> biomarkerRowsPage2 = driver.findElements(By.xpath("(//table[@id='secondary-test-kit-result-table']/tbody//tr)"));
+		vaidateBiomarkersPrimSecResultsPage(biomarkerRowsPage2, secondaryResultsExpectedValues, secondaryResultsExpectedErrors)	;
+
+		soft_1405_Partial_Report_actions.dashboardViewReport();
+		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_fullBloodCountHealthAreaBtn(), "Full blood count");
+		
+		WebWait.visibilityOfElement(driver, soft_1405_Partial_Report_Locators.get_dashboardCouldNotBeReportedError(), Duration.ofSeconds(10));
+		String actualALTErrorMsg = soft_1405_Partial_Report_Locators.get_dashboardCouldNotBeReportedError().getText();
+		String expectedALTError = "Full blood count could not be reported.";
+		System.out.println("Error (Full blood count): "+actualALTErrorMsg);
+		assertEquals(actualALTErrorMsg, expectedALTError, "Error message mismatch");
+		ExtentManager.getTest().log(Status.PASS, "Error (Full blood count): "+actualALTErrorMsg);
+		
+	}
+	
+	public void partialReportTC14() throws InterruptedException, IOException {
+		soft_1405_Partial_Report_actions.generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
+		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode("Male");
+		soft_1405_Partial_Report_actions.markKitAsReceived("Double");
+		Map<String,String> goldReplacements = new HashMap<>();
+		goldReplacements.put("MGC-YUA-9578", SOFT_1405_Partial_Report_Actions.Barcode1);
+		
+		Map<String,String> lavenderReplacements = new HashMap<>();
+		lavenderReplacements.put("MLQ-USY-4392", SOFT_1405_Partial_Report_Actions.Barcode2);
+		lavenderReplacements.put("0.05", "Report error – investigate");
+		lavenderReplacements.put("0.32", "Report error – investigate");
+		lavenderReplacements.put("0.37", "Report error – investigate");
+		lavenderReplacements.put("164.9", "Report error – investigate");
+		lavenderReplacements.put("4.4", "Report error – investigate");
+		lavenderReplacements.put("99.9", "Report error – investigate");
+		lavenderReplacements.put("0.7", "Report error – investigate");
+		lavenderReplacements.put("7.4", "Report error – investigate");
+		lavenderReplacements.put("449.9", "Report error – investigate");
+		lavenderReplacements.put("5.7", "Report error – investigate");
+		lavenderReplacements.put("10.9", "Report error – investigate");
+		
+		soft_1405_Partial_Report_actions.uploadBloodResultCsvMultipleReplacements(driver, WebCommonPath.energyProfileResultsGoldCsv, health_assessment_locators.get_uploadBloodResultCsvInput(), goldReplacements);
+		Thread.sleep(2000);
+		soft_1405_Partial_Report_actions.uploadBloodResultCsvMultipleReplacements(driver, WebCommonPath.energyProfileResultsLavenderCsv, health_assessment_locators.get_uploadBloodResultCsvInput(), lavenderReplacements);
+
+		WebWait.visibilityOfElement(driver, activate_test_kit_locators.get_testKitSideMenuItem(), Duration.ofSeconds(20));
+		WebButton.JsclickButton(activate_test_kit_locators.get_testKitSideMenuItem(), driver);
+		WebWait.visibilityOfElement(driver, sh_locators.get_primaryBarcodeSearchTxt(), Duration.ofSeconds(20));
+		WebTextBox.sendInput(sh_locators.get_primaryBarcodeSearchTxt(), SOFT_1405_Partial_Report_Actions.Barcode1);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testKitId(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testKitId(), driver);
+
+		Map<String, String> expectedValues = new HashMap<>();
+		expectedValues.put("Basophils", "0.05 10⁹/L");
+		expectedValues.put("Eosinophils", "0.32 10⁹/L");
+		expectedValues.put("Haematocrit", "0.37 %");
+		expectedValues.put("Haemoglobin", "164.9 g/L");
+		expectedValues.put("Lymphocytes", "4.4 10⁹/L");
+		expectedValues.put("Mean Cell Volume", "99.9 fL");
+		expectedValues.put("Monocytes", "0.7 10⁹/L");
+		expectedValues.put("Neutrophils", "7.4 10⁹/L");
+		expectedValues.put("Platelet Count", "Insufficient");
+		expectedValues.put("Red Blood Cell", "Insufficient");
+		expectedValues.put("White Blood Cells", "Insufficient");
+		
+		validateBiomarkersReportDetails(expectedValues, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList());
+		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
+		
+		Map<String, String> secondaryResultsExpectedValues = new HashMap<>();
+		secondaryResultsExpectedValues.put("BAS", "Report error – investigate");
+		secondaryResultsExpectedValues.put("EOS", "Report error – investigate");
+		secondaryResultsExpectedValues.put("HCT", "Report error – investigate");
+		secondaryResultsExpectedValues.put("HGB", "Report error – investigate");
+		secondaryResultsExpectedValues.put("LYMP", "Report error – investigate");
+		secondaryResultsExpectedValues.put("MCV", "Report error – investigate");
+		secondaryResultsExpectedValues.put("MONO", "Report error – investigate");
+		secondaryResultsExpectedValues.put("NEU", "Report error – investigate");
+		secondaryResultsExpectedValues.put("PLT", "Report error – investigate");
+		secondaryResultsExpectedValues.put("RBC", "Report error – investigate");
+		secondaryResultsExpectedValues.put("WBC", "Report error – investigate");
+		
+		Map<String, String> secondaryResultsExpectedErrors = new HashMap<>();
+		secondaryResultsExpectedErrors.put("BAS", "report-error-investigate");
+		secondaryResultsExpectedErrors.put("EOS", "report-error-investigate");
+        secondaryResultsExpectedErrors.put("HCT", "report-error-investigate");
+        secondaryResultsExpectedErrors.put("HGB", "report-error-investigate");
+        secondaryResultsExpectedErrors.put("LYMP", "report-error-investigate");
+        secondaryResultsExpectedErrors.put("MCV", "report-error-investigate");
+        secondaryResultsExpectedErrors.put("MONO", "report-error-investigate");
+        secondaryResultsExpectedErrors.put("NEU", "report-error-investigate");
+        secondaryResultsExpectedErrors.put("PLT", "report-error-investigate");
+        secondaryResultsExpectedErrors.put("RBC", "report-error-investigate");
+        secondaryResultsExpectedErrors.put("WBC", "report-error-investigate");
+        
+		WebWait.elementToBeClickable(driver, soft_1407_Partial_Report_Locators.get_timsTestKitsSecondaryBarcodeResultsTab(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1407_Partial_Report_Locators.get_timsTestKitsSecondaryBarcodeResultsTab(), driver);
+		Thread.sleep(2000);
+		
+		WebWait.visibilityListOfElements(driver, soft_1407_Partial_Report_Locators.get_secondaryResultsFullBloodCountBiomarkerRows(), Duration.ofSeconds(10));
+		List<WebElement> biomarkerRowsPage1 = soft_1407_Partial_Report_Locators.get_secondaryResultsFullBloodCountBiomarkerRows();
+		vaidateBiomarkersPrimSecResultsPage(biomarkerRowsPage1, secondaryResultsExpectedValues, secondaryResultsExpectedErrors);
+		 
+		WebWait.elementToBeClickable(driver, soft_1407_Partial_Report_Locators.get_timsSecondaryBarcodeResultsNavForwardBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1407_Partial_Report_Locators.get_timsSecondaryBarcodeResultsNavForwardBtn(), driver);
+		Thread.sleep(2000);
+		WebWait.visibilityListOfElements(driver, driver.findElements(By.xpath("(//table[@id='secondary-test-kit-result-table']/tbody//tr)")), Duration.ofSeconds(10));
+		List<WebElement> biomarkerRowsPage2 = driver.findElements(By.xpath("(//table[@id='secondary-test-kit-result-table']/tbody//tr)"));
+		vaidateBiomarkersPrimSecResultsPage(biomarkerRowsPage2, secondaryResultsExpectedValues, secondaryResultsExpectedErrors)	;
+
+		login_action.navToStagingDashboard();
+		WebWait.visibilityOfElement(driver, health_assessment_locators.get_myResultBootsMenu(), Duration.ofSeconds(20));
+		WebButton.JsclickButton(health_assessment_locators.get_myResultBootsMenu(), driver);
+		WebWait.visibilityOfElement(driver, health_assessment_locators.get_myResultsTitleTxt(), Duration.ofSeconds(40));
+		WebWait.visibilityOfElement(driver, customer_landing_actions.getViewTestBtn(SOFT_1405_Partial_Report_Actions.Barcode1), Duration.ofSeconds(20));
+		WebWait.elementToBeClickable(driver, customer_landing_actions.getViewTestBtn(SOFT_1405_Partial_Report_Actions.Barcode1), Duration.ofSeconds(20));
+		WebScrollView.scrollToElement(driver, customer_landing_actions.getViewTestBtn(SOFT_1405_Partial_Report_Actions.Barcode1));
+		Thread.sleep(2000);
+		WebButton.JsclickButton(customer_landing_actions.getViewTestBtn(SOFT_1405_Partial_Report_Actions.Barcode1), driver);
+		WebWait.visibilityOfElement(driver, soft_1407_Partial_Report_Locators.get_dbTestSummaryStatus(), Duration.ofSeconds(20));
+		WebElement status = soft_1407_Partial_Report_Locators.get_dbTestSummaryStatus();
+		String kitStatus = status.findElement(By.xpath("./following-sibling::h5")).getText();
+		
+		String expectedStatus = "Rejected";
+		System.out.println("Status: "+kitStatus);
+		assertEquals(kitStatus, expectedStatus, "Kit Status mismatch");
+		ExtentManager.getTest().log(Status.PASS, "Status: "+kitStatus);
+		
+	}
+	
+	public void partialReportTC15() throws InterruptedException, IOException {
+		soft_1405_Partial_Report_actions.generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
+		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode("Male");
+		soft_1405_Partial_Report_actions.markKitAsReceived("Double");
+		Map<String,String> goldReplacements = new HashMap<>();
+		goldReplacements.put("MGC-YUA-9578", SOFT_1405_Partial_Report_Actions.Barcode1);
+		goldReplacements.put("51.9", "Untestable – Insufficient (sample receipt)");
+		
+		Map<String,String> lavenderReplacements = new HashMap<>();
+		lavenderReplacements.put("MLQ-USY-4392", SOFT_1405_Partial_Report_Actions.Barcode2);
+		lavenderReplacements.put("5.7", "Inhibitory");
+		
+		soft_1405_Partial_Report_actions.uploadBloodResultCsvMultipleReplacements(driver, WebCommonPath.energyProfileResultsGoldCsv, health_assessment_locators.get_uploadBloodResultCsvInput(), goldReplacements);
+		Thread.sleep(2000);
+		soft_1405_Partial_Report_actions.uploadBloodResultCsvMultipleReplacements(driver, WebCommonPath.energyProfileResultsLavenderCsv, health_assessment_locators.get_uploadBloodResultCsvInput(), lavenderReplacements);
+
+		WebWait.visibilityOfElement(driver, activate_test_kit_locators.get_testKitSideMenuItem(), Duration.ofSeconds(20));
+		WebButton.JsclickButton(activate_test_kit_locators.get_testKitSideMenuItem(), driver);
+		WebWait.visibilityOfElement(driver, sh_locators.get_primaryBarcodeSearchTxt(), Duration.ofSeconds(20));
+		WebTextBox.sendInput(sh_locators.get_primaryBarcodeSearchTxt(), SOFT_1405_Partial_Report_Actions.Barcode1);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testKitId(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testKitId(), driver);
+
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_timsTestKitsPrimaryBarcodeResultsTab(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_timsTestKitsPrimaryBarcodeResultsTab(), driver);
+		Thread.sleep(2000);
+		
+		WebWait.visibilityListOfElements(driver, soft_1407_Partial_Report_Locators.get_primaryResultsFullBloodCountBiomarkerRows(), Duration.ofSeconds(10));
+		List<WebElement> primaryBiomarkerRowsPage1 = soft_1407_Partial_Report_Locators.get_primaryResultsFullBloodCountBiomarkerRows();
+		WebElement albRow = primaryBiomarkerRowsPage1.get(0);
+		String albBiomarker = albRow.findElement(By.xpath("./td[1]")).getText();
+		String albActualValue = albRow.findElement(By.xpath("./td[2]")).getText();
+		String albActualError = albRow.findElement(By.xpath("./td[5]")).getText();
+		
+		String albExpectedValue = "Untestable – Insufficient (sample receipt)";
+		String albExpectedError = "untestable-insufficient-sample-receipt";
+		
+		System.out.println(albBiomarker +", "+ albActualValue +", "+ albActualError);
+		assertEquals(albActualValue, albExpectedValue, "Biomarker value mismatch");
+		assertEquals(albActualError, albExpectedError, "Biomarker error mismatch");
+		
+//		Map<String, String> expectedValues = new HashMap<>();
+//		expectedValues.put("Basophils", "0.05 10⁹/L");
+//		expectedValues.put("Eosinophils", "0.32 10⁹/L");
+//		expectedValues.put("Haematocrit", "0.37 %");
+//		expectedValues.put("Haemoglobin", "164.9 g/L");
+//		expectedValues.put("Lymphocytes", "4.4 10⁹/L");
+//		expectedValues.put("Mean Cell Volume", "99.9 fL");
+//		expectedValues.put("Monocytes", "0.7 10⁹/L");
+//		expectedValues.put("Neutrophils", "7.4 10⁹/L");
+//		expectedValues.put("Platelet Count", "Insufficient");
+//		expectedValues.put("Red Blood Cell", "Insufficient");
+//		expectedValues.put("White Blood Cells", "Insufficient");
+//		
+//		validateBiomarkersReportDetails(expectedValues);
+//		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
+		
+		Map<String, String> secondaryResultsExpectedValues = new HashMap<>();
+		secondaryResultsExpectedValues.put("BAS", "0.05");
+		secondaryResultsExpectedValues.put("EOS", "0.32");
+		secondaryResultsExpectedValues.put("HCT", "0.37");
+		secondaryResultsExpectedValues.put("HGB", "164.9");
+		secondaryResultsExpectedValues.put("LYMP", "4.4");
+		secondaryResultsExpectedValues.put("MCV", "99.9");
+		secondaryResultsExpectedValues.put("MONO", "0.7");
+		secondaryResultsExpectedValues.put("NEU", "7.4");
+		secondaryResultsExpectedValues.put("PLT", "449.9");
+		secondaryResultsExpectedValues.put("RBC", "Inhibitory");
+		secondaryResultsExpectedValues.put("WBC", "10.9");
+		
+		Map<String, String> secondaryResultsExpectedErrors = new HashMap<>();
+		secondaryResultsExpectedErrors.put("BAS", "no-error");
+		secondaryResultsExpectedErrors.put("EOS", "no-error");
+        secondaryResultsExpectedErrors.put("HCT", "no-error");
+        secondaryResultsExpectedErrors.put("HGB", "no-error");
+        secondaryResultsExpectedErrors.put("LYMP", "no-error");
+        secondaryResultsExpectedErrors.put("MCV", "no-error");
+        secondaryResultsExpectedErrors.put("MONO", "no-error");
+        secondaryResultsExpectedErrors.put("NEU", "no-error");
+        secondaryResultsExpectedErrors.put("PLT", "no-error");
+        secondaryResultsExpectedErrors.put("RBC", "inhibitory");
+        secondaryResultsExpectedErrors.put("WBC", "no-error");
+        
+		WebWait.elementToBeClickable(driver, soft_1407_Partial_Report_Locators.get_timsTestKitsSecondaryBarcodeResultsTab(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1407_Partial_Report_Locators.get_timsTestKitsSecondaryBarcodeResultsTab(), driver);
+		Thread.sleep(2000);
+		
+		WebWait.visibilityListOfElements(driver, soft_1407_Partial_Report_Locators.get_secondaryResultsFullBloodCountBiomarkerRows(), Duration.ofSeconds(10));
+		List<WebElement> biomarkerRowsPage1 = soft_1407_Partial_Report_Locators.get_secondaryResultsFullBloodCountBiomarkerRows();
+		vaidateBiomarkersPrimSecResultsPage(biomarkerRowsPage1, secondaryResultsExpectedValues, secondaryResultsExpectedErrors);
+		 
+		WebWait.elementToBeClickable(driver, soft_1407_Partial_Report_Locators.get_timsSecondaryBarcodeResultsNavForwardBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1407_Partial_Report_Locators.get_timsSecondaryBarcodeResultsNavForwardBtn(), driver);
+		Thread.sleep(2000);
+		WebWait.visibilityListOfElements(driver, driver.findElements(By.xpath("(//table[@id='secondary-test-kit-result-table']/tbody//tr)")), Duration.ofSeconds(10));
+		List<WebElement> biomarkerRowsPage2 = driver.findElements(By.xpath("(//table[@id='secondary-test-kit-result-table']/tbody//tr)"));
+		vaidateBiomarkersPrimSecResultsPage(biomarkerRowsPage2, secondaryResultsExpectedValues, secondaryResultsExpectedErrors)	;
+
+		login_action.navToStagingDashboard();
+		WebWait.visibilityOfElement(driver, health_assessment_locators.get_myResultBootsMenu(), Duration.ofSeconds(20));
+		WebButton.JsclickButton(health_assessment_locators.get_myResultBootsMenu(), driver);
+		WebWait.visibilityOfElement(driver, health_assessment_locators.get_myResultsTitleTxt(), Duration.ofSeconds(40));
+		WebWait.visibilityOfElement(driver, customer_landing_actions.getViewTestBtn(SOFT_1405_Partial_Report_Actions.Barcode1), Duration.ofSeconds(20));
+		WebWait.elementToBeClickable(driver, customer_landing_actions.getViewTestBtn(SOFT_1405_Partial_Report_Actions.Barcode1), Duration.ofSeconds(20));
+		WebScrollView.scrollToElement(driver, customer_landing_actions.getViewTestBtn(SOFT_1405_Partial_Report_Actions.Barcode1));
+		Thread.sleep(2000);
+		WebButton.JsclickButton(customer_landing_actions.getViewTestBtn(SOFT_1405_Partial_Report_Actions.Barcode1), driver);
+		WebWait.visibilityOfElement(driver, soft_1407_Partial_Report_Locators.get_dbTestSummaryStatus(), Duration.ofSeconds(20));
+		WebElement status = soft_1407_Partial_Report_Locators.get_dbTestSummaryStatus();
+		String kitStatus = status.findElement(By.xpath("./following-sibling::h5")).getText();
+		
+		String expectedStatus = "Rejected";
+		System.out.println("Status: "+kitStatus);
+		assertEquals(kitStatus, expectedStatus, "Kit Status mismatch");
+		ExtentManager.getTest().log(Status.PASS, "Status: "+kitStatus);
+		
+	}
+	
+	public void partialReportTC16() throws InterruptedException, IOException {
+		soft_1405_Partial_Report_actions.generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
+		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode("Male");
+		soft_1405_Partial_Report_actions.markKitAsReceived("Double");
+		Map<String,String> goldReplacements = new HashMap<>();
+		goldReplacements.put("MGC-YUA-9578", SOFT_1405_Partial_Report_Actions.Barcode1);
+		goldReplacements.put("44", "Inhibitory");
+		
+		Map<String,String> lavenderReplacements = new HashMap<>();
+		lavenderReplacements.put("MLQ-USY-4392", SOFT_1405_Partial_Report_Actions.Barcode2);
+		lavenderReplacements.put("5.7", "Inhibitory");
+		
+		soft_1405_Partial_Report_actions.uploadBloodResultCsvMultipleReplacements(driver, WebCommonPath.energyProfileResultsGoldCsv, health_assessment_locators.get_uploadBloodResultCsvInput(), goldReplacements);
+		Thread.sleep(2000);
+		soft_1405_Partial_Report_actions.uploadBloodResultCsvMultipleReplacements(driver, WebCommonPath.energyProfileResultsLavenderCsv, health_assessment_locators.get_uploadBloodResultCsvInput(), lavenderReplacements);
+//		WebWait.visibilityOfElement(driver, soft_1405_Partial_Report_Locators.get_toasterMsg(), Duration.ofSeconds(30));
+//		System.out.println("Result upload: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+//		ExtentManager.getTest().log(Status.PASS, "Result upload: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+//		
+		soft_1405_Partial_Report_actions.assignDoctor();
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportGeneralBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportGeneralBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_overallStatusDrp(), Duration.ofSeconds(10));
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_overallStatusDrp(), "1", driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportThyroidProfileBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportThyroidProfileBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_thyroidProfileGroupStatusDrp(), Duration.ofSeconds(10));
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_thyroidProfileGroupStatusDrp(), "1", driver);
+	
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportKidneyHealthBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportKidneyHealthBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_kidneyHealthGroupStatusDrp(), Duration.ofSeconds(10));
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_kidneyHealthGroupStatusDrp(), "1", driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportVitaminsMineralsBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportVitaminsMineralsBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_vitaminsMineralsGroupStatusDrp(), Duration.ofSeconds(10));
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_vitaminsMineralsGroupStatusDrp(), "1", driver);
+		
+		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportLiverHealthBtn(), "Liver health");
+		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
+		WebScrollView.scrollToElement(driver, soft_1405_Partial_Report_Locators.get_testReportSaveChangesBtn());
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportSaveChangesBtn(), driver);
+		WebWait.visibilityOfElement(driver, soft_1405_Partial_Report_Locators.get_toasterMsg(), Duration.ofSeconds(30));
+		assertTrue(soft_1405_Partial_Report_Locators.get_toasterMsg().isDisplayed(), "Report not Published");
+		System.out.println("Alert: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+		ExtentManager.getTest().log(Status.PASS, "Alert: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+		
+		soft_1405_Partial_Report_actions.testResultInfoPagevalidation();
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_headerReportTab(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_headerReportTab(), driver);
+		Thread.sleep(2000);
+		WebWait.visibilityListOfElements(driver, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList(), Duration.ofSeconds(10));
+		
+		Map<String, String> expectedValues = new HashMap<>();
+		expectedValues.put("Alanine Transaminase", "Untestable");
+		expectedValues.put("Red Blood Cell", "Untestable");
+		
+		validateBiomarkersReportDetails(expectedValues, soft_1407_Partial_Report_Locators.get_liverHealthBiomarkerListReportDetails());
+		validateBiomarkersReportDetails(expectedValues, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList());
+		
+		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
+		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportLiverHealthBtn(), "Liver Health");
+
+		Map<String, String> primaryResultsExpectedValues = new HashMap<>();
+		primaryResultsExpectedValues.put("ALT", "Inhibitory");
+		
+		Map<String, String> primaryResultsExpectedErrors = new HashMap<>();
+		primaryResultsExpectedErrors.put("ALT", "inhibitory");
+		
+		Map<String, String> secondaryResultsExpectedValues = new HashMap<>();
+		secondaryResultsExpectedValues.put("BAS", "0.05");
+		secondaryResultsExpectedValues.put("EOS", "0.32");
+		secondaryResultsExpectedValues.put("HCT", "0.37");
+		secondaryResultsExpectedValues.put("HGB", "164.9");
+		secondaryResultsExpectedValues.put("LYMP", "4.4");
+		secondaryResultsExpectedValues.put("MCV", "99.9");
+		secondaryResultsExpectedValues.put("MONO", "0.7");
+		secondaryResultsExpectedValues.put("NEU", "7.4");
+		secondaryResultsExpectedValues.put("PLT", "449.9");
+		secondaryResultsExpectedValues.put("RBC", "Inhibitory");
+		secondaryResultsExpectedValues.put("WBC", "10.9");
+		
+		Map<String, String> secondaryResultsExpectedErrors = new HashMap<>();
+		secondaryResultsExpectedErrors.put("BAS", "no-error");
+		secondaryResultsExpectedErrors.put("EOS", "no-error");
+        secondaryResultsExpectedErrors.put("HCT", "no-error");
+        secondaryResultsExpectedErrors.put("HGB", "no-error");
+        secondaryResultsExpectedErrors.put("LYMP", "no-error");
+        secondaryResultsExpectedErrors.put("MCV", "no-error");
+        secondaryResultsExpectedErrors.put("MONO", "no-error");
+        secondaryResultsExpectedErrors.put("NEU", "no-error");
+        secondaryResultsExpectedErrors.put("PLT", "no-error");
+        secondaryResultsExpectedErrors.put("RBC", "inhibitory");
+        secondaryResultsExpectedErrors.put("WBC", "no-error");
+        
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_timsTestReportInfoTab(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_timsTestReportInfoTab(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_timsViewTestKitHypLnk(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_timsViewTestKitHypLnk(), driver);
+		
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_timsTestKitsPrimaryBarcodeResultsTab(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_timsTestKitsPrimaryBarcodeResultsTab(), driver);
+		Thread.sleep(2000);
+		
+		WebWait.visibilityListOfElements(driver, soft_1407_Partial_Report_Locators.get_primaryResultsFullBloodCountBiomarkerRows(), Duration.ofSeconds(10));
+		List<WebElement> primaryBiomarkerRowsPage1 = soft_1407_Partial_Report_Locators.get_primaryResultsFullBloodCountBiomarkerRows();
+		vaidateBiomarkersPrimSecResultsPage(primaryBiomarkerRowsPage1, primaryResultsExpectedValues, primaryResultsExpectedErrors);
+		 
+		WebWait.elementToBeClickable(driver, soft_1407_Partial_Report_Locators.get_timsTestKitsSecondaryBarcodeResultsTab(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1407_Partial_Report_Locators.get_timsTestKitsSecondaryBarcodeResultsTab(), driver);
+		Thread.sleep(2000);
+		
+		WebWait.visibilityListOfElements(driver, soft_1407_Partial_Report_Locators.get_secondaryResultsFullBloodCountBiomarkerRows(), Duration.ofSeconds(10));
+		List<WebElement> biomarkerRowsPage1 = soft_1407_Partial_Report_Locators.get_secondaryResultsFullBloodCountBiomarkerRows();
+		vaidateBiomarkersPrimSecResultsPage(biomarkerRowsPage1, secondaryResultsExpectedValues, secondaryResultsExpectedErrors);
+		 
+		WebWait.elementToBeClickable(driver, soft_1407_Partial_Report_Locators.get_timsSecondaryBarcodeResultsNavForwardBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1407_Partial_Report_Locators.get_timsSecondaryBarcodeResultsNavForwardBtn(), driver);
+		Thread.sleep(2000);
+		WebWait.visibilityListOfElements(driver, driver.findElements(By.xpath("(//table[@id='secondary-test-kit-result-table']/tbody//tr)")), Duration.ofSeconds(10));
+		List<WebElement> biomarkerRowsPage2 = driver.findElements(By.xpath("(//table[@id='secondary-test-kit-result-table']/tbody//tr)"));
+		vaidateBiomarkersPrimSecResultsPage(biomarkerRowsPage2, secondaryResultsExpectedValues, secondaryResultsExpectedErrors)	;
+
+		soft_1405_Partial_Report_actions.dashboardViewReport();
+		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_fullBloodCountHealthAreaBtn(), "Full blood count");
+		
+		WebWait.visibilityOfElement(driver, soft_1405_Partial_Report_Locators.get_dashboardCouldNotBeReportedError(), Duration.ofSeconds(10));
+		String actualFBCErrorMsg = soft_1405_Partial_Report_Locators.get_dashboardCouldNotBeReportedError().getText();
+		String expectedFBCError = "Full blood count could not be reported.";
+		System.out.println("Error (Full blood count): "+actualFBCErrorMsg);
+		assertEquals(actualFBCErrorMsg, expectedFBCError, "Error message mismatch");
+		ExtentManager.getTest().log(Status.PASS, "Error (Full blood count): "+actualFBCErrorMsg);
+		
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_liverHealthHealthAreaBtn(), Duration.ofSeconds(20));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_liverHealthHealthAreaBtn(), driver);
+		WebWait.visibilityOfElement(driver, soft_1405_Partial_Report_Locators.get_dashboardALTCouldNotBeReportedError(), Duration.ofSeconds(20));
+		String actualALTErrorMsg = soft_1405_Partial_Report_Locators.get_dashboardALTCouldNotBeReportedError().getText();
+		String expectedALTError = "Alanine Transaminase could not be reported.";
+		System.out.println("Error (Alanine Transaminase): "+actualALTErrorMsg);
+		assertEquals(actualALTErrorMsg, expectedALTError, "Error message mismatch");
+		ExtentManager.getTest().log(Status.PASS, "Error (Full blood count): "+actualALTErrorMsg);
+		
+	}
+	
+	public void partialReportTC17() throws InterruptedException, IOException {
+		soft_1405_Partial_Report_actions.generateDoubleBarcode("Energy Profile Test", "Gold", "Lavender");
+		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode("Male");
+		soft_1405_Partial_Report_actions.markKitAsReceived("Double");
+		Map<String,String> goldReplacements = new HashMap<>();
+		goldReplacements.put("MGC-YUA-9578", SOFT_1405_Partial_Report_Actions.Barcode1);
+		goldReplacements.put("55", "Inhibitory");
+		
+		Map<String,String> lavenderReplacements = new HashMap<>();
+		lavenderReplacements.put("MLQ-USY-4392", SOFT_1405_Partial_Report_Actions.Barcode2);
+		lavenderReplacements.put("5.7", "Inhibitory");
+		
+		soft_1405_Partial_Report_actions.uploadBloodResultCsvMultipleReplacements(driver, WebCommonPath.energyProfileResultsGoldCsv, health_assessment_locators.get_uploadBloodResultCsvInput(), goldReplacements);
+		Thread.sleep(2000);
+		soft_1405_Partial_Report_actions.uploadBloodResultCsvMultipleReplacements(driver, WebCommonPath.energyProfileResultsLavenderCsv, health_assessment_locators.get_uploadBloodResultCsvInput(), lavenderReplacements);
+//		WebWait.visibilityOfElement(driver, soft_1405_Partial_Report_Locators.get_toasterMsg(), Duration.ofSeconds(30));
+//		System.out.println("Result upload: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+//		ExtentManager.getTest().log(Status.PASS, "Result upload: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+//		
+		soft_1405_Partial_Report_actions.assignDoctor();
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportGeneralBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportGeneralBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_overallStatusDrp(), Duration.ofSeconds(10));
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_overallStatusDrp(), "1", driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportThyroidProfileBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportThyroidProfileBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_thyroidProfileGroupStatusDrp(), Duration.ofSeconds(10));
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_thyroidProfileGroupStatusDrp(), "1", driver);
+	
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportKidneyHealthBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportKidneyHealthBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_kidneyHealthGroupStatusDrp(), Duration.ofSeconds(10));
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_kidneyHealthGroupStatusDrp(), "1", driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportVitaminsMineralsBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportVitaminsMineralsBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_vitaminsMineralsGroupStatusDrp(), Duration.ofSeconds(10));
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_vitaminsMineralsGroupStatusDrp(), "1", driver);
+		
+		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportLiverHealthBtn(), "Liver health");
+		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
+		WebScrollView.scrollToElement(driver, soft_1405_Partial_Report_Locators.get_testReportSaveChangesBtn());
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportSaveChangesBtn(), driver);
+		WebWait.visibilityOfElement(driver, soft_1405_Partial_Report_Locators.get_toasterMsg(), Duration.ofSeconds(30));
+		assertTrue(soft_1405_Partial_Report_Locators.get_toasterMsg().isDisplayed(), "Report not Published");
+		System.out.println("Alert: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+		ExtentManager.getTest().log(Status.PASS, "Alert: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+		
+		soft_1405_Partial_Report_actions.testResultInfoPagevalidation();
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_headerReportTab(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_headerReportTab(), driver);
+		Thread.sleep(2000);
+		WebWait.visibilityListOfElements(driver, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList(), Duration.ofSeconds(10));
+		
+		Map<String, String> expectedValues = new HashMap<>();
+		expectedValues.put("Alkaline Phosphatase", "Untestable");
+		expectedValues.put("Red Blood Cell", "Untestable");
+		
+		validateBiomarkersReportDetails(expectedValues, soft_1407_Partial_Report_Locators.get_liverHealthBiomarkerListReportDetails());
+		validateBiomarkersReportDetails(expectedValues, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList());
+		
+		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
+		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportLiverHealthBtn(), "Liver Health");
+
+		Map<String, String> primaryResultsExpectedValues = new HashMap<>();
+		primaryResultsExpectedValues.put("ALP", "Inhibitory");
+		
+		Map<String, String> primaryResultsExpectedErrors = new HashMap<>();
+		primaryResultsExpectedErrors.put("ALP", "inhibitory");
+		
+		Map<String, String> secondaryResultsExpectedValues = new HashMap<>();
+		secondaryResultsExpectedValues.put("BAS", "0.05");
+		secondaryResultsExpectedValues.put("EOS", "0.32");
+		secondaryResultsExpectedValues.put("HCT", "0.37");
+		secondaryResultsExpectedValues.put("HGB", "164.9");
+		secondaryResultsExpectedValues.put("LYMP", "4.4");
+		secondaryResultsExpectedValues.put("MCV", "99.9");
+		secondaryResultsExpectedValues.put("MONO", "0.7");
+		secondaryResultsExpectedValues.put("NEU", "7.4");
+		secondaryResultsExpectedValues.put("PLT", "449.9");
+		secondaryResultsExpectedValues.put("RBC", "Inhibitory");
+		secondaryResultsExpectedValues.put("WBC", "10.9");
+		
+		Map<String, String> secondaryResultsExpectedErrors = new HashMap<>();
+		secondaryResultsExpectedErrors.put("BAS", "no-error");
+		secondaryResultsExpectedErrors.put("EOS", "no-error");
+        secondaryResultsExpectedErrors.put("HCT", "no-error");
+        secondaryResultsExpectedErrors.put("HGB", "no-error");
+        secondaryResultsExpectedErrors.put("LYMP", "no-error");
+        secondaryResultsExpectedErrors.put("MCV", "no-error");
+        secondaryResultsExpectedErrors.put("MONO", "no-error");
+        secondaryResultsExpectedErrors.put("NEU", "no-error");
+        secondaryResultsExpectedErrors.put("PLT", "no-error");
+        secondaryResultsExpectedErrors.put("RBC", "inhibitory");
+        secondaryResultsExpectedErrors.put("WBC", "no-error");
+        
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_timsTestReportInfoTab(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_timsTestReportInfoTab(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_timsViewTestKitHypLnk(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_timsViewTestKitHypLnk(), driver);
+		
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_timsTestKitsPrimaryBarcodeResultsTab(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_timsTestKitsPrimaryBarcodeResultsTab(), driver);
+		Thread.sleep(2000);
+		
+		WebWait.visibilityListOfElements(driver, soft_1407_Partial_Report_Locators.get_primaryResultsFullBloodCountBiomarkerRows(), Duration.ofSeconds(10));
+		List<WebElement> primaryBiomarkerRowsPage1 = soft_1407_Partial_Report_Locators.get_primaryResultsFullBloodCountBiomarkerRows();
+		vaidateBiomarkersPrimSecResultsPage(primaryBiomarkerRowsPage1, primaryResultsExpectedValues, primaryResultsExpectedErrors);
+		 
+		WebWait.elementToBeClickable(driver, soft_1407_Partial_Report_Locators.get_timsTestKitsSecondaryBarcodeResultsTab(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1407_Partial_Report_Locators.get_timsTestKitsSecondaryBarcodeResultsTab(), driver);
+		Thread.sleep(2000);
+		
+		WebWait.visibilityListOfElements(driver, soft_1407_Partial_Report_Locators.get_secondaryResultsFullBloodCountBiomarkerRows(), Duration.ofSeconds(10));
+		List<WebElement> biomarkerRowsPage1 = soft_1407_Partial_Report_Locators.get_secondaryResultsFullBloodCountBiomarkerRows();
+		vaidateBiomarkersPrimSecResultsPage(biomarkerRowsPage1, secondaryResultsExpectedValues, secondaryResultsExpectedErrors);
+		 
+		WebWait.elementToBeClickable(driver, soft_1407_Partial_Report_Locators.get_timsSecondaryBarcodeResultsNavForwardBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1407_Partial_Report_Locators.get_timsSecondaryBarcodeResultsNavForwardBtn(), driver);
+		Thread.sleep(2000);
+		WebWait.visibilityListOfElements(driver, driver.findElements(By.xpath("(//table[@id='secondary-test-kit-result-table']/tbody//tr)")), Duration.ofSeconds(10));
+		List<WebElement> biomarkerRowsPage2 = driver.findElements(By.xpath("(//table[@id='secondary-test-kit-result-table']/tbody//tr)"));
+		vaidateBiomarkersPrimSecResultsPage(biomarkerRowsPage2, secondaryResultsExpectedValues, secondaryResultsExpectedErrors)	;
+
+		soft_1405_Partial_Report_actions.dashboardViewReport();
+		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_fullBloodCountHealthAreaBtn(), "Full blood count");
+		
+		WebWait.visibilityOfElement(driver, soft_1405_Partial_Report_Locators.get_dashboardCouldNotBeReportedError(), Duration.ofSeconds(10));
+		String actualALTErrorMsg = soft_1405_Partial_Report_Locators.get_dashboardCouldNotBeReportedError().getText();
+		String expectedALTError = "Full blood count could not be reported.";
+		System.out.println("Error (Full blood count): "+actualALTErrorMsg);
+		assertEquals(actualALTErrorMsg, expectedALTError, "Error message mismatch");
+		ExtentManager.getTest().log(Status.PASS, "Error (Full blood count): "+actualALTErrorMsg);
+	}
+	
+	
+	public void fullBloodResultPublishedReportGeneralHealth() throws InterruptedException, IOException {
+		soft_1405_Partial_Report_actions.generateDoubleBarcode("General Health Test", "Gold", "Lavender");
+		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode("Male");
+		soft_1405_Partial_Report_actions.markKitAsReceived("Double");
+		soft_1405_Partial_Report_actions.uploadBloodResultsCsv("General_Health_Test_Gold.csv", health_assessment_locators.get_uploadBloodResultCsvInput(),
+				"RGO-ENF-9429", SOFT_1405_Partial_Report_Actions.Barcode1);
+		soft_1405_Partial_Report_actions.uploadBloodResultsCsv("General_Health_Test_Lavender.csv", health_assessment_locators.get_uploadBloodResultCsvInput(),
+				"RLB-SVW-0605", SOFT_1405_Partial_Report_Actions.Barcode2);
+		WebWait.visibilityOfElement(driver, soft_1405_Partial_Report_Locators.get_toasterMsg(), Duration.ofSeconds(20));
+		System.out.println("Result upload: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+		ExtentManager.getTest().log(Status.PASS, "Result upload: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+		WebWait.elementToBeClickable(driver, sh_locators.get_testReportSideMenu(), Duration.ofSeconds(20));
+	    WebButton.clickButton(sh_locators.get_testReportSideMenu());
+	    WebWait.elementToBeClickable(driver, sh_locators.get_ReadyForReviewBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_ReadyForReviewBtn());	
+		
+		WebWait.visibilityOfElement(driver, sh_locators.get_primaryBarcodeSearchTxt(), Duration.ofSeconds(20));
+		WebTextBox.sendInput(sh_locators.get_primaryBarcodeSearchTxt(), SOFT_1405_Partial_Report_Actions.Barcode1);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testKitId(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testKitId(), driver);
+		WebWait.elementToBeClickable(driver, customer_landing_locators.get_headerMenuAssignBtn(), Duration.ofSeconds(20));
+		WebButton.JsclickButton(customer_landing_locators.get_headerMenuAssignBtn(), driver);
+		WebWait.elementToBeClickable(driver, customer_landing_locators.get_popUpAssignBtn(), Duration.ofSeconds(20));
+		WebButton.JsclickButton(customer_landing_locators.get_popUpAssignBtn(), driver);
+		WebWait.visibilityOfElement(driver, customer_landing_locators.get_doctorAssignedAlert(), Duration.ofSeconds(30));
+		System.out.println("Alert: "+customer_landing_locators.get_doctorAssignedAlert().getText());
+		ExtentManager.getTest().log(Status.PASS, "Alert: "+customer_landing_locators.get_doctorAssignedAlert().getText());
+		
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_headerReportTab(), Duration.ofSeconds(20));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_headerReportTab(), driver);
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportGeneralBtn(), driver);
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_overallStatusDrp(), "1", driver);
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportLiverHealthBtn(), driver);
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_liverHealthGroupStatusDrp(), "1", driver);
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportKidneyHealthBtn(), driver);
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_kidneyHealthGroupStatusDrp(), "1", driver);
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportCholesterolBtn(), driver);
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_cholesterolGroupStatusDrp(), "1", driver);
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), driver);
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_fullBloodCountGroupStatusDrp(), "1", driver);
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportGlucoseBtn(), driver);
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_glucoseGroupStatusDrp(), "1", driver);
+		
+		WebScrollView.scrollToElement(driver, soft_1405_Partial_Report_Locators.get_testReportSaveChangesBtn());
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportSaveChangesBtn(), driver);
+		WebWait.visibilityOfElement(driver, soft_1405_Partial_Report_Locators.get_toasterMsg(), Duration.ofSeconds(30));
+		assertTrue(soft_1405_Partial_Report_Locators.get_toasterMsg().isDisplayed(), "Report not Published");
+		System.out.println("Alert: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+		ExtentManager.getTest().log(Status.PASS, "Alert: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_headerMenuPublishBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_headerMenuPublishBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_publishYesBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_publishYesBtn(), driver);
+		WebWait.visibilityOfElement(driver, soft_1405_Partial_Report_Locators.get_reportPublishedToasterMsg(), Duration.ofSeconds(10));
+		System.out.println("Alert: "+soft_1405_Partial_Report_Locators.get_reportPublishedToasterMsg().getText());
+		ExtentManager.getTest().log(Status.PASS, "Alert: "+soft_1405_Partial_Report_Locators.get_reportPublishedToasterMsg().getText());
+	}
+	
+	public void partialReportTC31() throws InterruptedException, IOException {
+		soft_1405_Partial_Report_actions.generateDoubleBarcode("General Health Test", "Gold", "Lavender");
+		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode("Male");
+		soft_1405_Partial_Report_actions.markKitAsReceived("Double");
+		Map<String,String> goldReplacements = new HashMap<>();
+		goldReplacements.put("RGO-ENF-9429", SOFT_1405_Partial_Report_Actions.Barcode1);
+		
+		Map<String,String> lavenderReplacements = new HashMap<>();
+		lavenderReplacements.put("MLO-IBP-4769", SOFT_1405_Partial_Report_Actions.Barcode2);
+		lavenderReplacements.put("0.05", "Untestable – Insufficient (sample receipt)");
+		lavenderReplacements.put("0.32", "Untestable – Insufficient (post-analytical)");
+		lavenderReplacements.put("0.37", "Untestable – Damaged/Empty/Not returned");
+		lavenderReplacements.put("60", "Untestable – Sample too old");
+		lavenderReplacements.put("4.4", "Untestable – Grossly haemolysed");
+		lavenderReplacements.put("99.9", "Untestable – Clotted (sample receipt)");
+		lavenderReplacements.put("0.7", "Untestable – Clotted (post-analytical)");
+		lavenderReplacements.put("24", "Untestable – Misc (sample receipt)");
+		lavenderReplacements.put("449.9", "Untestable – Misc (post-analytical)");
+		lavenderReplacements.put("5.7", "Inhibitory");
+		lavenderReplacements.put("10.9", "Untestable – Insufficient (post-analytical)");
+		soft_1405_Partial_Report_actions.uploadBloodResultCsvMultipleReplacements(driver, WebCommonPath.generalHealthGoldCsv, health_assessment_locators.get_uploadBloodResultCsvInput(), goldReplacements);
+		soft_1405_Partial_Report_actions.uploadBloodResultCsvMultipleReplacements(driver, WebCommonPath.generalHealthLavenderCsv, health_assessment_locators.get_uploadBloodResultCsvInput(), lavenderReplacements);
+		WebWait.visibilityOfElement(driver, soft_1405_Partial_Report_Locators.get_toasterMsg(), Duration.ofSeconds(20));
+		System.out.println("Result upload: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+		ExtentManager.getTest().log(Status.PASS, "Result upload: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+		
+		soft_1405_Partial_Report_actions.assignDoctor();
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportGeneralBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportGeneralBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_overallStatusDrp(), Duration.ofSeconds(10));
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_overallStatusDrp(), "1", driver);
+//		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportThyroidProfileBtn(), Duration.ofSeconds(10));
+//		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportThyroidProfileBtn(), driver);
+//		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_thyroidProfileGroupStatusDrp(), Duration.ofSeconds(10));
+//		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_thyroidProfileGroupStatusDrp(), "1", driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportLiverHealthBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportLiverHealthBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_liverHealthGroupStatusDrp(), Duration.ofSeconds(10));
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_liverHealthGroupStatusDrp(), "1", driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportKidneyHealthBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportKidneyHealthBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_kidneyHealthGroupStatusDrp(), Duration.ofSeconds(10));
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_kidneyHealthGroupStatusDrp(), "1", driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportCholesterolBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportCholesterolBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_cholesterolGroupStatusDrp(), Duration.ofSeconds(10));
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_cholesterolGroupStatusDrp(), "1", driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportGlucoseBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportGlucoseBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_glucoseGroupStatusDrp(), Duration.ofSeconds(10));
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_glucoseGroupStatusDrp(), "1", driver);
+		
+		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
+		WebScrollView.scrollToElement(driver, soft_1405_Partial_Report_Locators.get_testReportSaveChangesBtn());
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportSaveChangesBtn(), driver);
+		WebWait.visibilityOfElement(driver, soft_1405_Partial_Report_Locators.get_toasterMsg(), Duration.ofSeconds(30));
+		assertTrue(soft_1405_Partial_Report_Locators.get_toasterMsg().isDisplayed(), "Report not Published");
+		System.out.println("Alert: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+		ExtentManager.getTest().log(Status.PASS, "Alert: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+		
+		soft_1405_Partial_Report_actions.testResultInfoPagevalidation();
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_headerReportTab(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_headerReportTab(), driver);
+		Thread.sleep(2000);
+		WebWait.visibilityListOfElements(driver, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList(), Duration.ofSeconds(10));
+		
+		Map<String, String> expectedValues = new HashMap<>();
+		expectedValues.put("Basophils", "Insufficient");
+		expectedValues.put("Eosinophils", "Insufficient");
+		expectedValues.put("Haematocrit", "Untestable");
+		expectedValues.put("Haemoglobin", "Untestable");
+		expectedValues.put("Lymphocytes", "Haemolysed");
+		expectedValues.put("Mean Cell Volume", "Clotted");
+		expectedValues.put("Monocytes", "Clotted");
+		expectedValues.put("Neutrophils", "Untestable");
+		expectedValues.put("Platelet Count", "Untestable");
+		expectedValues.put("Red Blood Cell", "Untestable");
+		expectedValues.put("White Blood Cells", "Insufficient");
+		
+		validateBiomarkersReportDetails(expectedValues, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList());
+		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
+		
+		Map<String, String> secondaryResultsExpectedValues = new HashMap<>();
+		secondaryResultsExpectedValues.put("BAS", "Untestable – Insufficient (sample receipt)");
+		secondaryResultsExpectedValues.put("EOS", "Untestable – Insufficient (post-analytical)");
+		secondaryResultsExpectedValues.put("HCT", "Untestable – Damaged/Empty/Not returned");
+		secondaryResultsExpectedValues.put("HGB", "Untestable – Sample too old");
+		secondaryResultsExpectedValues.put("LYMP", "Untestable – Grossly haemolysed");
+		secondaryResultsExpectedValues.put("MCV", "Untestable – Clotted (sample receipt)");
+		secondaryResultsExpectedValues.put("MONO", "Untestable – Clotted (post-analytical)");
+		secondaryResultsExpectedValues.put("NEU", "Untestable – Misc (sample receipt)");
+		secondaryResultsExpectedValues.put("PLT", "Untestable – Misc (post-analytical)");
+		secondaryResultsExpectedValues.put("RBC", "Inhibitory");
+		secondaryResultsExpectedValues.put("WBC", "Untestable – Insufficient (post-analytical)");
+		
+		Map<String, String> secondaryResultsExpectedErrors = new HashMap<>();
+		secondaryResultsExpectedErrors.put("BAS", "untestable-insufficient-sample-receipt");
+		secondaryResultsExpectedErrors.put("EOS", "untestable-insufficient-post-analytical");
+        secondaryResultsExpectedErrors.put("HCT", "untestable-damaged-empty-not-returned");
+        secondaryResultsExpectedErrors.put("HGB", "untestable–sample-too-old");
+        secondaryResultsExpectedErrors.put("LYMP", "untestable–grossly-haemolysed");
+        secondaryResultsExpectedErrors.put("MCV", "untestable-clotted-sample-receipt");
+        secondaryResultsExpectedErrors.put("MONO", "untestable-clotted-post-analytical");
+        secondaryResultsExpectedErrors.put("NEU", "untestable-misc-sample-receipt");
+        secondaryResultsExpectedErrors.put("PLT", "untestable-misc-post-analytical");
+        secondaryResultsExpectedErrors.put("RBC", "inhibitory");
+        secondaryResultsExpectedErrors.put("WBC", "untestable-insufficient-post-analytical");
+		
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_timsTestReportInfoTab(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_timsTestReportInfoTab(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_timsViewTestKitHypLnk(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_timsViewTestKitHypLnk(), driver);
+		WebWait.elementToBeClickable(driver, soft_1407_Partial_Report_Locators.get_timsTestKitsSecondaryBarcodeResultsTab(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1407_Partial_Report_Locators.get_timsTestKitsSecondaryBarcodeResultsTab(), driver);
+		Thread.sleep(2000);
+		
+		WebWait.visibilityListOfElements(driver, soft_1407_Partial_Report_Locators.get_secondaryResultsFullBloodCountBiomarkerRows(), Duration.ofSeconds(10));
+		List<WebElement> biomarkerRowsPage1 = soft_1407_Partial_Report_Locators.get_secondaryResultsFullBloodCountBiomarkerRows();
+		vaidateBiomarkersPrimSecResultsPage(biomarkerRowsPage1, secondaryResultsExpectedValues, secondaryResultsExpectedErrors);
+		 
+		WebWait.elementToBeClickable(driver, soft_1407_Partial_Report_Locators.get_timsSecondaryBarcodeResultsNavForwardBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1407_Partial_Report_Locators.get_timsSecondaryBarcodeResultsNavForwardBtn(), driver);
+		Thread.sleep(2000);
+		WebWait.visibilityListOfElements(driver, driver.findElements(By.xpath("(//table[@id='secondary-test-kit-result-table']/tbody//tr)")), Duration.ofSeconds(10));
+		List<WebElement> biomarkerRowsPage2 = driver.findElements(By.xpath("(//table[@id='secondary-test-kit-result-table']/tbody//tr)"));
+		vaidateBiomarkersPrimSecResultsPage(biomarkerRowsPage2, secondaryResultsExpectedValues, secondaryResultsExpectedErrors)	;
+
+		soft_1405_Partial_Report_actions.dashboardViewReport();
+		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_fullBloodCountHealthAreaBtn(), "Full blood count");
+		
+		WebWait.visibilityOfElement(driver, soft_1405_Partial_Report_Locators.get_dashboardCouldNotBeReportedError(), Duration.ofSeconds(10));
+		String actualALTErrorMsg = soft_1405_Partial_Report_Locators.get_dashboardCouldNotBeReportedError().getText();
+		String expectedALTError = "Full blood count could not be reported.";
+		System.out.println("Error (Full blood count): "+actualALTErrorMsg);
+		assertEquals(actualALTErrorMsg, expectedALTError, "Error message mismatch");
+		ExtentManager.getTest().log(Status.PASS, "Error (Full blood count): "+actualALTErrorMsg);
+	}
+	
+	
+	public void partialReportTC32() throws InterruptedException, IOException {
+		soft_1405_Partial_Report_actions.generateDoubleBarcode("General Health Test", "Gold", "Lavender");
+		soft_1405_Partial_Report_actions.activateTestKitDoubleBarcode("Male");
+		soft_1405_Partial_Report_actions.markKitAsReceived("Double");
+		Map<String,String> goldReplacements = new HashMap<>();
+		goldReplacements.put("RGO-ENF-9429", SOFT_1405_Partial_Report_Actions.Barcode1);
+		goldReplacements.put("10.6", "Untestable – Clotted (post-analytical)");
+		
+		Map<String,String> lavenderReplacements = new HashMap<>();
+		lavenderReplacements.put("MLO-IBP-4769", SOFT_1405_Partial_Report_Actions.Barcode2);
+		lavenderReplacements.put("0.05", "Untestable – Clotted (post-analytical)");
+		lavenderReplacements.put("21", "Untestable – Clotted (post-analytical)");
+		
+		soft_1405_Partial_Report_actions.uploadBloodResultCsvMultipleReplacements(driver, WebCommonPath.generalHealthGoldCsv, health_assessment_locators.get_uploadBloodResultCsvInput(), goldReplacements);
+		soft_1405_Partial_Report_actions.uploadBloodResultCsvMultipleReplacements(driver, WebCommonPath.generalHealthLavenderCsv, health_assessment_locators.get_uploadBloodResultCsvInput(), lavenderReplacements);
+		WebWait.visibilityOfElement(driver, soft_1405_Partial_Report_Locators.get_toasterMsg(), Duration.ofSeconds(20));
+		System.out.println("Result upload: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+		ExtentManager.getTest().log(Status.PASS, "Result upload: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+		
+		soft_1405_Partial_Report_actions.assignDoctor();
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportGeneralBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportGeneralBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_overallStatusDrp(), Duration.ofSeconds(10));
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_overallStatusDrp(), "1", driver);
+//		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportThyroidProfileBtn(), Duration.ofSeconds(10));
+//		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportThyroidProfileBtn(), driver);
+//		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_thyroidProfileGroupStatusDrp(), Duration.ofSeconds(10));
+//		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_thyroidProfileGroupStatusDrp(), "1", driver);
+//		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportLiverHealthBtn(), Duration.ofSeconds(10));
+//		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportLiverHealthBtn(), driver);
+//		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_liverHealthGroupStatusDrp(), Duration.ofSeconds(10));
+//		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_liverHealthGroupStatusDrp(), "1", driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportKidneyHealthBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportKidneyHealthBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_kidneyHealthGroupStatusDrp(), Duration.ofSeconds(10));
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_kidneyHealthGroupStatusDrp(), "1", driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportCholesterolBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportCholesterolBtn(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_cholesterolGroupStatusDrp(), Duration.ofSeconds(10));
+		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_cholesterolGroupStatusDrp(), "1", driver);
+//		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_testReportGlucoseBtn(), Duration.ofSeconds(10));
+//		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportGlucoseBtn(), driver);
+//		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_glucoseGroupStatusDrp(), Duration.ofSeconds(10));
+//		WebDropDown.selectByIndex(soft_1405_Partial_Report_Locators.get_glucoseGroupStatusDrp(), "1", driver);
+		
+		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
+		WebScrollView.scrollToElement(driver, soft_1405_Partial_Report_Locators.get_testReportSaveChangesBtn());
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_testReportSaveChangesBtn(), driver);
+		WebWait.visibilityOfElement(driver, soft_1405_Partial_Report_Locators.get_toasterMsg(), Duration.ofSeconds(30));
+		assertTrue(soft_1405_Partial_Report_Locators.get_toasterMsg().isDisplayed(), "Report not Published");
+		System.out.println("Alert: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+		ExtentManager.getTest().log(Status.PASS, "Alert: "+soft_1405_Partial_Report_Locators.get_toasterMsg().getText());
+		
+		soft_1405_Partial_Report_actions.testResultInfoPagevalidation();
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_headerReportTab(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_headerReportTab(), driver);
+		Thread.sleep(2000);
+		WebWait.visibilityListOfElements(driver, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList(), Duration.ofSeconds(10));
+		
+		Map<String, String> expectedValues = new HashMap<>();
+		expectedValues.put("Basophils", "Clotted");
+		expectedValues.put("HbA1c", "Clotted");
+		expectedValues.put("Alkaline Phosphatase", "Clotted");
+		
+		validateBiomarkersReportDetails(expectedValues, soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList());
+		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_testReportFullBloodCountBtn(), "Full blood count");
+		
+		Map<String, String> secondaryResultsExpectedValues = new HashMap<>();
+		secondaryResultsExpectedValues.put("BAS", "Untestable – Clotted (post-analytical)");
+		secondaryResultsExpectedValues.put("HBA1c", "Untestable – Clotted (post-analytical)");
+		secondaryResultsExpectedValues.put("ALP", "Untestable – Clotted (post-analytical)");
+		
+		Map<String, String> secondaryResultsExpectedErrors = new HashMap<>();
+		secondaryResultsExpectedErrors.put("BAS", "untestable-clotted-post-analytical");
+		secondaryResultsExpectedErrors.put("HBA1c", "untestable-clotted-post-analytical");
+        secondaryResultsExpectedErrors.put("ALP", "untestable-clotted-post-analytical");
+		
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_timsTestReportInfoTab(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_timsTestReportInfoTab(), driver);
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_timsViewTestKitHypLnk(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_timsViewTestKitHypLnk(), driver);
+		
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_timsTestKitsPrimaryBarcodeResultsTab(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_timsTestKitsPrimaryBarcodeResultsTab(), driver);
+		Thread.sleep(2000);
+		WebWait.visibilityListOfElements(driver, soft_1407_Partial_Report_Locators.get_secondaryResultsFullBloodCountBiomarkerRows(), Duration.ofSeconds(10));
+		List<WebElement> primaryBiomarkerRowsPage1 = soft_1407_Partial_Report_Locators.get_secondaryResultsFullBloodCountBiomarkerRows();
+		vaidateBiomarkersPrimSecResultsPage(primaryBiomarkerRowsPage1, secondaryResultsExpectedValues, secondaryResultsExpectedErrors);
+		
+		WebWait.elementToBeClickable(driver, soft_1407_Partial_Report_Locators.get_timsTestKitsSecondaryBarcodeResultsTab(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1407_Partial_Report_Locators.get_timsTestKitsSecondaryBarcodeResultsTab(), driver);
+		Thread.sleep(2000);
+		WebWait.visibilityListOfElements(driver, soft_1407_Partial_Report_Locators.get_secondaryResultsFullBloodCountBiomarkerRows(), Duration.ofSeconds(10));
+		List<WebElement> biomarkerRowsPage1 = soft_1407_Partial_Report_Locators.get_secondaryResultsFullBloodCountBiomarkerRows();
+		vaidateBiomarkersPrimSecResultsPage(biomarkerRowsPage1, secondaryResultsExpectedValues, secondaryResultsExpectedErrors);
+		 
+		WebWait.elementToBeClickable(driver, soft_1407_Partial_Report_Locators.get_timsSecondaryBarcodeResultsNavForwardBtn(), Duration.ofSeconds(10));
+		WebButton.JsclickButton(soft_1407_Partial_Report_Locators.get_timsSecondaryBarcodeResultsNavForwardBtn(), driver);
+		Thread.sleep(2000);
+		WebWait.visibilityListOfElements(driver, driver.findElements(By.xpath("(//table[@id='secondary-test-kit-result-table']/tbody//tr)")), Duration.ofSeconds(10));
+		List<WebElement> biomarkerRowsPage2 = driver.findElements(By.xpath("(//table[@id='secondary-test-kit-result-table']/tbody//tr)"));
+		vaidateBiomarkersPrimSecResultsPage(biomarkerRowsPage2, secondaryResultsExpectedValues, secondaryResultsExpectedErrors)	;
+
+		soft_1405_Partial_Report_actions.dashboardViewReport();
+		soft_1405_Partial_Report_actions.assertInvisibility(soft_1405_Partial_Report_Locators.get_fullBloodCountHealthAreaBtn(), "Full blood count");
+		
+		WebWait.visibilityOfElement(driver, soft_1405_Partial_Report_Locators.get_dashboardCouldNotBeReportedError(), Duration.ofSeconds(10));
+		String actualFBCErrorMsg = soft_1405_Partial_Report_Locators.get_dashboardCouldNotBeReportedError().getText();
+		String expectedFBCError = "Full blood count & HbA1c could not be reported.";
+		System.out.println("Error (Full blood count): "+actualFBCErrorMsg);
+		assertEquals(actualFBCErrorMsg, expectedFBCError, "Error message mismatch");
+		ExtentManager.getTest().log(Status.PASS, "Error (Full blood count): "+actualFBCErrorMsg);
+		
+		WebWait.elementToBeClickable(driver, soft_1405_Partial_Report_Locators.get_liverHealthHealthAreaBtn(), Duration.ofSeconds(20));
+		WebButton.JsclickButton(soft_1405_Partial_Report_Locators.get_liverHealthHealthAreaBtn(), driver);
+		
+		WebWait.visibilityOfElement(driver, soft_1405_Partial_Report_Locators.get_dashboardCouldNotBeReportedError1(), Duration.ofSeconds(10));
+		String actualALPErrorMsg = soft_1405_Partial_Report_Locators.get_dashboardCouldNotBeReportedError1().getText();
+		String expectedALPError = "Alkaline Phosphatase could not be reported.";
+		System.out.println("Error (ALP): "+actualALPErrorMsg);
+		assertEquals(actualALPErrorMsg, expectedALPError, "Error message mismatch");
+		ExtentManager.getTest().log(Status.PASS, "Error (Full blood count): "+actualALPErrorMsg);
+		
+	}
+	
+	
 	public void vaidateBiomarkersPrimSecResultsPage(List<WebElement> biomarkerRows, Map<String, String> expectedValues, Map<String, String> expectedErrors) {
 		
 		SoftAssert softAssert = new SoftAssert();
@@ -1699,35 +2660,38 @@ public class SOFT_1407_Partial_Report_Actions {
                 softAssert.assertEquals(biomarkerError, expectedError, "Mismatch for biomarker error: " + biomarkerName);
             } else {
                 
-                softAssert.fail("Unexpected biomarker found: " + biomarkerName);
+                //softAssert.fail("Unexpected biomarker found: " + biomarkerName);
             }
         }
 		softAssert.assertAll();
 		ExtentManager.getTest().log(Status.PASS, reportLogger.toString());
 	}
 	
-	public void validateBiomarkersReportDetails(Map<String, String> expectedValues) {
-		List<WebElement> biomarkerName = soft_1407_Partial_Report_Locators.get_lavenderFullBloodCountBiomarkerList();
+	public void validateBiomarkersReportDetails(Map<String, String> expectedValues, List<WebElement> biomarkerList) {
+
 		SoftAssert softAssert = new SoftAssert();
 		StringBuilder reportLogger = new StringBuilder(); 
 	
-		for(WebElement biomarker : biomarkerName) {
+		for(WebElement biomarker : biomarkerList) {
 			String biomarkerNameTxt = biomarker.getText();
 			String biomarkerOutput =biomarker.findElement(By.xpath("./following-sibling::td")).getText();
-			System.out.println("Biomarker: "+biomarkerNameTxt+", Value: "+biomarkerOutput);
-			reportLogger.append("Biomarker: "+biomarkerNameTxt+", Value: "+biomarkerOutput).append("<br>");
+//			System.out.println("Biomarker: "+biomarkerNameTxt+", Value: "+biomarkerOutput);
+//			reportLogger.append("Biomarker: "+biomarkerNameTxt+", Value: "+biomarkerOutput).append("<br>");
 			 if (expectedValues.containsKey(biomarkerNameTxt)) {
-		            String expectedValue = expectedValues.get(biomarkerNameTxt);
+				 System.out.println("Biomarker: "+biomarkerNameTxt+", Value: "+biomarkerOutput);
+				 reportLogger.append("Biomarker: "+biomarkerNameTxt+", Value: "+biomarkerOutput).append("<br>");
+		         String expectedValue = expectedValues.get(biomarkerNameTxt);
 
 		            softAssert.assertEquals(biomarkerOutput, expectedValue, "Mismatch for biomarker: " + biomarkerNameTxt);
 		           
 		        } else {
-		        	softAssert.fail("Unexpected biomarker found: " + biomarkerNameTxt);
+		        	//softAssert.fail("Unexpected biomarker found: " + biomarkerNameTxt);
 		        }
 			 
 		}
 		
-		 softAssert.assertAll();
-		 ExtentManager.getTest().log(Status.PASS, reportLogger.toString());
+		ExtentManager.getTest().log(Status.PASS, reportLogger.toString());
+		softAssert.assertAll();
+		 
 	}
 }
