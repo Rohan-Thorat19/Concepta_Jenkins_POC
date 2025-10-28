@@ -3,17 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Tims.Partial_Report_SOFT_1407_Test_Cases.TC_01_Verify_Partial_Reporting_Energy_Profile_Test_BAS_EOS_HCT_HGB_LYMP_MCV_MONO_NEU_PLT_RBC_WBC_Untestable_Insufficient_Sample_Receipt">
+      <class name="Tims.Partial_Report_SOFT_1409_Test_Cases.TC_16_Verify_Partial_Test_Report_General_Health_Test_For_Biomarkers_HbA1c_FBC_ALP_GGT_with_Error_Untestable_Clotted">
         <methods>
-          <include name="TC_01_Verify_partial_reporting_energy_profile_test_BAS_EOS_HCT_HGB_LYMP_MCV_MONO_NEU_PLT_RBC_WBC_untestable_insufficient_sample_Receipt"/>
           <include name="beforeClass"/>
           <include name="afterEachMethod"/>
           <include name="beforeSuite"/>
           <include name="beforeEachMethod"/>
           <include name="afterClass"/>
+          <include name="TC_16_Verify_partial_test_report_general_health_test_for_biomarkers_HbA1c_FBC_ALP_GGT_with_error_untestable_clotted"/>
           <include name="afterSuite"/>
         </methods>
-      </class> <!-- Tims.Partial_Report_SOFT_1407_Test_Cases.TC_01_Verify_Partial_Reporting_Energy_Profile_Test_BAS_EOS_HCT_HGB_LYMP_MCV_MONO_NEU_PLT_RBC_WBC_Untestable_Insufficient_Sample_Receipt -->
+      </class> <!-- Tims.Partial_Report_SOFT_1409_Test_Cases.TC_16_Verify_Partial_Test_Report_General_Health_Test_For_Biomarkers_HbA1c_FBC_ALP_GGT_with_Error_Untestable_Clotted -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

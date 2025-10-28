@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import Test.Tims.Partial_Report_Action_Class.SOFT_1407_Partial_Report_Actions;
+import Test.Tims.Partial_Report_Actions_Class.SOFT_1407_Partial_Report_Actions;
 import initializer.BaseClass;
 
 public class TC_13_Verify_Partial_Reporting_Energy_Profile_Test_PLT_RBC_WBC_Untestable_Insufficient_Sample_Receipt extends BaseClass{

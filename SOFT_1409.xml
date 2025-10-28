@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="Tims.Partial_Report_SOFT_1409_Test_Cases.TC_19_Verify_Partial_Report_For_Heart_Profile_Test_HbA1c_Error_Untestable_Insufficient_Post_Analytical"/>
+      <class name="Tims.Partial_Report_SOFT_1409_Test_Cases.TC_15_Verify_Partial_Report_For_General_Health_Test_Biomarkers_FBC_HbA1c_ALT_GGT_ALP_with_Error_Untestable_Clotted_Sample_Receipt"/>
+      <class name="Tims.Partial_Report_SOFT_1409_Test_Cases.TC_13_Verify_Partial_Test_Report_General_Health_Test_For_Biomarkers_HbA1c_ALP_ALT_GGT_with_Error_Untestable_Clotted"/>
+      <class name="Tims.Partial_Report_SOFT_1409_Test_Cases.TC_09_Verify_Partial_Test_Report_General_Health_Test_For_HbA1c_ALT_FBC_with_Error_Untestable_Misc"/>
+      <class name="Tims.Partial_Report_SOFT_1409_Test_Cases.TC_05_Verify_Partial_Test_Report_For_The_General_Health_Test_For_Biomarkers_HbA1c_ALP_with_Error_Untestable_Damaged"/>
+      <class name="Tims.Partial_Report_SOFT_1409_Test_Cases.TC_14_Verify_Partial_Test_Report_General_Health_Test_For_Biomarkers_HbA1c_FBC_ALT_GGT_with_Error_Untestable_Insufficient"/>
+      <class name="Tims.Partial_Report_SOFT_1409_Test_Cases.TC_06_Verify_Partial_Test_Report_General_Health_Test_For_HbA1c_ALT_GGT_with_Error_Untestable_Clotted_sample_receipt"/>
+      <class name="Tims.Partial_Report_SOFT_1409_Test_Cases.TC_17_Verify_Partial_Report_For_Weight_Management_Test_For_Biomarkers_FOL_HbA1c_with_Error_Reason_Inhibitory"/>
+      <class name="Tims.Partial_Report_SOFT_1409_Test_Cases.TC_12_Verify_Partial_Test_Report_General_Health_Test_For_Biomarkers_HbA1c_ALP_ALT_with_Error_Untestable_Misc"/>
+      <class name="Tims.Partial_Report_SOFT_1409_Test_Cases.TC_01_Verify_Partial_Test_Report_General_Health_Test_HbA1c_with_Error_Untestable_Grossly_Haemolysed"/>
+      <class name="Tims.Partial_Report_SOFT_1409_Test_Cases.TC_07_Verify_Partial_Test_Report_General_Health_Test_For_Biomarkers_HbA1c_ALP_GGT_with_Error_Inhibitory"/>
+      <class name="Tims.Partial_Report_SOFT_1409_Test_Cases.TC_02_Verify_Partial_Test_Report_For_General_Health_Test_For_HbA1c_FBC_with_Error_Untestable_Misc_Post_Analytical"/>
+      <class name="Tims.Partial_Report_SOFT_1409_Test_Cases.TC_16_Verify_Partial_Test_Report_General_Health_Test_For_Biomarkers_HbA1c_FBC_ALP_GGT_with_Error_Untestable_Clotted"/>
+      <class name="Tims.Partial_Report_SOFT_1409_Test_Cases.TC_03_Verify_Partial_Test_Report_For_The_General_Health_Test_For_HbA1c_ALT_with_Error_Untestable_Grossly_Haemolysed"/>
+      <class name="Tims.Partial_Report_SOFT_1409_Test_Cases.TC_10_Verify_Partial_Test_Report_General_Health_Test_For_Biomarkers_HbA1c_GGT_FBC_with_Error_Untestable_Misc"/>
+      <class name="Tims.Partial_Report_SOFT_1409_Test_Cases.TC_08_Verify_Partial_Test_Report_General_Health_Test_For_HbA1c_ALP_ALT_FBC_with_Error_Untestable_Misc"/>
+      <class name="Tims.Partial_Report_SOFT_1409_Test_Cases.TC_18_Verify_Partial_Report_For_Erectile_Dysfunction_Test_For_HbA1c_with_Error_Untestable_Insufficient_Post_Analytical"/>
+      <class name="Tims.Partial_Report_SOFT_1409_Test_Cases.TC_11_Verify_Partial_Test_Report_General_Health_Test_For_Biomarkers_HbA1c_ALP_FBC_with_Error_Untestable_Clotted"/>
+      <class name="Tims.Partial_Report_SOFT_1409_Test_Cases.TC_04_Verify_Partial_Test_Report_For_The_General_Health_Test_For_HbA1c_GGT_with_Error_Untestable_Insufficient_Sample_Receipt"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

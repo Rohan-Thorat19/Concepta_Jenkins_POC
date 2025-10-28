@@ -31,6 +31,8 @@ import Test.Dashboard.Locators_Class.Create_Account_Locators;
 import Test.Dashboard.Locators_Class.Customer_Landing_Locators;
 import Test.Dashboard.Locators_Class.Health_Assessment_Locators;
 import Test.Tims.Actions_Class.Login_Action;
+import Test.Tims.Locators_Class.SH_Locators;
+import Test.Tims.Partial_Report_Locators_Class.SOFT_1366_Partial_Report_Locators;
 import Wrappers.CSVUploaderWithTextReplacement;
 import Wrappers.ReadGmail;
 import Wrappers.WebButton;
@@ -53,7 +55,9 @@ public class Activate_Test_Kit_Actions extends BaseClass {
 	Customer_Landing_Actions customer_landing_actions;
 	Health_Assessment_Locators health_assessment_locators;
 	Health_Assessment_Actions health_assessment_actions;
+	SOFT_1366_Partial_Report_Locators test_1366_locators;
 	Login_Action login_action;
+	SH_Locators sh_locators;
 	public static String Barcode1;
 	public static String Barcode2;
 	public static String formattedDate;
@@ -74,13 +78,15 @@ public class Activate_Test_Kit_Actions extends BaseClass {
 	public static String PLcode1;
 	public static String BLcode1;
 	ReadGmail read_gmail = new ReadGmail();
-
+	
 	public Activate_Test_Kit_Actions(WebDriver driver) {
 		this.driver = driver;
 		activate_test_kit_locators = new Activate_Test_Kit_Locators(driver);
 		customer_landing_locators = new Customer_Landing_Locators(driver);
 		health_assessment_locators = new Health_Assessment_Locators(driver);
 		login_action = new Login_Action(driver);
+		sh_locators = new SH_Locators(driver);
+		test_1366_locators = new SOFT_1366_Partial_Report_Locators(driver);
 	}
 	
 	public void setHealthAssessmentActions(Health_Assessment_Actions health_actions) {
@@ -1517,7 +1523,460 @@ public class Activate_Test_Kit_Actions extends BaseClass {
 			}
 	}
 	
+	public void successfulActivationOfATestKitUsingBothBarcodesValidInputs() throws Exception {
+		WebButton.clickButton(activate_test_kit_locators.get_activateTestSideMenuItem());
+		Thread.sleep(2000);
+		WebTextBox.sendInput(activate_test_kit_locators.get_goldBarcodeTxt(), Barcode1);
+		Thread.sleep(2000);
+		WebTextBox.sendInput(activate_test_kit_locators.get_trackingNumberTxt(), "AA 1234 5678 9BB");
+		Thread.sleep(2000);
+		WebScrollView.scrollToElement(driver, activate_test_kit_locators.get_confirmAndContinueBtn());
+		Thread.sleep(5000);
+		WebButton.clickButton(activate_test_kit_locators.get_confirmAndContinueBtn());
+		Thread.sleep(5000);
+		WebButton.clickButton(activate_test_kit_locators.get_confirmAndContinueBtn());
+		Thread.sleep(5000);
+		WebScrollView.scrollToElement(driver, activate_test_kit_locators.get_consentInfoFirstCheckBox());
+		Thread.sleep(2000);
+		WebButton.clickButton(activate_test_kit_locators.get_consentInfoFirstCheckBox());
+		Thread.sleep(2000);
+		WebButton.clickButton(activate_test_kit_locators.get_consentPrivacyAndTermsSecondCheckBox());
+		Thread.sleep(2000);
+		WebButton.clickButton(activate_test_kit_locators.get_submitBtn());
+		Thread.sleep(3000);
+		WebTextBox.sendInput(activate_test_kit_locators.get_phoneNumberTxt(), "7362342247");
+		Thread.sleep(2000);
+		WebTextBox.sendInput(activate_test_kit_locators.get_dobTxt(), "03212000");
+		Thread.sleep(2000);
+		WebScrollView.scrollToElement(driver, activate_test_kit_locators.get_ethnicityRadioBtn());
+		Thread.sleep(2000);
+		WebButton.clickButton(activate_test_kit_locators.get_genderBtn());
+		Thread.sleep(2000);
+		WebButton.clickButton(activate_test_kit_locators.get_genderConfirmBtn());
+		Thread.sleep(2000);
+		WebButton.clickButton(activate_test_kit_locators.get_ethnicityRadioBtn());
+		Thread.sleep(2000);
+		WebScrollView.scrollToElement(driver, activate_test_kit_locators.get_continueBtn());
+		Thread.sleep(2000);
+		WebScrollView.scrollToElement(driver, activate_test_kit_locators.get_continueBtn());
+		Thread.sleep(3000);
+		WebButton.clickButton(activate_test_kit_locators.get_continueBtn());
+		Thread.sleep(3000);
+		WebWait.elementToBeClickable(driver, activate_test_kit_locators.get_dateTxt(), Duration.ofSeconds(10));
+		WebTextBox.sendInput(activate_test_kit_locators.get_dateTxt(), getSystemCurrentDate());
+		Thread.sleep(2000);
+		WebTextBox.sendInput(activate_test_kit_locators.get_timeTxt(), "0909AM");
+		Thread.sleep(2000);
+		WebButton.clickButton(activate_test_kit_locators.get_confirmAndContinueBtn());
+		Thread.sleep(2000);
+
+	}
 	
+	public void markAsReceivedBothResultsUploadedForPartialResultOfSoft1366(String fileName1, String fileName2,
+			String OldValue1, String OldValue2, String OldValue3, String NewValue1, String NewValue2, String NewValue3)
+			throws InterruptedException, IOException {
+
+		WebWait.elementToBeClickable(driver, activate_test_kit_locators.get_testKitSideMenuItem(),
+				Duration.ofSeconds(20));
+		WebButton.clickButton(activate_test_kit_locators.get_testKitSideMenuItem());
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedHeaderMenuBtn());
+		WebWait.visibilityOfElement(driver, sh_locators.get_barcodeTxt(), Duration.ofSeconds(20));
+		WebTextBox.sendInput(sh_locators.get_barcodeTxt(), Barcode1);
+		WebWait.elementToBeClickable(driver, sh_locators.get_nextBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_nextBtn());
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedPopupWindowBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedPopupWindowBtn());
+		Thread.sleep(5000);
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedHeaderMenuBtn());
+		WebWait.visibilityOfElement(driver, sh_locators.get_barcodeTxt(), Duration.ofSeconds(20));
+		WebTextBox.sendInput(sh_locators.get_barcodeTxt(), Barcode2);
+		WebWait.elementToBeClickable(driver, sh_locators.get_nextBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_nextBtn());
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedPopupWindowBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedPopupWindowBtn());
+		Thread.sleep(5000);
+		WebWait.elementToBeClickable(driver, sh_locators.get_uploadBloodCsvHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_uploadBloodCsvHeaderMenuBtn());
+
+		Map<String, String> replacements = new HashMap<>();
+		replacements.put(OldValue1, NewValue1);
+		replacements.put(OldValue2, NewValue2);
+		replacements.put(OldValue3, NewValue3);
+		replacements.put("BGV-VQQ-7463", Barcode1);
+
+		CSVUploaderWithTextReplacement.updateAndUploadCSVMultipleValues(driver,
+				System.getProperty("user.dir") + "\\TestData\\Partial_Report_CSV\\" + fileName1,
+				sh_locators.get_uploadCsvChooseFileOptionTxt(), replacements);
+		Thread.sleep(1000);
+		WebButton.clickButton(sh_locators.get_uploadBtn());
+		Thread.sleep(3000);
+		driver.navigate().refresh();
+		Thread.sleep(5000);
+		WebWait.elementToBeClickable(driver, sh_locators.get_uploadBloodCsvHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_uploadBloodCsvHeaderMenuBtn());
+		CSVUploaderWithTextReplacement.updateAndUploadCSV(driver,
+				System.getProperty("user.dir") + "\\TestData\\Partial_Report_CSV\\" + fileName2,
+				sh_locators.get_uploadCsvChooseFileOptionTxt(), "MLD-SFB-9881", Barcode2);
+		Thread.sleep(1000);
+		WebButton.clickButton(sh_locators.get_uploadBtn());
+		Thread.sleep(3000);
+		driver.navigate().refresh();
+		Thread.sleep(5000);
+	}
+
+	public void markAsReceivedBothResultsUploadedForPartialResultOfSoft1366OfFailCsvFile(String fileName1,
+			String fileName2, String OldValue1, String OldValue2, String OldValue3, String NewValue1, String NewValue2,
+			String NewValue3) throws InterruptedException, IOException {
+
+		WebWait.elementToBeClickable(driver, activate_test_kit_locators.get_testKitSideMenuItem(),
+				Duration.ofSeconds(20));
+		WebButton.clickButton(activate_test_kit_locators.get_testKitSideMenuItem());
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedHeaderMenuBtn());
+		WebWait.visibilityOfElement(driver, sh_locators.get_barcodeTxt(), Duration.ofSeconds(20));
+		WebTextBox.sendInput(sh_locators.get_barcodeTxt(), Barcode1);
+		WebWait.elementToBeClickable(driver, sh_locators.get_nextBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_nextBtn());
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedPopupWindowBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedPopupWindowBtn());
+		Thread.sleep(5000);
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedHeaderMenuBtn());
+		WebWait.visibilityOfElement(driver, sh_locators.get_barcodeTxt(), Duration.ofSeconds(20));
+		WebTextBox.sendInput(sh_locators.get_barcodeTxt(), Barcode2);
+		WebWait.elementToBeClickable(driver, sh_locators.get_nextBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_nextBtn());
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedPopupWindowBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedPopupWindowBtn());
+		Thread.sleep(5000);
+		WebWait.elementToBeClickable(driver, sh_locators.get_uploadBloodCsvHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_uploadBloodCsvHeaderMenuBtn());
+
+		Map<String, String> replacements = new HashMap<>();
+		replacements.put(OldValue1, NewValue1);
+		replacements.put(OldValue2, NewValue2);
+		replacements.put(OldValue3, NewValue3);
+		replacements.put("BGV-VQQ-7463", Barcode1);
+
+		CSVUploaderWithTextReplacement.updateAndUploadCSVMultipleValues(driver,
+				System.getProperty("user.dir") + "\\TestData\\Partial_Report_CSV\\" + fileName1,
+				sh_locators.get_uploadCsvChooseFileOptionTxt(), replacements);
+		Thread.sleep(1000);
+		WebButton.clickButton(sh_locators.get_uploadBtn());
+		Thread.sleep(3000);
+		driver.navigate().back();
+		Thread.sleep(5000);
+		WebWait.elementToBeClickable(driver, sh_locators.get_uploadBloodCsvHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_uploadBloodCsvHeaderMenuBtn());
+		CSVUploaderWithTextReplacement.updateAndUploadCSV(driver,
+				System.getProperty("user.dir") + "\\TestData\\Partial_Report_CSV\\" + fileName2,
+				sh_locators.get_uploadCsvChooseFileOptionTxt(), "MLD-SFB-9881", Barcode2);
+		Thread.sleep(1000);
+		WebButton.clickButton(sh_locators.get_uploadBtn());
+		Thread.sleep(3000);
+		driver.navigate().refresh();
+		Thread.sleep(5000);
+	}
+
+	public void markAsReceivedBothResultsUploadedForPartialResultOfSoft1366OfFailCsvFileGeneralHealthProfile(
+			String fileName1, String fileName2, String OldValue1, String OldValue2, String OldValue3, String NewValue1,
+			String NewValue2, String NewValue3) throws InterruptedException, IOException {
+
+		WebWait.elementToBeClickable(driver, activate_test_kit_locators.get_testKitSideMenuItem(),
+				Duration.ofSeconds(20));
+		WebButton.clickButton(activate_test_kit_locators.get_testKitSideMenuItem());
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedHeaderMenuBtn());
+		WebWait.visibilityOfElement(driver, sh_locators.get_barcodeTxt(), Duration.ofSeconds(20));
+		WebTextBox.sendInput(sh_locators.get_barcodeTxt(), Barcode1);
+		WebWait.elementToBeClickable(driver, sh_locators.get_nextBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_nextBtn());
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedPopupWindowBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedPopupWindowBtn());
+		Thread.sleep(5000);
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedHeaderMenuBtn());
+		WebWait.visibilityOfElement(driver, sh_locators.get_barcodeTxt(), Duration.ofSeconds(20));
+		WebTextBox.sendInput(sh_locators.get_barcodeTxt(), Barcode2);
+		WebWait.elementToBeClickable(driver, sh_locators.get_nextBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_nextBtn());
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedPopupWindowBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedPopupWindowBtn());
+		Thread.sleep(5000);
+		WebWait.elementToBeClickable(driver, sh_locators.get_uploadBloodCsvHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_uploadBloodCsvHeaderMenuBtn());
+
+		Map<String, String> replacements = new HashMap<>();
+		replacements.put(OldValue1, NewValue1);
+		replacements.put(OldValue2, NewValue2);
+		replacements.put(OldValue3, NewValue3);
+		replacements.put("MGB-LYB-5691", Barcode1);
+
+		CSVUploaderWithTextReplacement.updateAndUploadCSVMultipleValues(driver,
+				System.getProperty("user.dir") + "\\TestData\\Partial_Report_CSV\\" + fileName1,
+				sh_locators.get_uploadCsvChooseFileOptionTxt(), replacements);
+		Thread.sleep(1000);
+		WebButton.clickButton(sh_locators.get_uploadBtn());
+		Thread.sleep(3000);
+		driver.navigate().back();
+		Thread.sleep(5000);
+		WebWait.elementToBeClickable(driver, sh_locators.get_uploadBloodCsvHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_uploadBloodCsvHeaderMenuBtn());
+		CSVUploaderWithTextReplacement.updateAndUploadCSV(driver,
+				System.getProperty("user.dir") + "\\TestData\\Partial_Report_CSV\\" + fileName2,
+				sh_locators.get_uploadCsvChooseFileOptionTxt(), "MLH-OWA-0848", Barcode2);
+		Thread.sleep(1000);
+		WebButton.clickButton(sh_locators.get_uploadBtn());
+		Thread.sleep(3000);
+		driver.navigate().refresh();
+		Thread.sleep(5000);
+	}
+
+	public void publishKitAndCheckStatusForEnergyProfileForFailCsv() throws InterruptedException {
+		WebButton.clickButton(test_1366_locators.get_testKitsSideMenuItem());
+		WebTextBox.sendInput(test_1366_locators.get_primaryBarcodeSearchTxtBox(), Barcode1);
+		Thread.sleep(5000);
+		Assert.assertTrue(test_1366_locators.get_Error_Status_For_Test_Kit().isDisplayed(),
+				"Test Kit Status is not an Error");
+		WebButton.clickButton(test_1366_locators.get_testReportSideMenuItem());
+		WebButton.clickButton(test_1366_locators.get_Error_Tab());
+		WebTextBox.sendInput(test_1366_locators.get_primaryBarcodeSearchTxtBox(), Barcode1);
+		Thread.sleep(5000);
+		Assert.assertTrue(test_1366_locators.get_Entry_Available_In_Error_Tab().isDisplayed(),
+				"Error Entry Not Available In Error Tab");
+
+	}
+	
+	public void markAsReceivedBothResultsUploadedForPartialResultOfSoft1366OfFailCsvFileWithMultipleValues(
+			String fileName1, String fileName2, String OldValue1, String OldValue2, String OldValue3, String OldValue4,
+			String OldValue5, String NewValue1, String NewValue2, String NewValue3, String NewValue4, String NewValue5)
+			throws InterruptedException, IOException {
+		WebWait.elementToBeClickable(driver, activate_test_kit_locators.get_testKitSideMenuItem(),
+				Duration.ofSeconds(20));
+		WebButton.clickButton(activate_test_kit_locators.get_testKitSideMenuItem());
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedHeaderMenuBtn());
+		WebWait.visibilityOfElement(driver, sh_locators.get_barcodeTxt(), Duration.ofSeconds(20));
+		WebTextBox.sendInput(sh_locators.get_barcodeTxt(), Barcode1);
+		WebWait.elementToBeClickable(driver, sh_locators.get_nextBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_nextBtn());
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedPopupWindowBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedPopupWindowBtn());
+		Thread.sleep(5000);
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedHeaderMenuBtn());
+		WebWait.visibilityOfElement(driver, sh_locators.get_barcodeTxt(), Duration.ofSeconds(20));
+		WebTextBox.sendInput(sh_locators.get_barcodeTxt(), Barcode2);
+		WebWait.elementToBeClickable(driver, sh_locators.get_nextBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_nextBtn());
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedPopupWindowBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedPopupWindowBtn());
+		Thread.sleep(5000);
+		WebWait.elementToBeClickable(driver, sh_locators.get_uploadBloodCsvHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_uploadBloodCsvHeaderMenuBtn());
+
+		Map<String, String> replacements = new HashMap<>();
+		replacements.put(OldValue1, NewValue1);
+		replacements.put(OldValue2, NewValue2);
+		replacements.put(OldValue3, NewValue3);
+		replacements.put(OldValue4, NewValue4);
+		replacements.put(OldValue5, NewValue5);
+		replacements.put("BGV-VQQ-7463", Barcode1);
+
+		CSVUploaderWithTextReplacement.updateAndUploadCSVMultipleValues(driver,
+				System.getProperty("user.dir") + "\\TestData\\Partial_Report_CSV\\" + fileName1,
+				sh_locators.get_uploadCsvChooseFileOptionTxt(), replacements);
+		Thread.sleep(1000);
+		WebButton.clickButton(sh_locators.get_uploadBtn());
+		Thread.sleep(3000);
+		driver.navigate().back();
+		Thread.sleep(5000);
+		WebWait.elementToBeClickable(driver, sh_locators.get_uploadBloodCsvHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_uploadBloodCsvHeaderMenuBtn());
+		CSVUploaderWithTextReplacement.updateAndUploadCSV(driver,
+				System.getProperty("user.dir") + "\\TestData\\Partial_Report_CSV\\" + fileName2,
+				sh_locators.get_uploadCsvChooseFileOptionTxt(), "MLD-SFB-9881", Barcode2);
+		Thread.sleep(1000);
+		WebButton.clickButton(sh_locators.get_uploadBtn());
+		Thread.sleep(3000);
+		driver.navigate().refresh();
+		Thread.sleep(5000);
+	}
+
+	public void assignKitAndCheckStatusForEnergyProfile() throws InterruptedException {
+		WebButton.clickButton(test_1366_locators.get_testReportSideMenuItem());
+		WebButton.clickButton(test_1366_locators.get_readyForReviewBtn());
+		WebWait.visibilityOfElement(driver, test_1366_locators.get_firstIDItem(), Duration.ofSeconds(30));
+		WebButton.clickButton(test_1366_locators.get_firstIDItem());
+		WebButton.clickButton(test_1366_locators.get_assignBtn());
+		WebWait.visibilityOfElement(driver, test_1366_locators.get_assignBtnInAlertBox(), Duration.ofSeconds(30));
+		WebButton.clickButton(test_1366_locators.get_assignBtnInAlertBox());
+		Thread.sleep(3000);
+		WebButton.JsclickButton(test_1366_locators.get_reportTabBtn(), driver);
+		WebButton.clickButton(test_1366_locators.get_testReportSideMenuItem());
+		WebButton.clickButton(test_1366_locators.get_assignedTabBtn());
+		WebTextBox.sendInput(test_1366_locators.get_primaryBarcodeSearchTxtBox(), Barcode1);
+		Thread.sleep(5000);
+		Assert.assertTrue(test_1366_locators.get_Entry_Available_In_Error_Tab().isDisplayed(),
+				"Error Entry Not Available In Error Tab");
+		Thread.sleep(5000);
+		WebButton.clickButton(activate_test_kit_locators.get_testKitSideMenuItem());
+		WebTextBox.sendInput(test_1366_locators.get_primaryBarcodeSearchTxtBox(), Barcode1);
+		Thread.sleep(5000);
+		WebButton.clickButton(test_1366_locators.get_testKitId());
+		WebButton.clickButton(test_1366_locators.get_viewReportLink());
+		WebButton.clickButton(test_1366_locators.get_reportTabBtn());
+		Thread.sleep(5000);
+		WebScrollView.scrollDownVertically(driver);
+		Assert.assertTrue(test_1366_locators.get_groupsDisplayed().isDisplayed(), "Groups Are Not Proper");
+
+	}
+
+	public void createDoubleBarcodeFromTimsToUseInDashboardForGeneralHealthTest() throws InterruptedException {
+		Thread.sleep(2000);
+		WebButton.clickButton(activate_test_kit_locators.get_barcodeBatchesSideMenuItem());
+		WebButton.clickButton(activate_test_kit_locators.get_createBloodBatchBtn());
+		Thread.sleep(2000);
+		WebDropDown.selectByText(activate_test_kit_locators.get_customerDrp(), "Boots");
+		WebDropDown.selectByText(activate_test_kit_locators.get_typeDrp(), "blood");
+		WebDropDown.selectByText(activate_test_kit_locators.get_subTypeDrp(), "Lavender");
+		WebTextBox.sendInput(activate_test_kit_locators.get_barcodeCountTxt(), "2");
+		WebButton.clickButton(activate_test_kit_locators.get_saveBtn());
+		Thread.sleep(2000);
+		WebButton.clickButton(activate_test_kit_locators.get_barcodesHeaderMenuItem());
+		Thread.sleep(2000);
+		Barcode2 = activate_test_kit_locators.get_barcodesValue().getText();
+		System.out.print("Generated Barcode is" + Barcode2);
+		WebButton.clickButton(activate_test_kit_locators.get_testKitSideMenuItem());
+		WebButton.clickButton(activate_test_kit_locators.get_createKitBtn());
+		Thread.sleep(2000);
+		WebTextBox.sendInput(activate_test_kit_locators.get_primaryBarcodeTxtForCreateKit(), Barcode1);
+		WebTextBox.sendInput(activate_test_kit_locators.get_secondaryBarcodeTxtForCreateKit(), Barcode2);
+		WebButton.JsclickButton(activate_test_kit_locators.get_createBtn(), driver);
+		Thread.sleep(3000);
+		WebButton.clickButton(activate_test_kit_locators.get_assignKitTypeHeaderMenu());
+		Thread.sleep(2000);
+		WebDropDown.selectByText(activate_test_kit_locators.get_typeOfTestKitDrp(), "General Health Test ");
+		Thread.sleep(2000);
+		WebTextBox.sendInput(activate_test_kit_locators.get_primaryBarcodeTxtForAssignKit(), Barcode1);
+		Thread.sleep(2000);
+		WebButton.JsclickButton(activate_test_kit_locators.get_AssignBtn(), driver);
+
+	}
+
+	public void markAsReceivedBothResultsUploadedOfGeneralHealthProfileForPartialResultOfSoft1366(String fileName1,
+			String fileName2, String OldValue1, String OldValue2, String OldValue3, String NewValue1, String NewValue2,
+			String NewValue3) throws InterruptedException, IOException {
+
+		WebWait.elementToBeClickable(driver, activate_test_kit_locators.get_testKitSideMenuItem(),
+				Duration.ofSeconds(20));
+		WebButton.clickButton(activate_test_kit_locators.get_testKitSideMenuItem());
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedHeaderMenuBtn());
+		WebWait.visibilityOfElement(driver, sh_locators.get_barcodeTxt(), Duration.ofSeconds(20));
+		WebTextBox.sendInput(sh_locators.get_barcodeTxt(), Barcode1);
+		WebWait.elementToBeClickable(driver, sh_locators.get_nextBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_nextBtn());
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedPopupWindowBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedPopupWindowBtn());
+		Thread.sleep(5000);
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedHeaderMenuBtn());
+		WebWait.visibilityOfElement(driver, sh_locators.get_barcodeTxt(), Duration.ofSeconds(20));
+		WebTextBox.sendInput(sh_locators.get_barcodeTxt(), Barcode2);
+		WebWait.elementToBeClickable(driver, sh_locators.get_nextBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_nextBtn());
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedPopupWindowBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedPopupWindowBtn());
+		Thread.sleep(5000);
+		WebWait.elementToBeClickable(driver, sh_locators.get_uploadBloodCsvHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_uploadBloodCsvHeaderMenuBtn());
+
+		Map<String, String> replacements = new HashMap<>();
+		replacements.put(OldValue1, NewValue1);
+		replacements.put(OldValue2, NewValue2);
+		replacements.put(OldValue3, NewValue3);
+		replacements.put("MGB-LYB-5691", Barcode1);
+
+		CSVUploaderWithTextReplacement.updateAndUploadCSVMultipleValues(driver,
+				System.getProperty("user.dir") + "\\TestData\\Partial_Report_CSV\\" + fileName1,
+				sh_locators.get_uploadCsvChooseFileOptionTxt(), replacements);
+		Thread.sleep(1000);
+		WebButton.clickButton(sh_locators.get_uploadBtn());
+		Thread.sleep(3000);
+		driver.navigate().refresh();
+		Thread.sleep(5000);
+		WebWait.elementToBeClickable(driver, sh_locators.get_uploadBloodCsvHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_uploadBloodCsvHeaderMenuBtn());
+		CSVUploaderWithTextReplacement.updateAndUploadCSV(driver,
+				System.getProperty("user.dir") + "\\TestData\\Partial_Report_CSV\\" + fileName2,
+				sh_locators.get_uploadCsvChooseFileOptionTxt(), "MLH-OWA-0848", Barcode2);
+		Thread.sleep(1000);
+		WebButton.clickButton(sh_locators.get_uploadBtn());
+		Thread.sleep(3000);
+		driver.navigate().refresh();
+		Thread.sleep(5000);
+	}
+	
+	public void markAsReceivedBothResultsUploadedForPartialResultOfSoft1366OfFailCsvFileWithMultipleValuesGenerealHealthProfile(
+			String fileName1, String fileName2, String OldValue1, String OldValue2, String OldValue3, String OldValue4,
+			String OldValue5, String NewValue1, String NewValue2, String NewValue3, String NewValue4, String NewValue5)
+			throws InterruptedException, IOException {
+		WebWait.elementToBeClickable(driver, activate_test_kit_locators.get_testKitSideMenuItem(),
+				Duration.ofSeconds(20));
+		WebButton.clickButton(activate_test_kit_locators.get_testKitSideMenuItem());
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedHeaderMenuBtn());
+		WebWait.visibilityOfElement(driver, sh_locators.get_barcodeTxt(), Duration.ofSeconds(20));
+		WebTextBox.sendInput(sh_locators.get_barcodeTxt(), Barcode1);
+		WebWait.elementToBeClickable(driver, sh_locators.get_nextBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_nextBtn());
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedPopupWindowBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedPopupWindowBtn());
+		Thread.sleep(5000);
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedHeaderMenuBtn());
+		WebWait.visibilityOfElement(driver, sh_locators.get_barcodeTxt(), Duration.ofSeconds(20));
+		WebTextBox.sendInput(sh_locators.get_barcodeTxt(), Barcode2);
+		WebWait.elementToBeClickable(driver, sh_locators.get_nextBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_nextBtn());
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedPopupWindowBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedPopupWindowBtn());
+		Thread.sleep(5000);
+		WebWait.elementToBeClickable(driver, sh_locators.get_uploadBloodCsvHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_uploadBloodCsvHeaderMenuBtn());
+
+		Map<String, String> replacements = new HashMap<>();
+		replacements.put(OldValue1, NewValue1);
+		replacements.put(OldValue2, NewValue2);
+		replacements.put(OldValue3, NewValue3);
+		replacements.put(OldValue4, NewValue4);
+		replacements.put(OldValue5, NewValue5);
+		replacements.put("MGB-LYB-5691", Barcode1);
+
+		CSVUploaderWithTextReplacement.updateAndUploadCSVMultipleValues(driver,
+				System.getProperty("user.dir") + "\\TestData\\Partial_Report_CSV\\" + fileName1,
+				sh_locators.get_uploadCsvChooseFileOptionTxt(), replacements);
+		Thread.sleep(1000);
+		WebButton.clickButton(sh_locators.get_uploadBtn());
+		Thread.sleep(3000);
+		driver.navigate().back();
+		Thread.sleep(5000);
+		WebWait.elementToBeClickable(driver, sh_locators.get_uploadBloodCsvHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_uploadBloodCsvHeaderMenuBtn());
+		CSVUploaderWithTextReplacement.updateAndUploadCSV(driver,
+				System.getProperty("user.dir") + "\\TestData\\Partial_Report_CSV\\" + fileName2,
+				sh_locators.get_uploadCsvChooseFileOptionTxt(), "MLH-OWA-0848", Barcode2);
+		Thread.sleep(1000);
+		WebButton.clickButton(sh_locators.get_uploadBtn());
+		Thread.sleep(3000);
+		driver.navigate().refresh();
+		Thread.sleep(5000);
+	}
+
+
 	
 	/*
 	 * public void emptyFirstName() throws InterruptedException {

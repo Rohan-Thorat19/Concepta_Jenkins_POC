@@ -1,6 +1,9 @@
 package Test.Tims.Actions_Class;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import java.io.IOException;
 import java.time.Duration;
@@ -363,7 +366,7 @@ public class SH_Actions extends BaseClass {
    public void getStatus(String expectedKitStatus, String expectedPrimaryBarcodeStatus, String expectedSecondaryBarcodeStatus) throws InterruptedException
     {
 		
-		WebWait.elementToBeClickable(driver, sh_locators.get_uploadBloodCsvHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebWait.elementToBeClickable(driver, activate_test_kit_locators.get_testKitSideMenuItem(), Duration.ofSeconds(20));
 		WebButton.clickButton(activate_test_kit_locators.get_testKitSideMenuItem());
 		WebWait.visibilityOfElement(driver, sh_locators.get_primaryBarcodeSearchTxt(), Duration.ofSeconds(20));
 		WebTextBox.sendInput(sh_locators.get_primaryBarcodeSearchTxt(), Barcode1);
@@ -423,6 +426,60 @@ public class SH_Actions extends BaseClass {
 		WebTextBox.sendInput(sh_locators.get_primaryBarcodeSearchTxt(), Barcode1);
 		WebWait.visibilityOfElement(driver, sh_locators.get_inLabPrimaryBarcode(), Duration.ofSeconds(20));
 		Assert.assertTrue(sh_locators.get_inLabPrimaryBarcode().isDisplayed(), "Primary Barcode Not Visible In 'Ready For Review' ");
-   }	   
+   }
+   
+   public void markAsReceivedBothResultsUploadedForPartialResultOfSoft1417(String fileName1, String fileName2,
+			String OldValue1, String NewValue1, String OldValue2, String NewValue2)
+			throws InterruptedException, IOException {
+
+		WebWait.elementToBeClickable(driver, activate_test_kit_locators.get_testKitSideMenuItem(),
+				Duration.ofSeconds(20));
+		WebButton.clickButton(activate_test_kit_locators.get_testKitSideMenuItem());
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedHeaderMenuBtn());
+		WebWait.visibilityOfElement(driver, sh_locators.get_barcodeTxt(), Duration.ofSeconds(20));
+		WebTextBox.sendInput(sh_locators.get_barcodeTxt(), Barcode1);
+		WebWait.elementToBeClickable(driver, sh_locators.get_nextBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_nextBtn());
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedPopupWindowBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedPopupWindowBtn());
+		Thread.sleep(5000);
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedHeaderMenuBtn());
+		WebWait.visibilityOfElement(driver, sh_locators.get_barcodeTxt(), Duration.ofSeconds(20));
+		WebTextBox.sendInput(sh_locators.get_barcodeTxt(), Barcode2);
+		WebWait.elementToBeClickable(driver, sh_locators.get_nextBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_nextBtn());
+		WebWait.elementToBeClickable(driver, sh_locators.get_markAsReceivedPopupWindowBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_markAsReceivedPopupWindowBtn());
+		Thread.sleep(5000);
+		WebWait.elementToBeClickable(driver, sh_locators.get_uploadBloodCsvHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_uploadBloodCsvHeaderMenuBtn());
+
+		Map<String, String> replacements = new HashMap<>();
+		replacements.put(OldValue1, NewValue1);
+		replacements.put(OldValue2, NewValue2);
+		replacements.put("MGD-WXN-0456", Barcode1);
+
+		CSVUploaderWithTextReplacement.updateAndUploadCSVMultipleValues(driver,
+				System.getProperty("user.dir") + "\\TestData\\Partial_Report_CSV\\" + fileName1,
+				sh_locators.get_uploadCsvChooseFileOptionTxt(), replacements);
+		Thread.sleep(1000);
+		WebButton.clickButton(sh_locators.get_uploadBtn());
+		Thread.sleep(3000);
+		driver.navigate().refresh();
+		Thread.sleep(5000);
+		WebWait.elementToBeClickable(driver, sh_locators.get_uploadBloodCsvHeaderMenuBtn(), Duration.ofSeconds(20));
+		WebButton.clickButton(sh_locators.get_uploadBloodCsvHeaderMenuBtn());
+		CSVUploaderWithTextReplacement.updateAndUploadCSV(driver,
+				System.getProperty("user.dir") + "\\TestData\\Partial_Report_CSV\\" + fileName2,
+				sh_locators.get_uploadCsvChooseFileOptionTxt(), "MBZ-SSD-4095", Barcode2);
+		Thread.sleep(1000);
+		WebButton.clickButton(sh_locators.get_uploadBtn());
+		Thread.sleep(3000);
+		driver.navigate().refresh();
+		Thread.sleep(5000);
+	}
+
 
 }

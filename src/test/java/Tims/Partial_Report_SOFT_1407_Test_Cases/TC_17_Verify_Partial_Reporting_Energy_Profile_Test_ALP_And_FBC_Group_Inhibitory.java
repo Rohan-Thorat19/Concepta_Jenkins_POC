@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import Test.Tims.Partial_Report_Action_Class.SOFT_1407_Partial_Report_Actions;
+import Test.Tims.Partial_Report_Actions_Class.SOFT_1407_Partial_Report_Actions;
 import initializer.BaseClass;
 
 public class TC_17_Verify_Partial_Reporting_Energy_Profile_Test_ALP_And_FBC_Group_Inhibitory extends BaseClass {

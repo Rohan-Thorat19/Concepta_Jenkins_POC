@@ -27,6 +27,8 @@ public class WebCommonPath {
 	public static String generalHealthLavenderCsv = System.getProperty("user.dir") + "/TestData/Partial_Report_CSV/General_Health_Test_Lavender.csv";
 	public static String erectileDysfunctionGoldCsv = System.getProperty("user.dir") + "/TestData/Partial_Report_CSV/Erectile_Dysfunction_Gold.csv";
 	public static String erectileDysfunctionLavenderCsv = System.getProperty("user.dir") + "/TestData/Partial_Report_CSV/Erectile_Dysfunction_Lavender.csv";
+	public static String heartProfileGoldCsv = System.getProperty("user.dir") + "/TestData/Partial_Report_CSV/Heart_Profile_Gold.csv";
+	public static String heartProfileLavenderCsv = System.getProperty("user.dir") + "/TestData/Partial_Report_CSV/Heart_Profile_Lavender.csv";
 
 	
 	

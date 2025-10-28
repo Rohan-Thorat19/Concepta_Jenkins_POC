@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import Test.Tims.Partial_Report_Action_Class.SOFT_1407_Partial_Report_Actions;
+import Test.Tims.Partial_Report_Actions_Class.SOFT_1407_Partial_Report_Actions;
 import initializer.BaseClass;
 
 public class TC_32_Verify_Partial_Report_For_General_Health_Test_For_Biomarkers_Of_Liver_Health_FBC_Glucose_Error_Reasons_Untestable_Clotted_Post_Analytical extends BaseClass{

@@ -1,0 +1,19 @@
+package Tims.Partial_Report_SOFT_1407_Test_Cases;
+
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+import Test.Tims.Partial_Report_Actions_Class.SOFT_1407_Partial_Report_Actions;
+import initializer.BaseClass;
+
+public class TC_33_Verify_Partial_Report_For_General_Health_Test_For_Biomarkers_Of_FBC_Glucose_Error_Reasons_Untestable_Misc_Post_Analytical extends BaseClass{
+
+	SOFT_1407_Partial_Report_Actions soft_1407_partial_report_actions;
+
+	@Test
+	public void TC_33_Verify_partial_test_report_for_the_general_health_test_for_biomarkers_of_FBC_Glucose_error_reasons_untestable_misc_post_analytical() throws InterruptedException, IOException {
+		soft_1407_partial_report_actions = new SOFT_1407_Partial_Report_Actions(getDriver());
+		soft_1407_partial_report_actions.partialReportTC33();
+	}
+}

@@ -32,6 +32,13 @@ public class SOFT_1407_Partial_Report_Locators {
 		return glucoseBiomarkerList;
 	} 
 	
+	@FindBy(xpath = "//div[@id='collapseOne']//h5[normalize-space()='Vitamins & Minerals']/following::div[1]//td[1]")
+	private List<WebElement> vitaminsMineralsBiomarkerList;
+	
+	public List<WebElement> get_vitaminsMineralsBiomarkerList() {
+		return vitaminsMineralsBiomarkerList;
+	} 
+	
 	@FindBy(xpath = "(//div[@class='table-responsive'])[1]//tbody//td[1]")
 	private List<WebElement> liverHealthBiomarkerListReportDetails;
 	
@@ -75,4 +82,10 @@ public class SOFT_1407_Partial_Report_Locators {
 		return primaryResultsFullBloodCountBiomarkerRows;
 	} 
 	
+	@FindBy(xpath = "//textarea[@id='doctorsLetter']")
+	private WebElement doctorsLetterTextAreaTims;
+
+	public WebElement get_doctorsLetterTextAreaTims() {
+		return  doctorsLetterTextAreaTims;
+	}
 }

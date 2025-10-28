@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import Test.Tims.Partial_Report_Action_Class.SOFT_1405_Partial_Report_Actions;
+import Test.Tims.Partial_Report_Actions_Class.SOFT_1405_Partial_Report_Actions;
 import initializer.BaseClass;
 
 public class TC_11_Verify_Partial_Test_Report_Vitamins_Minerals_Profile_Test_For_FOL_Untestable_Insufficient_Post_Analytical extends BaseClass{

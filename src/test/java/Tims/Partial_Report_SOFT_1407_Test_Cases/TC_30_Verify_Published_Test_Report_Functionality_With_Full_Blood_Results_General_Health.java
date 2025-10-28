@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import Test.Tims.Partial_Report_Action_Class.SOFT_1407_Partial_Report_Actions;
+import Test.Tims.Partial_Report_Actions_Class.SOFT_1407_Partial_Report_Actions;
 import initializer.BaseClass;
 
 public class TC_30_Verify_Published_Test_Report_Functionality_With_Full_Blood_Results_General_Health extends BaseClass{

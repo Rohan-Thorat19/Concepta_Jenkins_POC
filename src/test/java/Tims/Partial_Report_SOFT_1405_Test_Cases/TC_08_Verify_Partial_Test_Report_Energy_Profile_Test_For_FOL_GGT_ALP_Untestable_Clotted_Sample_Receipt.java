@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import Test.Tims.Partial_Report_Action_Class.SOFT_1405_Partial_Report_Actions;
+import Test.Tims.Partial_Report_Actions_Class.SOFT_1405_Partial_Report_Actions;
 import initializer.BaseClass;
 
 public class TC_08_Verify_Partial_Test_Report_Energy_Profile_Test_For_FOL_GGT_ALP_Untestable_Clotted_Sample_Receipt extends BaseClass{

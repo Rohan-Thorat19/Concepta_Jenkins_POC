@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import Test.Tims.Partial_Report_Action_Class.SOFT_1405_Partial_Report_Actions;
+import Test.Tims.Partial_Report_Actions_Class.SOFT_1405_Partial_Report_Actions;
 import initializer.BaseClass;
 
 public class TC_16_Verify_Partial_Test_Report_Weight_Management_Test_Other_Than_FOL_Untestable_Clotted_Post_Analytical extends BaseClass {
